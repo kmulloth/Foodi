@@ -7,6 +7,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
+import BusinessForm from "./components/BusinessForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,8 +27,11 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/">
+          <Route path="/" exact>
             <Home />
+          </Route>
+          <Route path='/api/businesses/new'>
+            <BusinessForm />
           </Route>
         </Switch>
       )}

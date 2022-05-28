@@ -26,7 +26,10 @@ function Navigation({ isLoaded }){
       <div>
         <NavLink exact to="/">Home</NavLink>
       </div>
-      <div> idk ill put smt here eventually</div>
+      <div> !!! Search Bar Goes Here !!!</div>
+      <div id='add-business'>
+        <NavLink to={sessionUser? "/api/businesses/new" : "/signup"}>Add Business</NavLink>
+      </div>
       <div id='sessionButtons'>
         {isLoaded && sessionLinks}
       </div>
