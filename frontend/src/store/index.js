@@ -2,10 +2,13 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { restoreCSRF, csrfFetch } from './csrf';
 import sessionReducer from './session';
+import businessReducer from './businesses';
 import * as sessionActions from './session';
+import * as businessActions from './businesses';
 
 const rootReducer = combineReducers({
-  session: sessionReducer
+  session: sessionReducer,
+  businesses: businessReducer
 });
 
 let enhancer;
@@ -31,6 +34,7 @@ if (process.env.NODE_ENV !== 'production') {
     window.csrfFetch = csrfFetch;
     window.store = store;
     window.sessionActions = sessionActions;
+    window.businessActions = businessActions;
   }
 
 export default configureStore;
