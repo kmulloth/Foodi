@@ -5,6 +5,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,16 +27,7 @@ function App() {
           </Route>
         </Switch>
       )}
-      <div id='footer'>
-        <ul>
-          <li>
-            <a href='https://github.com/kmulloth'><i className='fa-brands fa-github'></i></a>
-          </li>
-          <li>
-            <a href='https://github.com/kmulloth'><i className='fa-brands fa-linkedin'></i></a>
-          </li>
-        </ul>
-      </div>
+      <Footer />
     </>
   );
 }
