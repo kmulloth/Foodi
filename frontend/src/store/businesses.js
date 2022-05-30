@@ -68,13 +68,13 @@ export const editBusiness = (business) => async (dispatch) => {
 }
 
 export const deleteOneBusiness = id => async (dispatch) => {
-//   const response = await csrfFetch(`/api/businesses/${id}`, {
-//       method: 'DELETE',
-//       body: JSON.stringify({id}),
-//       headers: {
-//           'Content-Type': 'application/json'
-//       }
-//   });
+  await csrfFetch(`/api/businesses/${id}`, {
+      method: 'DELETE',
+      body: JSON.stringify({id}),
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  });
 
     dispatch(deleteBusiness(id));
 
@@ -86,7 +86,6 @@ const initialState = {
 const businessReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_ALL_BUSINESSES:
-          console.log('SOME TEXT', action.payload)
           const allBusinesses = {}
             action.payload.forEach((event) => {
                 if (event.id) allBusinesses[event.id] = event

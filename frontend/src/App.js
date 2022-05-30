@@ -8,6 +8,8 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import BusinessForm from "./components/BusinessForm";
+import Business from "./components/Business";
+import EditBusiness from "./components/EditBusiness";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +34,12 @@ function App() {
           </Route>
           <Route path='/api/businesses/new'>
             <BusinessForm />
+          </Route>
+          <Route path="/api/businesses/:businessId" exact>
+            <Business />
+          </Route>
+          <Route path="/api/businesses/:businessId/edit">
+            <EditBusiness />
           </Route>
         </Switch>
       )}
