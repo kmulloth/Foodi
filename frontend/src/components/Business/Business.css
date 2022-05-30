@@ -1,0 +1,10 @@
+.Business{
+    margin: 0 auto;
+    width: 70%;
+}
+
+.Business-header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
