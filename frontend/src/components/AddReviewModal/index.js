@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
-import ConfirmDelete from './ConfirmDelete';
+import AddReview from './AddReview';
 
-function ConfirmDeleteModal({businessId}) {
+function AddReviewModal({businessId}) {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <button onClick={() => {
+      <button className='review-button' onClick={() => {
         setShowModal(true)
-        }}>Delete</button>
+        }}>Add Review</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <ConfirmDelete businessId={businessId}/>
+          <AddReview businessId={businessId} setShowModal={setShowModal}/>
         </Modal>
       )}
     </>
   );
 }
 
-export default ConfirmDeleteModal;
+export default AddReviewModal;

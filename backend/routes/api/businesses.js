@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 
 const {requireAuth} = require('../../utils/auth.js');
 
-const {User, Business} = require('../../db/models');
+const {User, Business, Review} = require('../../db/models');
 
 const router = express.Router();
 

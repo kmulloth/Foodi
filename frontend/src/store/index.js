@@ -3,12 +3,15 @@ import thunk from 'redux-thunk';
 import { restoreCSRF, csrfFetch } from './csrf';
 import sessionReducer from './session';
 import businessReducer from './businesses';
+import reviewReducer from './reviews';
 import * as sessionActions from './session';
 import * as businessActions from './businesses';
+import * as reviewActions from './reviews';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
-  businesses: businessReducer
+  businesses: businessReducer,
+  reviews: reviewReducer
 });
 
 let enhancer;
@@ -35,6 +38,7 @@ if (process.env.NODE_ENV !== 'production') {
     window.store = store;
     window.sessionActions = sessionActions;
     window.businessActions = businessActions;
+    window.reviewActions = reviewActions;
   }
 
 export default configureStore;

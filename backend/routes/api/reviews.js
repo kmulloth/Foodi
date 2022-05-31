@@ -1,0 +1,62 @@
+const express = require('express');
+const asyncHandler = require('express-async-handler');
+
+const {requireAuth} = require('../../utils/auth.js');
+
+const {User, Business, Review} = require('../../db/models');
+
+const router = express.Router();
+
+router.get('/all', requireAuth, asyncHandler(async (req, res) => {
+    const reviews = await Review.findAll({
+        include: User
+    });
+    res.json(reviews);
+}));
+
+router.get('/:id', asyncHandler(async (req, res) => {
+    const review = await Review.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [User, Business]
+    });
+    return res.json(review);
+  }))
+
+router.post("/new", requireAuth, asyncHandler(async (req, res) => {
+  const { user_id, business_id, value, body} = req.body;
+  const review = await Review.create({
+    user_id,
+    business_id,
+    value,
+    body
+});
+
+  await review.save();
+  return res.json({review});
+}));
+
+router.put('/:id', requireAuth, asyncHandler(async (req, res) => {
+    const { name, imgUrl, owner_id, body, location, rating, likes } = req.body;
+    const review = await Review.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: User
+    });
+    review.user_id = user_id;
+    review.business_id = business_id;
+    review.value = value;
+    review.body = body;
+    await review.save();
+    return res.json({ review });
+  }))
+
+  router.delete('/:id', requireAuth, asyncHandler(async (req, res) => {
+    const review = await Review.findOne({where: {id: req.params.id}});
+    await Review.destroy( {where: {id: req.params.id}});
+    return res.json({ review });
+  }))
+
+module.exports = router;
