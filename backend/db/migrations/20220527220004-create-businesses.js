@@ -30,7 +30,7 @@ module.exports = {
         unique: true
       },
       rating: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.FLOAT,
         allowNull: false,
         defaultValue: 0
       },

@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     owner_id: DataTypes.INTEGER,
     body: DataTypes.TEXT,
     location: DataTypes.STRING,
-    rating: DataTypes.INTEGER,
+    rating: DataTypes.FLOAT,
     likes: DataTypes.INTEGER
   }, {});
   businesses.associate = function(models) {

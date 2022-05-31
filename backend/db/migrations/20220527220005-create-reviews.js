@@ -20,7 +20,7 @@ module.exports = {
       },
       value: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.FLOAT
       },
       body: {
         type: Sequelize.TEXT

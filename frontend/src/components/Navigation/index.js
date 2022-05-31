@@ -41,14 +41,14 @@ function Navigation({ isLoaded }){
             }}).map(business => {
               return (
                 <div className='business-search-card' key={business.id} >
-                  <NavLink to={`api/businesses/${business.id}`} className='business-card-link' ><p>{business?.name}</p></NavLink>
+                  <NavLink to={`/businesses/${business.id}`} className='business-card-link' ><p>{business?.name}</p></NavLink>
                 </div>
               )
             })}
         </div>
       </div>
       <div id='add-business'>
-        <NavLink to={sessionUser? "/api/businesses/new" : "/signup"}>Add Business</NavLink>
+        <NavLink to={sessionUser? "/businesses/new" : "/signup"}>Add Business</NavLink>
       </div>
       <div id='sessionButtons'>
         {isLoaded && sessionLinks}

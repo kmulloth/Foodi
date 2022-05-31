@@ -20,7 +20,7 @@ function Home () {
                 <div className="business-list">
                     {Object.values(businesses).map(business => (
                         <div className="business-item" key={business?.id}>
-                            <NavLink to={`/api/businesses/${business?.id}`}>
+                            <NavLink to={`/businesses/${business?.id}`}>
                                 <h2>{business?.name}</h2>
                                 <img src={business?.imgUrl} alt={business?.name} />
                             </NavLink>

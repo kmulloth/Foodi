@@ -1,18 +1,27 @@
 import React from "react";
 import * as reviewActions from "../../store/reviews.js";
-import { useSelector, useDispatch } from "react-redux";
+import * as businessActions from "../../store/businesses.js";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 
 function ConfirmDeleteReview({ reviewId }) {
   const history = useHistory();
   const dispatch = useDispatch();
   const businessId = useSelector(state => Object.values(state?.businesses)[0]?.id);
-  console.log(businessId)
+  const business = useSelector(state => state?.businesses[businessId]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const reviews = Object.values(business?.Reviews)
+    let sum = 0
+    reviews.forEach(review => sum += review?.value);
+    const avg = sum / reviews.length;
+    const newBusiness = {...business, rating: avg};
+    console.log(newBusiness);
+
     dispatch(reviewActions.deleteOneReview(reviewId));
+    dispatch(businessActions.editBusiness(newBusiness));
     history.push(`/api/businesses/${businessId}`);
   };
 

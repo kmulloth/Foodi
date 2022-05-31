@@ -35,6 +35,9 @@ function Business(){
                         <NavLink to={location}>Edit</NavLink>
                     </div>
                 )}
+                <div className="Business-info">
+                    <h3>{business?.rating}</h3>
+                </div>
             </div>
             <div className="Business-info">
                 <div className="Business-address">

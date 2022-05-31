@@ -32,7 +32,6 @@ const getAllReviews = (reviews) => {
     }
 }
 export const createReview = (review) => async (dispatch) => {
-  console.log('REVIEW: ', review)
   const response = await csrfFetch(`/api/reviews/new`, {
       method: 'POST',
       body: JSON.stringify(review),

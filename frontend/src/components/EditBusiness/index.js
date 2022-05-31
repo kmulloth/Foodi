@@ -33,7 +33,7 @@ function EditBusiness() {
         const owner_id = sessionUser.id;
         const business = { id: businessId, name, imgUrl, owner_id, body, location, rating, likes};
         console.log('business:', business);
-        dispatch(editBusiness(business)).then(() => history.push(`/api/businesses/${businessId}`));
+        dispatch(editBusiness(business)).then(() => history.push(`/businesses/${businessId}`));
     }
     return (
         <div className="business-form-container">

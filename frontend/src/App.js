@@ -32,13 +32,13 @@ function App() {
           <Route path="/" exact>
             <Home />
           </Route>
-          <Route path='/api/businesses/new'>
+          <Route path='/businesses/new'>
             <BusinessForm />
           </Route>
-          <Route path="/api/businesses/:businessId" exact>
+          <Route path="/businesses/:businessId" exact>
             <Business />
           </Route>
-          <Route path="/api/businesses/:businessId/edit">
+          <Route path="/businesses/:businessId/edit">
             <EditBusiness />
           </Route>
         </Switch>

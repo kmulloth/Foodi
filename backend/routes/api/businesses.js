@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.get('/all', requireAuth, asyncHandler(async (req, res) => {
     const businesses = await Business.findAll({
-        include: User
+        include: [User, Review]
     });
     res.json(businesses);
 }));
@@ -19,7 +19,7 @@ router.get('/:id', asyncHandler(async (req, res) => {
       where: {
         id: req.params.id
       },
-      include: [User]
+      include: [User, Review]
     });
     return res.json(business);
   }))
