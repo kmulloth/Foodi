@@ -46,7 +46,7 @@ router.put('/:id', requireAuth, asyncHandler(async (req, res) => {
       where: {
         id: req.params.id
       },
-      include: User
+      include: [User, Review]
     });
     business.name = name;
     business.imgUrl = imgUrl;

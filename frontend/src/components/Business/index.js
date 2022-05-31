@@ -53,6 +53,7 @@ function Business(){
                     <div className="Business-review" key={review?.id}>
                         <div className="review-header">
                             <h3>{review?.value}</h3>
+                            <h4>{review?.User?.username}</h4>
                             {user?.id === review?.user_id && (<ConfirmDeleteReviewModal reviewId={review?.id}/>)}
                         </div>
                         <p>{review?.body}</p>

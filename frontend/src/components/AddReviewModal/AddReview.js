@@ -17,17 +17,27 @@ function AddReview({businessId, setShowModal}) {
     const handleSubmit = (e) => {
         e.preventDefault();
         const review = {user_id, business_id: businessId, value, body};
+        let newBusiness;
 
-        const reviews = Object.values(business?.Reviews)
-        let sum = 0
-        reviews.forEach(review => sum += review.value);
-        const avg = sum / reviews.length;
-        console.log(sum, reviews.length, avg);
-        const newBusiness = {...business, rating: avg};
-        console.log(newBusiness);
+        dispatch(reviewActions.createReview(review))
 
-        dispatch(reviewActions.createReview(review));
+        dispatch(reviewActions.getReviews()).then(() => {
+            const reviews = Object.values(business?.Reviews)
+            console.log(reviews)
+
+            let sum = 0
+            reviews.forEach(review => sum += review.value);
+            const avg = sum / reviews.length;
+
+            console.log(sum, reviews.length, avg);
+
+            newBusiness = {...business, rating: avg};
+
+            console.log(newBusiness);
+        });
+
         dispatch(businessActions.editBusiness(newBusiness));
+
 
         setShowModal(false);
     }
