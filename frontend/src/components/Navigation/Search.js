@@ -7,8 +7,10 @@ function Search ({query, setQuery}) {
 
     return (
         <div id='search'>
-        <input placeholder='Search' onChange={e => setQuery(e.target.value)}/>
-        <NavLink exact to={query ? `/search/${query}` : '/businesses'} onClick={e => setQuery('')}>Search</NavLink>
+        <div id='search-bar'>
+          <input placeholder='Search' onChange={e => setQuery(e.target.value)}/>
+          <NavLink exact to={query ? `/search/${query}` : '/businesses'} onClick={e => setQuery('')} ><i class="fa-solid fa-magnifying-glass"></i></NavLink>
+        </div>
         <div id='search-results'>
             {
             Object.values(businesses).filter(business => {

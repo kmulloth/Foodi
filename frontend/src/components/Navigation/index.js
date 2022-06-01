@@ -30,11 +30,13 @@ function Navigation({ isLoaded }){
         <NavLink exact to="/">Home</NavLink>
       </div>
       <Search query={query} setQuery={setQuery}/>
-      <div id='add-business'>
-        <NavLink to={sessionUser? "/businesses/new" : "/signup"}>Add Business</NavLink>
-      </div>
-      <div id='sessionButtons'>
-        {isLoaded && sessionLinks}
+      <div id='buttons'>
+        <div id='add-business'>
+          <NavLink to={sessionUser? "/businesses/new" : "/signup"}>Add Business</NavLink>
+        </div>
+        <div id='sessionButtons'>
+          {isLoaded && sessionLinks}
+        </div>
       </div>
     </nav>
   );
