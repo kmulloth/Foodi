@@ -9,7 +9,9 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import BusinessForm from "./components/BusinessForm";
 import Business from "./components/Business";
+import Businesses from "./components/Businesses";
 import EditBusiness from "./components/EditBusiness";
+import Query from "./components/Query";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +34,9 @@ function App() {
           <Route path="/" exact>
             <Home />
           </Route>
+          <Route path="/businesses" exact>
+            <Businesses />
+          </Route>
           <Route path='/businesses/new'>
             <BusinessForm />
           </Route>
@@ -40,6 +45,9 @@ function App() {
           </Route>
           <Route path="/businesses/:businessId/edit">
             <EditBusiness />
+          </Route>
+          <Route path="/search/:query" exact>
+            <Query />
           </Route>
         </Switch>
       )}

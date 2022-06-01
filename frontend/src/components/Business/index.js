@@ -36,7 +36,7 @@ function Business(){
                     </div>
                 )}
                 <div className="Business-info">
-                    <h3>{business?.rating}</h3>
+                    <h3>{business?.rating?.toFixed(1)}</h3>
                 </div>
             </div>
             <div className="Business-info">
