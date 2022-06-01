@@ -13,23 +13,8 @@ function ConfirmDeleteReview({ reviewId }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(business)
-    let newBusiness
-    const reviews = business?.Reviews
-    if(reviews) {
-      let sum = 0
-      reviews.forEach(review => sum += review?.value);
-      const avg = sum / reviews.length;
-      newBusiness = {...business, rating: avg};
-      console.log(newBusiness);
-    } else {
-      newBusiness = {...business, rating: 0};
-    }
-
-    dispatch(reviewActions.deleteOneReview(reviewId)).then(() => {
-      dispatch(businessActions.editBusiness(newBusiness));
-      history.push(`/businesses/${businessId}`);
-    });
+    dispatch(reviewActions.deleteOneReview(reviewId))
+    history.push(`/businesses/${businessId}`);
   };
 
   return (

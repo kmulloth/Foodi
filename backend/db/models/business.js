@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   businesses.associate = function(models) {
     // associations can be defined here
     businesses.belongsTo(models.User, { foreignKey: 'owner_id' });
-    businesses.hasMany(models.Review, { foreignKey: 'business_id' });
+    businesses.hasMany(models.Review, { foreignKey: 'business_id', onDelete: 'CASCADE', onUpdate: 'CASCADE', hooks: 'true' });
     businesses.belongsToMany(models.Tag, { through: 'tags_businesses', foreignKey: 'business_id', otherKey: 'tag_id' });
     businesses.belongsToMany(models.User, { through: 'likes', foreignKey: 'business_id', otherKey: 'user_id' });
 
