@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
@@ -24,10 +24,20 @@ function Navigation({ isLoaded }){
     );
   }
 
+  let isHome = '';
+  const checkUrl = useEffect(() => {
+    console.log(window.location.pathname === '/');
+    if (window.location.pathname === '/') {
+      isHome = 'Home';
+    } else {
+      isHome = '';
+    }
+  });
+
   return (
-    <nav className="Navigation">
+    <nav className={`Navigation ${isHome}`}>
       <div>
-        <NavLink exact to="/">Home</NavLink>
+        <NavLink exact to="/" >Home</NavLink>
       </div>
       <Search query={query} setQuery={setQuery}/>
       <div id='buttons'>

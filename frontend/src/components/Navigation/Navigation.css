@@ -52,7 +52,7 @@
 }
 
 #search-bar input {
-    width: 100%;
+    width: 400px;
     padding: 0px 20px;
 }
 
@@ -71,4 +71,17 @@
 
 #search-results{
     background-color: #fff;
+    width: 435px;
+    position: absolute;
+}
+
+#search-results  a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    color: #000;
+    padding: 0px 20px;
+    border-bottom: 1px solid #ccc;
+
 }
