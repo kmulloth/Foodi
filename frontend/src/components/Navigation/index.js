@@ -31,6 +31,7 @@ function Navigation({ isLoaded }){
       </div>
       <div id='search'>
         <input placeholder='Search' onChange={e => setQuery(e.target.value)}/>
+        
         <div id='search-results'>
             {
             Object.values(businesses).filter(business => {
