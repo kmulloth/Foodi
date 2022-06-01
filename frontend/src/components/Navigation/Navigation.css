@@ -4,7 +4,7 @@
     align-items: center;
     height: 100%;
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.01));
-    padding:12px 20px;
+    padding: 20px;
     margin: 0;
     color: #fff;
 
@@ -18,4 +18,70 @@
 
 .Navigation a:hover{
     border-bottom: 2px solid #fff;
+}
+
+#buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    color: #fff;
+
+}
+
+#buttons a{
+    padding: 0px 20px;
+}
+
+#search-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    color: #fff;
+    height: 45px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#search-bar input, #search-bar a{
+    height: 100%;
+    border: none;
+}
+
+#search-bar input {
+    width: 400px;
+    padding: 0px 20px;
+}
+
+#search-bar > a{
+    background-image: radial-gradient(red,  rgb(183, 6, 6));
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-image 0.7s;
+}
+
+#search-bar > a:hover{
+    background-image: radial-gradient(red,  red);
+}
+
+#search-results{
+    background-color: #fff;
+    width: 435px;
+    position: absolute;
+}
+
+#search-results  a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    color: #000;
+    padding: 0px 20px;
+    border-bottom: 1px solid #ccc;
+
 }

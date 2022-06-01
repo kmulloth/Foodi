@@ -1,14 +1,29 @@
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { getBusinesses } from '../../store/businesses';
+import { useEffect } from 'react';
+
 
 function Search ({query, setQuery}) {
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+      dispatch(getBusinesses());
+    }, [dispatch]);
+
+    useEffect(() => {
+      document.addEventListener('click', setQuery(''))
+    }, [setQuery]);
 
     const businesses = useSelector(state => state?.businesses);
 
     return (
         <div id='search'>
-        <input placeholder='Search' onChange={e => setQuery(e.target.value)}/>
-        <NavLink exact to={query ? `/search/${query}` : '/businesses'} onClick={e => setQuery('')}>Search</NavLink>
+        <div id='search-bar'>
+          <input placeholder='Search' value={query} onChange={e => setQuery(e.target.value)}/>
+          <NavLink exact to={query ? `/search/${query}` : '/businesses'} onClick={e => setQuery('')} ><i className="fa-solid fa-magnifying-glass"></i></NavLink>
+        </div>
         <div id='search-results'>
             {
             Object.values(businesses).filter(business => {
