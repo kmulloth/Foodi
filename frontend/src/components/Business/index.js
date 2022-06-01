@@ -21,7 +21,7 @@ function Business(){
     }, [dispatch]);
 
     const location = {
-        pathname: `/api/businesses/${businessId}/edit`,
+        pathname: `/businesses/${businessId}/edit`,
         state: {businesses: business}
     }
 

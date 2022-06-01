@@ -8,6 +8,8 @@ const {User, Business, Review} = require('../../db/models');
 const router = express.Router();
 
 router.get('/all', requireAuth, asyncHandler(async (req, res) => {
+
+  
     const businesses = await Business.findAll({
         include: [User, Review]
     });
