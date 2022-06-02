@@ -3,14 +3,15 @@
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    background-color: white;
+    background-color: transparent;
     padding: 20px;
+    padding-bottom: 50px;
     margin: 0;
     color: #fff;
 }
 
 .Home{
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.01));
+    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.01));
 }
 
 .Home a{
