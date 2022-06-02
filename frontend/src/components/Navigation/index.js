@@ -38,8 +38,8 @@ function Navigation({ isLoaded }){
 
   return (
     <nav className={`Navigation ${isHome}`}>
-      <div>
-        <NavLink exact to="/" isActive={isActive => isActive ? setIsHome('Home') : setIsHome('inactive')}>Home</NavLink>
+      <div className='title'>
+        <NavLink exact to="/" isActive={isActive => isActive ? setIsHome('Home') : setIsHome('inactive')} className='title'>foodi</NavLink>
       </div>
       <Search query={query} setQuery={setQuery}/>
       <div id='buttons'>

@@ -1,6 +1,6 @@
 .Navigation{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     height: 100%;
     background-color: transparent;
@@ -9,9 +9,40 @@
     margin: 0;
     color: #fff;
 }
+.title{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.6em;
+    color: red;
+    transition: all 0.3s ease-in-out;
+}
+
+.title:hover{
+    transform: scale(1.1);
+    color: red;
+    -webkit-text-fill-color: red;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: #555;
+}
 
 .Home{
     background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.01));
+    position: fixed;
+    height: 10%;
+    width: 100vw;
+    margin: 0px;
+    padding: 0px;
+}
+
+.Home .title{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.6em;
+    transition: all 0.3s ease-in-out;
+}
+
+.Home .title:hover{
+    transform: none;
 }
 
 .Home a{
@@ -24,12 +55,8 @@
 
 .Navigation a{
     text-decoration: none;
-    transition: 0.3s ;
 }
 
-.Navigation a:hover{
-    border-bottom: 2px solid #fff;
-}
 
 #buttons{
     display: flex;
