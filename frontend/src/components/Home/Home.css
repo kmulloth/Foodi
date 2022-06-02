@@ -1,16 +1,21 @@
 .carousel-container {
-  position: fixed;
+  position: relative;
   top: 0;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  /* height: 100%; */
   z-index: -1;
 }
 
 .carousel-container img{
+    position: absolute;
     width: 100%;
-    height: 100%;
     object-fit: cover;
+    z-index: -1;
+}
+
+.carousal-body{
+    position: absolute;
+    z-index: 2;
 }
 
 .home-container {
@@ -32,10 +37,4 @@ h1{
     font-weight: 800;
     color: #333;
     padding-top: 20px;
-}
-
-.carousal-body{
-    position: fixed;
-    top: 0;
-    z-index: 1;
 }

@@ -27,7 +27,7 @@
 
 .Home{
     background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.01));
-    position: fixed;
+    position: absolute;
     height: 10%;
     width: 100vw;
     margin: 0px;
