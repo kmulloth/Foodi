@@ -13,11 +13,36 @@
     z-index: -1;
 }
 
-.carousal-body{
+.carousel-body{
     position: absolute;
     z-index: 2;
+    margin: 10% 31%;
+    width: 30%;
+
 }
 
+.carousel-body h1{
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
+    -webkit-text-stroke-width: 0.8px;
+    -webkit-text-stroke-color: #222;
+}
+
+.carousel-body a{
+    background-image: radial-gradient( red, rgb(226, 9, 9));
+    padding: 15px;
+    color: white;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    border-radius: 5px;
+}
+i {
+    font-size: 1.2rem;
+    padding-right: 10px;
+}
 .home-container {
   position: absolute;
   width: 100%;

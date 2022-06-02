@@ -29,11 +29,11 @@ function Navigation({ isLoaded }){
   useEffect(() => {
     console.log(window.location.pathname === '/');
 
-    if (window.location.pathname === '/') {
-      setIsHome('Home');
-    } else {
-      setIsHome('');
-    }
+    // if (window.location.pathname === '/') {
+    //   setIsHome('Home');
+    // } else {
+    //   setIsHome('');
+    // }
   }, [isHome]);
 
   return (
