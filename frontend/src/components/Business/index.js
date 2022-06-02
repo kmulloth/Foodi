@@ -27,6 +27,7 @@ function Business(){
 
     return (
         <div className="Business">
+
             <div className="Business-header">
                 <h2>{business?.name}</h2>
                 {user?.id === business?.owner_id && (
@@ -52,9 +53,11 @@ function Business(){
                 {Object.values(reviews).filter(review => review?.business_id === business?.id).map(review => (
                     <div className="Business-review" key={review?.id}>
                         <div className="review-header">
-                            <h3>{review?.value}</h3>
                             <h4>{review?.User?.username}</h4>
-                            {user?.id === review?.user_id && (<ConfirmDeleteReviewModal reviewId={review?.id}/>)}
+                            <div className="review-rating">
+                                <h3>{review?.value}</h3>
+                                {user?.id === review?.user_id && (<ConfirmDeleteReviewModal reviewId={review?.id}/>)}
+                            </div>
                         </div>
                         <p>{review?.body}</p>
                     </div>

@@ -20,3 +20,18 @@
     border-bottom: 1px solid #e1e1e1;
     padding: 5px;
 }
+
+.review-rating{
+    display: flex;
+    justify-content: space-between;
+    width: min-content;
+}
+h3, h4{
+    font-weight: 600;
+    color: #333;
+    margin: 2px 0px;
+}
+
+h3{
+    margin-bottom: 10px;
+}

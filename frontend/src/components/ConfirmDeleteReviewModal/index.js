@@ -9,7 +9,7 @@ function ConfirmDeleteReviewModal({reviewId}) {
     <>
       <button onClick={() => {
         setShowModal(true)
-        }}>Delete</button>
+        }}><i className="fa-solid fa-trash fa-xs"></i></button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <ConfirmDeleteReview reviewId={reviewId}/>
