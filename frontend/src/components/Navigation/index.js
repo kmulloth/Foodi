@@ -9,6 +9,7 @@ function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state?.session?.user);
 
   const [query, setQuery] = useState('');
+  const [isHome, setIsHome] = useState('');
 
   let sessionLinks;
   if (sessionUser) {
@@ -24,20 +25,21 @@ function Navigation({ isLoaded }){
     );
   }
 
-  let isHome = '';
-  const checkUrl = useEffect(() => {
+
+  useEffect(() => {
     console.log(window.location.pathname === '/');
+
     if (window.location.pathname === '/') {
-      isHome = 'Home';
+      setIsHome('Home');
     } else {
-      isHome = '';
+      setIsHome('');
     }
-  });
+  }, [isHome]);
 
   return (
     <nav className={`Navigation ${isHome}`}>
       <div>
-        <NavLink exact to="/" >Home</NavLink>
+        <NavLink exact to="/" isActive={isActive => isActive ? setIsHome('Home') : setIsHome('inactive')}>Home</NavLink>
       </div>
       <Search query={query} setQuery={setQuery}/>
       <div id='buttons'>
