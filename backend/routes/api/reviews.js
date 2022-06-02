@@ -38,12 +38,13 @@ router.get('/:id', asyncHandler(async (req, res) => {
 
 router.post("/new", requireAuth, asyncHandler(async (req, res) => {
 
-  const { user_id, business_id, value, body} = req.body;
+  const { user_id, business_id, value, body, img} = req.body;
   const review = await Review.create({
     user_id,
     business_id,
     value,
-    body
+    body,
+    img
   });
   const business = await Business.findOne({
     where: {
@@ -61,21 +62,21 @@ router.post("/new", requireAuth, asyncHandler(async (req, res) => {
   return res.json({review});
 }));
 
-router.put('/:id', requireAuth, asyncHandler(async (req, res) => {
-    const { name, imgUrl, owner_id, body, location, rating, likes } = req.body;
-    const review = await Review.findOne({
-      where: {
-        id: req.params.id
-      },
-      include: User
-    });
-    review.user_id = user_id;
-    review.business_id = business_id;
-    review.value = value;
-    review.body = body;
-    await review.save();
-    return res.json({ review });
-  }))
+// router.put('/:id', requireAuth, asyncHandler(async (req, res) => {
+//     const { name, imgUrl, owner_id, body, location, rating, likes } = req.body;
+//     const review = await Review.findOne({
+//       where: {
+//         id: req.params.id
+//       },
+//       include: User
+//     });
+//     review.user_id = user_id;
+//     review.business_id = business_id;
+//     review.value = value;
+//     review.body = body;
+//     await review.save();
+//     return res.json({ review });
+//   }))
 
   router.delete('/:id', requireAuth, asyncHandler(async (req, res) => {
     const review = await Review.findOne({where: {id: req.params.id}});

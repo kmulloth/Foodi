@@ -27,6 +27,9 @@ module.exports = {
       body: {
         type: Sequelize.TEXT
       },
+      img: {
+        type: Sequelize.JSON
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

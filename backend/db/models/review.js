@@ -4,7 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     user_id: DataTypes.INTEGER,
     business_id: DataTypes.INTEGER,
     value: DataTypes.FLOAT,
-    body: DataTypes.TEXT
+    body: DataTypes.TEXT,
+    img: DataTypes.JSON
   }, {});
   reviews.associate = function(models) {
     // associations can be defined here
