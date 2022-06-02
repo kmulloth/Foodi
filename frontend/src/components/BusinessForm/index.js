@@ -49,7 +49,7 @@ function BusinessForm() {
                     <textarea name="body" id="body" value={body} onChange={e => setBody(e.target.value)} />
                 <label htmlFor="location">Location:</label>
                     <input type="text" name="location" id="location" value={location} onChange={e => setLocation(e.target.value)} />
-                <button type="submit">Submit</button>
+                <button type="submit" disabled={errors.length > 0}>Submit</button>
             </form>
         </div>
     )

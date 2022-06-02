@@ -69,7 +69,7 @@ function SignupFormPage() {
           required
         />
       </label>
-      <button type="submit">Sign Up</button>
+      <button type="submit" disabled={errors.length > 0}>Sign Up</button>
       <p>Already Signed up?<NavLink to="/login">Log In</NavLink></p>
     </form>
   );

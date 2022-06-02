@@ -11,12 +11,10 @@ function AddReview({businessId, setShowModal}) {
     const [value, setValue] = useState(0);
     const [body, setBody] = useState('');
 
-
-
     const handleSubmit = (e) => {
         e.preventDefault();
         const review = {user_id, business_id: businessId, value, body};
-        console.log('REVIEW: ',review);
+
         dispatch(reviewActions.createReview(review))
 
         setShowModal(false);
@@ -40,7 +38,7 @@ function AddReview({businessId, setShowModal}) {
                     onChange={e => setBody(e.target.value)}
                 />
             </div>
-            <button type="submit" >Submit</button>
+            <button type="submit" disabled={value === 0}>Submit</button>
         </form>
     )
 }
