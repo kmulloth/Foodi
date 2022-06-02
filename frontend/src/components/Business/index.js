@@ -6,6 +6,7 @@ import * as reviewActions from '../../store/reviews';
 import ConfirmDeleteModal from '../ConfirmDeleteModal';
 import ConfirmDeleteReviewModal from '../ConfirmDeleteReviewModal';
 import AddReviewModal from '../AddReviewModal/index.js';
+import ImgCarousel from './ImgCarousel.js';
 import './Business.css';
 
 function Business(){
@@ -27,13 +28,13 @@ function Business(){
 
     return (
         <div className="Business">
-
+            <ImgCarousel />
             <div className="Business-header">
                 <h2>{business?.name}</h2>
                 {user?.id === business?.owner_id && (
                     <div className='owner-buttons'>
                         <ConfirmDeleteModal businessId={business?.id}/>
-                        <NavLink to={location}>Edit</NavLink>
+                        <NavLink to={location}><i class="fa-solid fa-pen-to-square"></i></NavLink>
                     </div>
                 )}
                 <div className="Business-info">
@@ -52,6 +53,9 @@ function Business(){
                 <h3>Reviews</h3>
                 {Object.values(reviews).filter(review => review?.business_id === business?.id).map(review => (
                     <div className="Business-review" key={review?.id}>
+                        <div className="review-img">
+                            <img src={review?.img ? URL.createObjectURL(review?.img) : '/images/foodtruck.jpg'} alt="user-img" />
+                        </div>
                         <div className="review-header">
                             <h4>{review?.User?.username}</h4>
                             <div className="review-rating">
