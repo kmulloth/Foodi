@@ -1,4 +1,3 @@
-import React from "react";
 import * as reviewActions from "../../store/reviews.js";
 import * as businessActions from "../../store/businesses.js";
 import { useDispatch, useSelector } from "react-redux";

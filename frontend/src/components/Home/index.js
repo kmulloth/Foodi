@@ -1,4 +1,3 @@
-import React from 'react';
 import ImgCarousel from './ImgCarousel';
 import './Home.css';
 

@@ -1,4 +1,3 @@
-import React from "react";
 import * as businessActions from "../../store/businesses.js";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";

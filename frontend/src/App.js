@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
+
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
@@ -12,18 +13,21 @@ import Business from "./components/Business";
 import Businesses from "./components/Businesses";
 import EditBusiness from "./components/EditBusiness";
 import Query from "./components/Query";
+import Map from "./components/Map";
 
 function App() {
   const dispatch = useDispatch();
-  const [isLoaded, setIsLoaded] = useState(false);
+
+  const [loaded, setLoaded] = useState(false);
+
   useEffect(() => {
-    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    dispatch(sessionActions.restoreUser()).then(() => setLoaded(true));
   }, [dispatch]);
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
+      <Navigation loaded={loaded} />
+      {loaded && (
         <Switch>
           <Route path="/login">
             <LoginFormPage />
@@ -48,6 +52,9 @@ function App() {
           </Route>
           <Route path="/search/:query" exact>
             <Query />
+          </Route>
+          <Route path="/map" exact>
+            <Map />
           </Route>
         </Switch>
       )}
