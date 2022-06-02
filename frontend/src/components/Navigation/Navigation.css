@@ -144,3 +144,14 @@
     color: #111;
     list-style: none;
 }
+
+#map-container{
+    display: flex;
+    align-self: flex-end;
+    width: 40%;
+}
+
+#map{
+    width: 40%;
+    height: 100%;
+}

@@ -16,7 +16,9 @@ function Businesses () {
 
     return (
         <>
-        {/* <Map /> */}
+        <div id='map-container'>
+            <Map />
+        </div>
         <div className="content">
             <div className="businesses">
                 <h1>Businesses</h1>
