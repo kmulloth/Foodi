@@ -39,9 +39,8 @@
     width: fit-content;
     border-radius: 5px;
 }
-i {
+i{
     font-size: 1.2rem;
-    padding-right: 10px;
 }
 .home-container {
   position: absolute;

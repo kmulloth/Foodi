@@ -67,7 +67,9 @@
     color: #fff;
 
 }
-
+#search i{
+    color: white;
+}
 #buttons a{
     padding: 0px 20px;
 }
@@ -97,7 +99,7 @@
 
 #search-bar > a{
     background-image: radial-gradient(red,  rgb(183, 6, 6));
-    width: 70px;
+    width: 55px;
     display: flex;
     justify-content: center;
     align-items: center;

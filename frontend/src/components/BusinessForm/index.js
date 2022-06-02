@@ -37,20 +37,28 @@ function BusinessForm() {
     }
     return (
         <div className="business-form-container">
+            <form id='submit-business-form' onSubmit={handleSubmit}>
+              <div>
+                <label htmlFor="name">Title:</label>
+                <input type="text" name="name" id="name" value={name} onChange={e => setName(e.target.value)} />
+              </div>
+              <div>
+                <label htmlFor="imgUrl">Image URL:</label>
+                <input type="text" name="imgUrl" id="imgUrl" value={imgUrl} onChange={e => setImgUrl(e.target.value)} />
+              </div>
+              <div>
+                <label htmlFor="body">Body:</label>
+                <textarea name="body" id="body" value={body} onChange={e => setBody(e.target.value)} />
+              </div>
+              <div>
+                <label htmlFor="location">Location:</label>
+                <input type="text" name="location" id="location" value={location} onChange={e => setLocation(e.target.value)} />
+              </div>
+                <button type="submit" disabled={errors.length > 0}>Submit</button>
+            </form>
             <ul id='errors'>
                 {errors.map(error => <li key={error}>{error}</li>)}
             </ul>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="name">Title:</label>
-                    <input type="text" name="name" id="name" value={name} onChange={e => setName(e.target.value)} />
-                <label htmlFor="imgUrl">Image URL:</label>
-                    <input type="text" name="imgUrl" id="imgUrl" value={imgUrl} onChange={e => setImgUrl(e.target.value)} />
-                <label htmlFor="body">Body:</label>
-                    <textarea name="body" id="body" value={body} onChange={e => setBody(e.target.value)} />
-                <label htmlFor="location">Location:</label>
-                    <input type="text" name="location" id="location" value={location} onChange={e => setLocation(e.target.value)} />
-                <button type="submit" disabled={errors.length > 0}>Submit</button>
-            </form>
         </div>
     )
 }

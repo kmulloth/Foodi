@@ -9,7 +9,7 @@ function ConfirmDeleteModal({businessId}) {
     <>
       <button onClick={() => {
         setShowModal(true)
-        }}>Delete</button>
+        }}><i class="fa-solid fa-trash"></i></button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <ConfirmDelete businessId={businessId}/>
