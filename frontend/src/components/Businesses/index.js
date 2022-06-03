@@ -20,8 +20,14 @@ function Businesses () {
             <Map />
         </div>
         <div className="content">
+            <div id='sidebar'>
+                <div className='sidebar-header'>
+                    <strong>Filters</strong>
+                </div>
+                <div className='sidebar-body'>
+                </div>
+            </div>
             <div className="businesses">
-                <h1>Businesses</h1>
                 <div className="business-list">
                     {Object.values(businesses).map(business => (
                         <div className="business-item" key={business?.id}>

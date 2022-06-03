@@ -12,11 +12,11 @@ const center = {
 
 function Map() {
     const {isLoaded} = useJsApiLoader({
-        googleMapsApiKey: 'AIzaSyB9LhW6fM77UVbwb9hpleWmiZ1t7MmfmQc'
+        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY
     })
 
     return isLoaded && (
-        <div style={{ position: 'absolute', width: '40%', height: '100vh', zIndex: '-1'}} id='map'>
+        <div style={{ position: 'absolute', width: '40%', height: '90%', zIndex: '-1'}} id='map'>
             <GoogleMap
                 mapContainerStyle={containerStyle}
                 center={center}
