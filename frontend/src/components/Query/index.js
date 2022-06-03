@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
 import { getBusinesses } from '../../store/businesses';
+import Map from '../Map';
 import './Query.css';
 
 function Query () {
@@ -15,6 +16,10 @@ function Query () {
     }, [dispatch]);
 
     return (
+        <>
+        <div id='map-container'>
+            <Map />
+        </div>
         <div className="content">
             <div id='sidebar'>
                 <div className='sidebar-header'>
@@ -45,6 +50,7 @@ function Query () {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

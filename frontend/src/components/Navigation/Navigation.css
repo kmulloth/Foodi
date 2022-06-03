@@ -99,16 +99,16 @@
 }
 
 #search-bar > a{
-    background-image: radial-gradient(red,  rgb(183, 6, 6));
+    background-color: #e01206;
     width: 55px;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: background-image 0.7s;
+    transition: background-color 0.7s ease-in-out;
 }
 
 #search-bar > a:hover{
-    background-image: radial-gradient(red,  red);
+    background-color: red;
 }
 
 #search-results{

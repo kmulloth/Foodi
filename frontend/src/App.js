@@ -26,8 +26,8 @@ function App() {
 
   return (
     <>
-      <Navigation loaded={loaded} />
-      {loaded && (
+    <Navigation loaded={loaded} />
+    {loaded && (
         <Switch>
           <Route path="/login">
             <LoginFormPage />
@@ -53,7 +53,7 @@ function App() {
           <Route path="/search/:query" exact>
             <Query />
           </Route>
-          <Route path="/map" exact>
+          <Route path="/map">
             <Map />
           </Route>
         </Switch>

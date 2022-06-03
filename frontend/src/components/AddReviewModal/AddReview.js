@@ -3,6 +3,7 @@ import * as reviewActions from "../../store/reviews";
 import * as businessActions from "../../store/businesses";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
+import StarRating from "../StarRating";
 
 function AddReview({businessId, setShowModal}) {
     const dispatch = useDispatch();
@@ -25,11 +26,7 @@ function AddReview({businessId, setShowModal}) {
         <form onSubmit={handleSubmit}>
             <div className="form-group">
                 <div className="rating">Rating
-                    <input type="radio" name="rating" value="1" onChange={(e) => setValue(parseInt(e.target.value))}/>
-                    <input type="radio" name="rating" value="2" onChange={(e) => setValue(parseInt(e.target.value))}/>
-                    <input type="radio" name="rating" value="3" onChange={(e) => setValue(parseInt(e.target.value))}/>
-                    <input type="radio" name="rating" value="4" onChange={(e) => setValue(parseInt(e.target.value))}/>
-                    <input type="radio" name="rating" value="5" onChange={(e) => setValue(parseInt(e.target.value))}/>
+                    <StarRating value={value} setValue={setValue} />
                 </div>
                 <label htmlFor="body">Review</label>
                 <textarea
