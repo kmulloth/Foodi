@@ -1,4 +1,4 @@
-import {GoogleMap, LoadScript, useJsApiLoader} from '@react-google-maps/api';
+import {GoogleMap, useJsApiLoader} from '@react-google-maps/api';
 
 const containerStyle = {
     width: '100%',
@@ -6,21 +6,21 @@ const containerStyle = {
 }
 
 const center = {
-    lat: -3,
-    lng: -38
+    lat: 40.7484,
+    lng: -73.9857
 }
 
 function Map() {
     const {isLoaded} = useJsApiLoader({
-        googleMapsApiKey: 'AIzaSyB9LhW6fM77UVbwb9hpleWmiZ1t7MmfmQc'
+        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY
     })
 
     return isLoaded && (
-        <div style={{position: 'absolute', width: '100vw', height: '100vh'}}>
+        <div style={{ position: 'absolute', width: '40%', height: '90%', zIndex: '-1'}} id='map'>
             <GoogleMap
                 mapContainerStyle={containerStyle}
                 center={center}
-                zoom={10}
+                zoom={12}
             ></GoogleMap>
         </div>
     )
