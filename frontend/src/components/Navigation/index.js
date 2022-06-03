@@ -13,12 +13,10 @@ function Navigation({ loaded }){
 
   let sessionLinks;
   if (sessionUser) {
-    console.log(sessionUser)
     sessionLinks = (
       <ProfileButton user={sessionUser} />
     );
   } else {
-    console.log('no user')
     sessionLinks = (
       <>
         <NavLink to="/login">Log In</NavLink>
@@ -28,27 +26,24 @@ function Navigation({ loaded }){
   }
 
   useEffect(() => {
-
     if (window.location.pathname === '/') {
       setIsHome('Home');
     } else {
       setIsHome('');
     }
+    console.log(isHome)
   }, [isHome]);
 
   return (
-    <nav className={`Navigation ${isHome}`}>
+    loaded && <nav className={`Navigation ${isHome}`}>
       <div className='title'>
-
         <NavLink exact to="/"
-          isActive={(match, location) => {
-                  console.log(match, location);
-                  if(location?.pathname === '/') setIsHome('Home');
-                  else if(location?.pathname !== '/') setIsHome('inactive');
-          }}
+          // isActive={(match, location) => {
+          //         if(location?.pathname === '/') setIsHome('Home');
+          //         else if(location?.pathname !== '/') setIsHome('inactive');
+          // }}
           className='title'>foodi
         </NavLink>
-
       </div>
       <Search query={query} setQuery={setQuery}/>
       <div id='buttons'>
@@ -56,7 +51,7 @@ function Navigation({ loaded }){
           <NavLink to={sessionUser ? "/businesses/new" : "/signup"}>Add Business</NavLink>
         </div>
         <div id='sessionButtons'>
-          {loaded && sessionLinks}
+          {sessionLinks}
         </div>
       </div>
     </nav>

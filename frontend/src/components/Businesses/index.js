@@ -16,33 +16,33 @@ function Businesses () {
 
     return (
         <>
-        <div id='map-container'>
-            <Map />
-        </div>
-        <div className="content">
-            <div id='sidebar'>
-                <div className='sidebar-header'>
-                    <strong>Filters</strong>
+            <div id='map-container'>
+                <Map />
+            </div>
+            <div className="content">
+                <div id='sidebar'>
+                    <div className='sidebar-header'>
+                        <strong>Filters</strong>
+                    </div>
+                    <div className='sidebar-body'>
+                    </div>
                 </div>
-                <div className='sidebar-body'>
+                <div className="businesses">
+                    <div className="business-list">
+                        {Object.values(businesses).map(business => (
+                            <div className="business-item" key={business?.id}>
+                                <NavLink to={`/businesses/${business?.id}`}>
+                                    <img src={business?.imgUrl} alt={business?.name} />
+                                    <div className='business-info'>
+                                        <h2>{business?.name}</h2>
+                                        <p>{Object.values(business?.Reviews).length} Reviews</p>
+                                    </div>
+                                </NavLink>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
-            <div className="businesses">
-                <div className="business-list">
-                    {Object.values(businesses).map(business => (
-                        <div className="business-item" key={business?.id}>
-                            <NavLink to={`/businesses/${business?.id}`}>
-                                <img src={business?.imgUrl} alt={business?.name} />
-                                <div className='business-info'>
-                                    <h2>{business?.name}</h2>
-                                    <p>{Object.values(business?.Reviews).length} Reviews</p>
-                                </div>
-                            </NavLink>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
         </>
     );
 }

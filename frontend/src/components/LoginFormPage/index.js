@@ -48,7 +48,7 @@ function LoginFormPage() {
           required
         />
       </label>
-      <button type="submit" disabled={errors.length > 0}>Log In</button>
+      <button type="submit" >Log In</button>
       <p>Need to <NavLink to="/signup">Sign Up</NavLink> ?</p>
     </form>
   );

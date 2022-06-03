@@ -28,6 +28,11 @@ router.get('/set-token-cookie', asyncHandler(async (_req, res) => {
     return res.json({ user });
 }));
 
+router.get('/maps-api-key', asyncHandler(async(_req, res) => {
+  const key = process.env.GOOGLE_MAPS_API_KEY
+  return res.json({key})
+}))
+
 router.get(
   '/restore-user',
   restoreUser,
