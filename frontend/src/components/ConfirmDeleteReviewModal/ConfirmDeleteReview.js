@@ -6,7 +6,7 @@ import { useHistory, useParams } from "react-router-dom";
 function ConfirmDeleteReview({ reviewId }) {
   const history = useHistory();
   const dispatch = useDispatch();
-  const businessId = useSelector(state => Object.values(state?.businesses)[0]?.id);
+  const businessId = useParams().businessId;
   const business = useSelector(state => state?.businesses[businessId]);
 
   const handleSubmit = (e) => {

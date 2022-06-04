@@ -11,11 +11,11 @@ function AddReview({businessId, setShowModal}) {
     const user_id = useSelector(state => state?.session?.user?.id);
     const [value, setValue] = useState(0);
     const [body, setBody] = useState('');
-    const [selectedImage, setSelectedImage] = useState(null);
+    const [img, setImg] = useState(null);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const review = {user_id, business_id: businessId, value, body, img: selectedImage};
+        const review = {user_id, business_id: businessId, value, body, img};
 
         dispatch(reviewActions.createReview(review))
 
@@ -37,18 +37,15 @@ function AddReview({businessId, setShowModal}) {
                 />
                 <div className="img-upload">
                   <input
-                    type="file"
+                    type="text"
                     name="myImage"
-                    onChange={(event) => {
-                        console.log(event.target.files[0]);
-                        setSelectedImage(event.target.files[0]);
-                    }}
-                    />
-                {selectedImage && (
+                    onChange={e => setImg(e.target.value)}
+                />
+                {img && (
                     <div>
-                    <img alt="not fount" width={"90px"} src={URL.createObjectURL(selectedImage)} />
+                    <img alt="not found" width={"90px"} src={img} />
                     <br />
-                    <button onClick={()=>setSelectedImage(null)}>Remove</button>
+                    <button onClick={()=>setImg(null)}>Remove</button>
                     </div>
                   )}
                 </div>

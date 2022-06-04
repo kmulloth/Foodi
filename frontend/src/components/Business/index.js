@@ -54,7 +54,7 @@ function Business(){
                 {Object.values(reviews).filter(review => review?.business_id === business?.id).map(review => (
                     <div className="Business-review" key={review?.id}>
                         <div className="review-img">
-                            <img src={review?.img ? URL.createObjectURL(review?.img) : '/images/foodtruck.jpg'} alt="user-img" />
+                            <img src={review?.img ? review?.img : '/images/foodtruck.jpg'} alt="user-img" />
                         </div>
                         <div className="review-header">
                             <h4>{review?.User?.username}</h4>
