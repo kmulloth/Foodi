@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import Search from './Search';
@@ -7,6 +7,7 @@ import './Navigation.css';
 
 function Navigation({ loaded }){
   const sessionUser = useSelector(state => state?.session?.user);
+  const history = useHistory();
 
   const [query, setQuery] = useState('');
   const [isHome, setIsHome] = useState('');
@@ -26,16 +27,18 @@ function Navigation({ loaded }){
   }
 
   useEffect(() => {
-    if (window.location.pathname === '/') {
-      setIsHome('Home');
-    } else {
-      setIsHome('');
-    }
+    history.listen((location) => {
+      if (location.pathname === '/') {
+        setIsHome('Home');
+      } else {
+        setIsHome('');
+      }
+    })
     console.log(isHome)
-  }, [isHome]);
+  }, [history]);
 
   return (
-    loaded && <nav className={`Navigation ${isHome}`}>
+    loaded && <nav className={`Navigation ${isHome}`} >
       <div className='title'>
         <NavLink exact to="/"
           // isActive={(match, location) => {
