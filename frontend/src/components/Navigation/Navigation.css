@@ -72,13 +72,23 @@
     height: 100%;
     margin: 0;
     color: #fff;
-
+    font-size: 1.2em;
 }
 #search i{
     color: white;
 }
 #buttons a{
     padding: 0px 3px;
+}
+
+#add-business{
+    transition: all 0.2s ease-in-out;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 5px;
+}
+#add-business:hover{
+    background-color: rgba(17, 17, 17, 0.6);
 }
 
 #search-bar{

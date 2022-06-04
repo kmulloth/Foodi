@@ -56,14 +56,16 @@ function Business(){
                         <div className="review-img">
                             <img src={review?.img ? review?.img : '/images/foodtruck.jpg'} alt="user-img" />
                         </div>
-                        <div className="review-header">
-                            <h4>{review?.User?.username}</h4>
-                            <div className="review-rating">
-                                <h3>{review?.value}</h3>
-                                {user?.id === review?.user_id && (<ConfirmDeleteReviewModal reviewId={review?.id}/>)}
+                        <div className="review-content">
+                            <div className="review-header">
+                                <h4>{review?.User?.username}</h4>
+                                <div className="review-rating">
+                                    <h3>{review?.value}</h3>
+                                    {user?.id === review?.user_id && (<ConfirmDeleteReviewModal reviewId={review?.id}/>)}
+                                </div>
                             </div>
+                            <p>{review?.body}</p>
                         </div>
-                        <p>{review?.body}</p>
                     </div>
                 ))}
             </div>
