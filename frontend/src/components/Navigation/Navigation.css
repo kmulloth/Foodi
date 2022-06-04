@@ -163,6 +163,10 @@
     list-style: none;
 }
 
+.profile-dropdown button{
+    color: #111;
+}
+
 #map-container{
     display: flex;
     align-self: flex-end;
