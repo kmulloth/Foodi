@@ -164,7 +164,11 @@
 }
 
 .profile-dropdown button{
-    color: #111;
+    color: #fff;
+    background-color: red;
+    padding: 8px;
+    border-radius: 8px;
+    margin-top: 10px;
 }
 
 #map-container{
