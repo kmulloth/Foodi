@@ -1,6 +1,6 @@
 .Navigation{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     height: 7%;
     background-color: transparent;
@@ -14,6 +14,7 @@
     font-size: 1.6em;
     color: red;
     transition: all 0.3s ease-in-out;
+    width: 20%;
 }
 
 .title:hover{
@@ -44,7 +45,7 @@
     transform: none;
 }
 
-.Home a{
+.Home a, .Home button{
     color: #fff;
 }
 .inactive{
@@ -58,10 +59,15 @@
     text-decoration: none;
 }
 
+#search{
+    width: 25%;
+    padding: 0px 150px 0px 200px;
+}
 
 #buttons{
     display: flex;
-    justify-content: space-between;
+    width: 25%;
+    justify-content: space-around;
     align-items: center;
     height: 100%;
     margin: 0;
@@ -72,7 +78,7 @@
     color: white;
 }
 #buttons a{
-    padding: 0px 20px;
+    padding: 0px 3px;
 }
 
 #search-bar{
@@ -80,6 +86,7 @@
     justify-content: space-between;
     align-items: center;
     height: 100%;
+    width: 100%;
     margin: 0;
     color: #fff;
     height: 45px;
@@ -94,13 +101,13 @@
 }
 
 #search-bar input {
-    width: 400px;
+    width: 100%;
     padding: 0px 20px;
 }
 
 #search-bar > a{
     background-color: #e01206;
-    width: 55px;
+    width: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -155,4 +162,12 @@
 #map{
     width: 40%;
     height: 100%;
+}
+
+#sessionButtons{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    color: #fff;
 }

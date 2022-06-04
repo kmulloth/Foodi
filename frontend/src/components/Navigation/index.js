@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import * as sessionActions from '../../store/session';
 import ProfileButton from './ProfileButton';
 import Search from './Search';
 import './Navigation.css';
@@ -8,9 +9,20 @@ import './Navigation.css';
 function Navigation({ loaded }){
   const sessionUser = useSelector(state => state?.session?.user);
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const [query, setQuery] = useState('');
   const [isHome, setIsHome] = useState('');
+
+  const handleDemoSubmit = (e) => {
+    e.preventDefault();
+
+    const credential = e.target[0].value;
+    const password = e.target[1].value;
+    console.log('TARGET: ', e.target)
+    console.log('CREDENTIAL: ',credential,'PWORD: ', password, 'E: ', e);
+    return dispatch(sessionActions.login({ credential, password }))
+  }
 
   let sessionLinks;
   if (sessionUser) {
@@ -20,6 +32,11 @@ function Navigation({ loaded }){
   } else {
     sessionLinks = (
       <>
+        <form action='/api/session' method='POST' onSubmit={handleDemoSubmit}>
+          <input type='hidden' name='userName' value='Demo-lition' />
+          <input type='hidden' name='password' value='password' />
+          <button type='submit'>Demo</button>
+        </form>
         <NavLink to="/login">Log In</NavLink>
         <NavLink to="/signup">Sign Up</NavLink>
       </>

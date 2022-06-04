@@ -49,6 +49,7 @@ function LoginFormPage() {
         />
       </label>
       <button type="submit" >Log In</button>
+
       <p>Need to <NavLink to="/signup">Sign Up</NavLink> ?</p>
     </form>
   );
