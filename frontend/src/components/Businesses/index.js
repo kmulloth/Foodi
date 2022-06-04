@@ -21,11 +21,11 @@ function Businesses () {
             </div>
             <div className="content">
                 <div id='sidebar'>
-                    <div className='sidebar-header'>
+                    {/* <div className='sidebar-header'>
                         <strong>Filters</strong>
                     </div>
                     <div className='sidebar-body'>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="businesses">
                     <div className="business-list">

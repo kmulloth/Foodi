@@ -12,7 +12,7 @@ function Navigation({ loaded }){
   const dispatch = useDispatch();
 
   const [query, setQuery] = useState('');
-  const [isHome, setIsHome] = useState('');
+  const [isHome, setIsHome] = useState('Home');
 
   const handleDemoSubmit = (e) => {
     e.preventDefault();
