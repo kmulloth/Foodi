@@ -1,14 +1,16 @@
 import {GoogleMap, LoadScript} from '@react-google-maps/api';
-import { useEffect, useState, useCallback } from 'react';
+import React,{ useEffect, useState } from 'react';
 
 function Map() {
 
     const [key, setKey] = useState('');
     // const [map, setMap] = useState(null);
 
+    //parse return from fetch
     useEffect(() => {
         fetch('/api/maps-api-key').then((res) => {
             res.json().then((data) => {
+                console.log(data.key)
                 setKey(data.key);
             })
         })
@@ -47,8 +49,7 @@ function Map() {
         key={key}
     >
       <GoogleMap
-        // mapContainerStyle={containerStyle}
-
+        mapContainerStyle={containerStyle}
         center={center}
         zoom={10}
         // onLoad={onLoad}
@@ -61,4 +62,4 @@ function Map() {
   )
 }
 
-export default Map;
+export default React.memo(Map);
