@@ -33,6 +33,6 @@ Users can see recent reviews for businesses from this page
  
 ## Image Carousels
   * On Home and Business page
-    * on Home page: Diplays prest query links to popular tags
+    * on Home page: Diplays preset query links to popular tags
     * on Business: displays Business Images and associated review images
  
