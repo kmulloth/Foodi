@@ -53,3 +53,9 @@ h3{
     margin-right: 10px;
     border-radius: 5px;
 }
+
+.to-biz{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
