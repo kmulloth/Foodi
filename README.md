@@ -1,5 +1,5 @@
 # Foodi
-A Yelp Clone -- React Practice Project
+!!! WORK IN PROGRESS !!!
 
 ## Navbar (Universal)
 
