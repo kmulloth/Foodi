@@ -11,7 +11,6 @@ function Navigation({ loaded }){
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const [query, setQuery] = useState('');
   const [isHome, setIsHome] = useState(window.location.pathname === '/' ? 'Home' : 'inactive');
 
   const handleDemoSubmit = (e) => {
@@ -65,7 +64,7 @@ function Navigation({ loaded }){
           className='title'>foodi
         </NavLink>
       </div>
-      <Search query={query} setQuery={setQuery}/>
+      <Search />
       <div id='buttons'>
         <div id='add-business'>
           <NavLink to={sessionUser ? "/businesses/new" : "/signup"}>Add Business</NavLink>

@@ -1,0 +1,1 @@
+ACPDevice:{"v":1,"hv":true,"ar":[22050,44100,48000,88200,96000,176400,192000],"hm":true,"as":[],"r":44100,"c":2,"vn":1,"md":"com.rogueamoeba.ACE:proxy","sc":[1,2],"s":"","t":"virt","m":"Rogue Amoeba Software, Inc.","n":"No Device Available","ref":"{\"uid\":\"SoundSource:VirtualSystemDevice\",\"i\":false}","mt":false}

@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="../global/css/style.css">
+		<script type="text/javascript" src="../global/jquery-3.3.1.slim.min.js"></script>
+	</head>
+	
+	
+	<body class="">
+	
+		<div class="slide-bg">
+			<h1 class="tinted" style="font-size: 44px; font-weight: 800;"><span class='template-app-name'>DO NOT LOCALIZE</span><span style="font-weight: 300;"> Is Ready</span></h1>
+		</div>
+		
+		<div class="slide-bg" id="slide-a">
+			<img src="TBD" class="template-app-icon" style="top: 155px;">
+		</div>
+		
+		<img class="slide" id="slide-b" src="../global/images/badge-check.png" srcset="../global/images/badge-check@2x.png 2x" alt="" width="800" height="550">
+		
+		<div class="slide" id="slide-d">
+			<h4 style="margin: 490px 0 0;"><span class='template-app-name'>DO NOT LOCALIZE</span> is now ready for use.</h4>
+		</div>
+	
+	
+	</body>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			setTimeout(function (){
+				$('#slide-b').addClass('visible');
+			}, 0);
+			
+			setTimeout(function (){
+				$('#slide-d').addClass('visible');
+			}, 500);
+			
+		});
+	</script>
+
+</html>

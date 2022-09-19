@@ -6,6 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     owner_id: DataTypes.INTEGER,
     body: DataTypes.TEXT,
     location: DataTypes.STRING,
+    openTimes: DataTypes.STRING,
+    closeTimes: DataTypes.STRING,
     rating: DataTypes.FLOAT,
     likes: DataTypes.INTEGER
   }, {});

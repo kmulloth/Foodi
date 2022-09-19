@@ -1,0 +1,90 @@
+<html>
+<head>
+	<link href="style.css" rel="stylesheet" type="text/css">
+	<title>License</title>
+	<meta name="ra-size" width="660" height="720">
+</head>
+
+<body id="body" class="">
+	
+	<section id="license-form">
+		<div class="section license-message">
+			<div class="content">
+				<div class="column fifth">	
+					<center>
+						<div class="icon-container">
+							<img id="product-icon" src="images/icon.png" style="width: 96px; height: 96px; position: relative; margin-top: 10px;">
+							<img class="badge" src="images/icon-trial-mode.png" srcset="images/icon-trial-mode@2x.png 2x" width="40" height="40">
+						</div>
+					</center>
+				</div>
+				
+				<div class="column four-fifths" style="margin-bottom: 5px;">
+					<!-- Add class 'alert' to these titles to make them red -->
+					<h2 id='trial-header'>Currently in Trial Mode! Purchase to Unlock.</h2>
+					
+					<p id='trial-message'>TRIAL MESSAGE</p>
+					
+					<a id='purchase-button' class="purchase-button" href="https://rogueamoeba.com/store/" target="_blank">Purchase <span class="product-name">PRODUCT NAME</span></a>
+				</div>
+			
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="content">
+				<div class="column fifth">
+					<img src="images/icon-lock.png" srcset="images/icon-lock@2x.png 2x" style="width: 96px; height: 96px; position: relative; margin-top: 10px;" class="unlock-icon">
+				</div>
+
+				<div class="column four-fifths">
+					<h2>Unlock <span class="product-name">PRODUCT NAME</span></h2>
+					
+					<p>To unlock the full version of <span class="product-name">PRODUCT NAME</span>, enter the license key you received after purchasing.</p>
+					
+					<label for="name" id='name-label'><strong>Your Name:</strong></label>
+					<input aria-labelledby='name-label' autofocus type="text" autocomplete="off" required name="name" size="60" style="margin-bottom: 15px;" onkeypress="return raLicenseWindow.handleKeyPress(event);"><br>
+					
+					<label for="code"><strong>Your Code:</strong></label>
+					<input type="text" autocomplete="off" required name="code" size="60" style="margin-bottom: 15px;" onkeypress="return raLicenseWindow.handleKeyPress(event);">
+					
+					<div id="alert-box" class="alert" aria-hidden="true">
+						<span id="license-feedback">ERROR MESSAGE GOES HERE.</span>
+					</div>
+					
+					<div class="column three-fifths" style="padding: 0;">
+						<p class="smaller" style="margin-top: 7px;">Lost your license key? <a href="https://rogueamoeba.com/support/licenseRecovery.php" target="_blank">Recover it</a><span aria-hidden="true">.</span></p>
+					</div>	
+					
+					<div class="column two-fifths" style="padding: 0;">
+						<input id="unlock" type="submit" class="StoreButton" value="Unlock" name="submitted" aria-label="Unlock" style="float: right; margin-bottom: 15px;" onclick="raLicenseWindow.postLicense()">
+					</div>
+						
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Registration Certificate -->
+
+	<div id="certificate-bg" class="" aria-hidden="true">
+		<canvas id="confetti"></canvas>
+		<div id="certificate-content">
+			<h2 class="unlocked" tabindex="-1" style="outline: none;"><span class="product-name">PRODUCT NAME</span> Has Been Unlocked</h2>
+			
+			<p>This copy of <span class="product-name">PRODUCT NAME</span> is certified to be free<br>of all trial limitations and is ready for use.</p>
+						
+			<p><strong>Licensee:</strong><br><span id='cert-name' style="-webkit-user-select: all;">LICENSE NAME</span></p>
+						
+			<img aria-hidden="true" src="images/signature.png" srcset="images/signature@2x.png 2x" width="396" height="61" style="margin-bottom: 15px;">
+			
+			<p style="font-weight: 700;">Thank you for your purchase!</p>
+			<p class="product-version">PRODUCT VERSION</p>
+		</div>
+	</div>
+
+	<script src="./confetti2.js"></script>
+	<script src="./raLicenseWindow.js"></script>
+
+</body>
+</html>

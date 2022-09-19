@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BuildUUID</key>
+	<string>8E4A5C64-D606-11EC-9943-F01898F1996C</string>
+	<key>BuildDate</key>
+	<string>2022-05-17T17:26:58Z</string>
+	<key>BuildStyle</key>
+	<string>Release</string>
+	<key>RepositoryVersion</key>
+	<string>d3043d27879aaa9efd9ecfd03d5e8ea1d4b59b43</string>
+	<key>RepositoryBranch</key>
+	<string>master</string>
+</dict>
+</plist>

@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="../global/css/style.css">
+		<script type="text/javascript" src="../global/jquery-3.3.1.slim.min.js"></script>
+	</head>
+	
+	
+	<body>
+		<div class="slide" id="slide-a">
+			<h1 style="font-size: 44px; font-weight: 800;">ACE Needs to Be Repaired</h1>
+		</div>
+		
+		<div class="slide-bg" id="slide-b">
+			<img src="TBD" class="template-app-icon" style="top: 155px;">
+		</div>
+		
+		<img class="slide" id="slide-c" src="../global/images/badge-repair.png" srcset="../global/images/badge-repair@2x.png 2x" alt="" width="800" height="550">
+		
+		<div class="slide" id="slide-d">
+			<h4 style="margin: 490px 0 0;">Changes such as operating system updates can require the ACE audio handling component to need to be re-enabled.</h4>
+		</div>
+		
+		<div id="flash"><br></div>
+	
+	
+	</body>
+	
+	<script type="text/javascript">
+	$(document).ready(function(){
+		setTimeout(function (){
+			$('#slide-a').addClass('visible');
+			$('#flash').addClass('hidden');
+		}, 0);
+		
+		setTimeout(function (){
+			$('#slide-b').addClass('visible');
+		}, 150);
+		
+		setTimeout(function (){
+			$('#slide-c').addClass('visible');
+		}, 300);
+		
+		setTimeout(function (){
+			$('#slide-d').addClass('visible');
+		}, 450);
+		
+	});
+	</script>
+
+</html>

@@ -1,0 +1,90 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="../global/css/style.css">
+		<script type="text/javascript" src="../global/jquery-3.3.1.slim.min.js"></script>
+	</head>
+	
+	
+	<body class="">
+		<div class="slide-bg" id="slide-a" >
+			<div class="welcome-banner">
+				<img src="TBD" class="icon template-app-icon">
+				<h3 class="tinted">Welcome to <span class='template-app-name'>DO NOT LOCALIZE</span></h3>
+				<h6>We'll have you up and running in just a few minutes!</h6>
+			</div>
+			
+			<div class="welcome-message">
+				<p><span class='template-app-name'>DO NOT LOCALIZE</span> must install ACE, Rogue Amoeba's audio handling software. You'll follow these steps:</p>
+			</div>
+		</div>
+		
+		<div class="slide" id="slide-b">
+			<div class="step one">
+				<div class="step-number">1</div>
+				
+				<img src="../global/images/step-password.svg" width="180" height="180">
+				
+				<p>Enter your admin password</p>
+			</div>
+		</div>
+		
+		<div class="slide" id="slide-c">
+			<div class="step two">
+				<div class="step-number">2</div>
+				
+				<img src="../global/images/step-alert.svg" width="180" height="180">
+				
+				<p>Acknowledge the<br>system alert</p>
+			</div>
+		</div>
+		
+		<div class="slide" id="slide-d">
+			<div class="step three">
+				<div class="step-number">3</div>
+				
+				<img src="../global/images/step-allow.svg" width="180" height="180">
+				
+				<p>Allow access in the &ldquo;Security & Privacy&rdquo; system preference</p>
+			</div>
+		</div>
+		
+		<div class="slide" id="slide-e">
+			<div class="step four">
+				<div class="step-number">4</div>
+				
+				<img src="../global/images/step-restart.svg" width="180" height="180">
+				
+				<p>Restart your<br>Mac</p>
+			</div>
+		</div>
+	
+	</body>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			setTimeout(function (){
+				$('#slide-a').addClass('visible');
+			}, 0);
+			
+			setTimeout(function (){
+				$('#slide-b').addClass('visible');
+			}, 150);
+			
+			setTimeout(function (){
+				$('#slide-c').addClass('visible');
+			}, 300);
+			
+			setTimeout(function (){
+				$('#slide-d').addClass('visible');
+			}, 450);
+			
+			setTimeout(function (){
+				$('#slide-e').addClass('visible');
+			}, 600);
+			
+		});
+		</script>
+	
+	
+</html>

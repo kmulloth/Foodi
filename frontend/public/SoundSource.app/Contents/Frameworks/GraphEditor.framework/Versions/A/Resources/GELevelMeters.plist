@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>global</key>
+	<dict>
+		<key>isFlipped</key>
+		<false/>
+		<key>size</key>
+		<string>{66,19}</string>
+	</dict>
+	<key>images</key>
+	<dict>
+		<key>background</key>
+		<string>GELevelMeters_bg</string>
+		<key>bar background</key>
+		<string>GELevelMeters_bar_bg</string>
+		<key>bar foreground</key>
+		<string>GELevelMeters_bar_fg</string>
+	</dict>
+	<key>layout</key>
+	<dict>
+		<key>bar left</key>
+		<string>{{1,10}, {64,8}}</string>
+		<key>bar right</key>
+		<string>{{1,1}, {64,8}}</string>
+		<key>title bar</key>
+		<string>{{0,0,0,0}}</string>
+	</dict>
+</dict>
+</plist>

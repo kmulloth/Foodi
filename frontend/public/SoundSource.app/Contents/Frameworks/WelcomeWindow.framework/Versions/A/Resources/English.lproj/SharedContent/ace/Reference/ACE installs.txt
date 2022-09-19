@@ -1,0 +1,72 @@
+- ACE is not installed
+	- If we find no valid “ACE was here” cookie, we show secure-install-intel.html (Intel) or secure-install-mchip.html (M Chip)
+	- If we find a valid “ACE was here” cookie, we show simple-install1.html.
+
+* To detect a VALID ACE cookie…what do we do?
+
+- ACE is installed, but not loaded. This means ACE must not be authorized yet.
+	- If ACE can't be authorized, the user must be instructed to “Enable system extensions” in the Security System Preference (secure-systemextensionapproval-mchip.html)
+	- If ACE CAN be authorized, the user must be instructed to “Allow” ACE in the Security System Preference. (secure-ACEapproval-intel.html or secure-ACEapproval-mchip.html)
+
+- ACE is installed, and loaded. 
+The user needs to be shown nothing at all, or a simple “Update ACE” screen (update1.html) if an update is required.
+
+
+
+TESTING:
+
+INITIAL SETUP
+
+Set system to default/virgin state.
+Launch app - Check app's WW - what does it show? [Should show an install screen, secure-install-intel.html or secure-install-mchip.html]
+Install ACE - What does WW show when done? [Should show a “You need to enable SysExt” screen, secure-systemextensionapproval-mchip.html]
+Quit app, relaunch app - What does WW show when done? [Should show a “You need to enable SysExt” screen, secure-systemextensionapproval-mchip.html]
+Go to SysPrefs and click “Enable SysExt”, then boot to Recovery.
+Adjust profile to allow extensions.
+Reboot.
+Check app's WW - what does it show? [Should show a “You need to allow ACE” screen, secure-ACEapproval-mchip.html or secure-ACEapproval-intel.html (Currently identical)]
+Go to SysPrefs, and click “Allow”. Reboot.
+Open app - what does it show? [Should just load the app, no WW]
+
+--
+NORMAL REINSTALL
+
+Uninstall ACE. Quit app.
+Open app - what does WW show? [Should show a “Simple Install” screen, simple-install1.html]
+Install ACE - what does WW show when done? [Should show a “Ready” screen, simple-install2.html]
+
+--
+REINSTALL AFTER DE-ALLOWING ACE AND TURNING OFF EXTENSIONS
+
+Uninstall ACE.
+Boot to Recovery.
+Turn off extensions (Switch to Full Security)
+Switch to Terminal
+Run pmutil trigger-panic-medic
+Reboot
+Log in.
+Reboot. ACE is no longer allowed.
+Open app - what does WW show? [Should show a “Simple Install” screen - simple-install1.html, because it found an ACE cookie]
+Install ACE - what does WW show when done? [Should show a “You need to enable SysExt” screen, secure-systemextensionapproval-mchip.html]
+Quit app, relaunch app - What does WW show when done? [Should show a “You need to enable SysExt” screen, secure-systemextensionapproval-mchip.html]
+Go to SysPrefs and click “Enable SysExt”, then boot to Recovery.
+Adjust profile to allow extensions.
+Reboot.
+Check app's WW - what does it show? [Should show a “You need to allow ACE” screen, secure-ACEapproval-mchip.html or secure-ACEapproval-intel.html (Currently identical)]
+Go to SysPrefs, and click “Allow”. Reboot.
+Open app - what does it show? [Should just load the app, no WW]
+
+--
+REINSTALL AFTER DE-ALLOWING ACE BUT LEAVING EXTENSIONS ON
+
+Uninstall ACE.
+Boot to Recovery.
+Run pmutil trigger-panic-medic (But leave extensions on)
+Reboot
+Log in.
+Reboot. ACE is no longer allowed.
+Open app - what does WW show? [Should show a “Simple Install” screen - simple-install1.html, because it found an ACE cookie]
+Install ACE - what does WW show when done? [Should show a “You need to allow ACE” screen, secure-ACEapproval-mchip.html or secure-ACEapproval-intel.html (Currently identical)]
+Quit app, relaunch app - What does WW show when done? [Should show a “You need to allow ACE” screen, secure-ACEapproval-mchip.html or secure-ACEapproval-intel.html (Currently identical)]
+Go to SysPrefs, and click “Allow”. Reboot.
+Open app - what does it show? [Should just load the app, no WW]

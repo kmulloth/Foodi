@@ -11,6 +11,8 @@ function Query () {
     const businesses = useSelector(state => state?.businesses);
     const { query } = useParams();
 
+    useEffect(() => console.log(query), [query])
+
     useEffect(() => {
         dispatch(getBusinesses({include:[{model: 'User'}]}));
     }, [dispatch]);
@@ -31,12 +33,22 @@ function Query () {
                 <div className="businesses">
                     <h1>Businesses</h1>
                     <div className="business-list">
-                        {Object.values(businesses).filter(business => {
+                        {query !== '' ? Object.values(businesses).filter(business => {
                             if (query === '') {
-                              return;
-                            } else if (business?.name?.toLowerCase().includes(query?.toLowerCase()) || business?.body?.toLowerCase().includes(query?.toLowerCase())) {
+                              return
+                            } else if (business?.name?.toLowerCase().includes(query?.toLowerCase()) ) {
                             return business
                             }}).map(business => (
+                            <div className="business-item" key={business?.id}>
+                                <NavLink to={`/businesses/${business?.id}`}>
+                                    <img src={business?.imgUrl} alt={business?.name} />
+                                    <div className='business-info'>
+                                        <h2>{business?.name}</h2>
+                                        <p>{Object.values(business?.Reviews).length} Reviews</p>
+                                    </div>
+                                </NavLink>
+                            </div>
+                        )) : Object.values(businesses).map(business => (
                             <div className="business-item" key={business?.id}>
                                 <NavLink to={`/businesses/${business?.id}`}>
                                     <img src={business?.imgUrl} alt={business?.name} />

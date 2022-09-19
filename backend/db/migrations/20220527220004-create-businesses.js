@@ -31,6 +31,14 @@ module.exports = {
         allowNull: false,
         unique: true
       },
+      openTimes: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      closeTimes: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       rating: {
         type: Sequelize.FLOAT,
         allowNull: false,

@@ -1,20 +1,22 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getBusinesses } from '../../store/businesses';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 
-function Search ({query, setQuery}) {
+function Search () {
 
     const dispatch = useDispatch();
+
+    const [query, setQuery] = useState('');
 
     useEffect(() => {
       dispatch(getBusinesses());
     }, [dispatch]);
 
-    useEffect(() => {
-      document.addEventListener('click', setQuery(''))
-    }, [setQuery]);
+    // useEffect(() => {
+    //   document.addEventListener('click', setQuery(''))
+    // }, [setQuery]);
 
     const businesses = useSelector(state => state?.businesses);
 
@@ -22,7 +24,7 @@ function Search ({query, setQuery}) {
         <div id='search'>
         <div id='search-bar'>
           <input placeholder='Search' value={query} onChange={e => setQuery(e.target.value)}/>
-          <NavLink exact to={query ? `/search/${query}` : '/businesses'} onClick={e => setQuery('')} ><i className="fa-solid fa-magnifying-glass"></i></NavLink>
+          <NavLink exact to={query == ''? '/businesses' : `/search/${query}`} onClick={e => setQuery('')} ><i className="fa-solid fa-magnifying-glass"></i></NavLink>
         </div>
         <div id='search-results'>
             {

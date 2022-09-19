@@ -1,0 +1,648 @@
+* {
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    cursor: default;
+}
+
+/* The only current way to disable bouncing in WKWebview*/
+html, body {
+  position: fixed;
+  overflow: hidden;
+}
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+  background: #fff;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body { 
+	background: #fff;
+	width: 100%;
+	height: 100vh;
+	margin: 0;
+	font-weight: 400;
+	font-family: -apple-system,  '.SFNSText-Regular', 'Source Sans Pro', Helvetica, Sans-serif;
+}
+
+html {
+    color: #333;
+    font-size: 16px;
+    line-height: 25px;
+	font-weight: 300;
+    font-family: -apple-system, 'Source Sans Pro', 'Helvetica Neue', Helvetica, Sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   Base Layout
+   ========================================================================== */
+
+/* Row - keeps things vertically aligned */
+.row {
+	width: 100%;
+	padding: 0;
+	clear: both;
+}
+
+
+/* Columns - content blocks used within sections */
+
+.column {
+	padding: 0 15px;
+	float: left;
+}
+
+/* Spacer - used for creating space on desktop, but which collapse on mobile */
+
+.spacer {
+	float: left;
+}
+
+/* Column widths - use these to determine column size as a fraction of the container width */
+
+.column.full, .spacer.full {
+	width: 100%;
+}
+
+.column.two-thirds, .spacer.two-thirds {
+	width: 66.6666666666%;
+}
+
+.column.half, .spacer.half {
+	width: 50%;
+}
+
+.column.third, .spacer.third {
+	width: 33.3333333333%;
+}
+
+.column.quarter, .spacer.quarter {
+	width: 25%;
+}
+
+.column.fifth, .spacer.fifth {
+	width: 20%;
+}
+
+.column.two-fifths, .spacer.two-fifths {
+	width: 40%;
+}
+
+.column.three-fifths, .spacer.three-fifths {
+	width: 60%;
+}
+
+.column.three-quarters, .spacer.three-quarters {
+	width: 75%;
+}
+
+.column.four-fifths, .spacer.four-fifths {
+	width: 80%;
+}
+
+.column.sixth, .spacer.sixth {
+	width: 16.6666666666%;
+}
+
+.column.eigth, .spacer.eigth, .column.eighth, .spacer.eighth {
+	width: 12.5%;
+}
+
+.section {
+	width: 100%;
+	min-width: 560px;
+	padding: 30px 0;
+}
+
+.section.license-message {
+	background: #F3F7FD;
+}
+
+.content {
+	width: 620px;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+}
+
+/* Add auto-height sizing to section and column elements */
+.section:before, .section:after, .content:before, .content:after, .column:before, .column:after {
+    content: " ";
+    display: table;
+}
+
+.section:after, .content:after, .column:after {
+    clear: both;
+}
+
+
+.vanish {
+	display: none;
+}
+
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+p {
+	text-align: left;
+	font-size: 15px;
+	color: #333;
+	
+	font-weight: 300;
+	font-family: -apple-system,  '.SFNSText-Light', 'Source Sans Pro', Helvetica, Sans-serif;
+	margin: 0 0 15px;
+}	
+
+a {
+	color: #2F72C0;
+	
+	-webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+
+a:hover {
+	cursor: pointer;
+	color: #000;
+	
+	-webkit-transition: all 100ms ease;
+    -moz-transition: all 100ms ease;
+    -o-transition: all 100ms ease;
+    transition: all 100ms ease;
+}
+
+p.smaller {
+	font-size: 14px;
+	line-height: 18px;
+	font-weight: 300;
+}
+
+h1 {
+	text-align: left;
+	font-size: 46px;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0px;
+}
+
+h2 {
+	text-align: left;
+	font-size: 20px;
+	font-weight: 800;
+	padding: 0;
+	margin-top: 0;
+	margin-bottom: 3px;
+	color: #2F72C0;
+	font-family: -apple-system, 'Source Sans Pro', 'Helvetica Neue', Helvetica, Sans-serif;
+}
+
+h2.trial-expired {
+	color: #CC0000;
+}
+
+h3 {
+	text-align: left;
+	font-size: 20px;
+	font-weight: 700;
+	padding: 0;
+	margin-top: 0;
+	margin-bottom: 5px;
+	color: #333;
+}
+
+h4 {
+	text-align: left;
+	font-size: 16px;
+	font-weight: 700;
+	padding: 0;
+	margin-top: 0;
+	margin-bottom: 5px;
+	color: #333;
+}
+
+h1.alert, h2.alert, h3.alert, h4.alert, h5.alert, h6.alert {
+	color: #CC0000;
+}
+
+p.footerline {
+	margin: 30px 0 0 0;
+	color: #859398;
+	font-weight: 200;
+	font-size: 10px;
+}
+
+
+#certificate-content p.product-version {
+	position: absolute;
+	right: 5;
+	bottom: -15;
+	color: #859398;
+	font-weight: 200;
+	font-size: 10px;
+}
+
+img { 
+	-webkit-user-drag: none; 
+}
+
+.icon-container {
+	position: relative;
+	display: inline-block;
+}
+
+.badge {
+	position: relative;
+	vertical-align: bottom;
+}
+
+
+.icon-container .badge {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	vertical-align: bottom;
+}
+
+/* ==========================================================================
+   Tables and Forms
+   ========================================================================== */
+
+input, textarea {
+	padding: 9px 15px 9px;
+	max-width: 100%;
+	border-radius: 6px;
+	border: 1px solid #859398;
+	font-size: 15px;
+/* 	box-shadow: 0 0 0px 1px #fff inset; */
+	outline: none;
+	color: #000;
+	background: #fff;
+	
+	-webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+    -webkit-user-select: text;
+    cursor: text;
+}
+
+input:focus, textarea:focus {
+	border: 1px solid #2F72C0;
+	background: #F3F7FC;
+/* 	box-shadow: 0 0 0px 1px #2F72C0 inset; */
+	
+	-webkit-transition: all 100ms ease;
+    -moz-transition: all 100ms ease;
+    -o-transition: all 100ms ease;
+    transition: all 100ms ease;	
+}
+
+input:hover, textarea:hover {
+	border: 1px solid #2F72C0;
+	
+	-webkit-transition: all 100ms ease;
+    -moz-transition: all 100ms ease;
+    -o-transition: all 100ms ease;
+    transition: all 100ms ease;	
+}
+
+input[type=submit] {
+	width: auto;
+	background: #2F72C0;
+	font-size: 16px;
+	font-weight: 600;
+	padding: 5px 30px;
+	color: #fff;
+	box-shadow: none;
+	border: none;
+}
+
+input[type=submit]:hover {
+	background: #223940;
+	cursor: pointer;
+	
+	-webkit-transition: all 100ms ease;
+    -moz-transition: all 100ms ease;
+    -o-transition: all 100ms ease;
+    transition: all 100ms ease;	
+}
+
+input[type=submit].disable {
+	width: auto;
+	background: #859398;
+	font-size: 16px;
+	font-weight: 600;
+	padding: 5px 30px;
+	color: #fff;
+	box-shadow: none;
+	border: none;
+	
+	-webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;	
+}
+
+input[type=submit].disable:hover {
+	background: #859398;
+	cursor: not-allowed;
+	
+	-webkit-transition: all 100ms ease;
+    -moz-transition: all 100ms ease;
+    -o-transition: all 100ms ease;
+    transition: all 100ms ease;	
+}
+
+a.purchase-button {
+	width: auto;
+	background: #2F72C0;
+	font-size: 16px;
+	font-weight: 600;
+	padding: 5px 15px;
+	border-radius: 6px;
+	color: #fff;
+	box-shadow: none;
+	border: none;
+	text-decoration: none;
+	clear: both;
+	float: right;
+}
+
+a.purchase-button:hover {
+	background: #223940;
+	cursor: pointer;
+	
+	-webkit-transition: all 100ms ease;
+    -moz-transition: all 100ms ease;
+    -o-transition: all 100ms ease;
+    transition: all 100ms ease;	
+}
+
+#alert-box {
+	color: #CC0000;
+	background: #F9E5E5;
+	margin: 0;
+	padding: 0 20px;
+	
+	border-radius: 6px;
+	transform: scaleY(0);
+
+	max-height: 0;
+	opacity: 0;
+	pointer-events: none;
+	
+	-webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;	
+}
+
+#alert-box.active {
+	opacity: 1;
+	max-height: 1000px;
+	pointer-events: auto;
+	transform: scaleY(1);
+	
+	padding: 10px 20px;
+	margin: 5px 0 15px;
+	
+	-webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;	
+}
+
+
+/* ==========================================================================
+   Certificate
+   ========================================================================== */
+
+/* Certificate hidden */
+
+#certificate-bg {
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	
+	background: #2F72C0;
+	background: #fff;
+	opacity: 0;
+    
+    pointer-events: none;
+}
+
+#certificate-content {
+	background: url('images/guilloche-circle@2x.png') no-repeat center center / 260px 260px,
+				url('images/guilloche-line@2x.png') repeat-x 0 15px / 80px 48px,
+				url('images/guilloche-line@2x.png') repeat-x 0 360px / 80px 48px,
+				#fff;
+	box-shadow: 0 2px 6px rgba(72,91,114,0.6);
+	width: 575px;
+	height: 425px;
+	padding: 20px;
+	border-radius: 2px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -212px 0 0 -287px;
+	padding: 75px 0 0;
+	text-align: center;
+	opacity: 0;
+	transform: scale(0.01) translate(0, 100px);
+	    
+    pointer-events: none;
+}
+
+#certificate-content h2 {
+    text-align: center;
+    color: #2F72C0;
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 800;
+    margin: 5px 0 10px;
+}
+
+/* Certificate visible */
+
+.registered #certificate-bg {
+	background: #F3F7FD;
+	opacity: 1;
+	-webkit-transition: all 1000ms ease;
+    -moz-transition: all 1000ms ease;
+    -o-transition: all 1000ms ease;
+    transition: all 1000ms ease;
+    
+    pointer-events: all;
+}
+
+.registered #certificate-content {
+	opacity: 1;
+	transform: scale(1) translate(0, 0);
+	
+	-webkit-transition: all 1000ms ease 0.5s;
+    -moz-transition: all 1000ms ease 0.5s;
+    -o-transition: all 1000ms ease 0.5s;
+    transition: all 1000ms ease 0.5s;
+    
+    pointer-events: all;
+}
+
+.static-registered #certificate-bg {
+	background: #F3F7FD;
+	opacity: 1;
+    pointer-events: all;
+}
+
+.static-registered #certificate-content {
+	opacity: 1;
+	transform: scale(1) translate(0, 0);
+	    
+    pointer-events: all;
+}
+
+
+
+#certificate-content p {
+	text-align: center;
+	color: #2F72C0;
+	font-size: 18px;
+	line-height: 22px;
+}
+
+/* Confetti Experiment */
+
+/*
+canvas{
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:0;
+	border:none;
+	
+	width: 100%;
+	height: 100vh;
+	
+	opacity: 0;
+	
+		-webkit-transition: all 600ms ease;
+    -moz-transition: all 600ms ease;
+    -o-transition: all 600ms ease;
+    transition: all 600ms ease;
+}
+
+.registered canvas {
+	opacity: 1;
+	
+		-webkit-transition: all 600ms ease;
+    -moz-transition: all 600ms ease;
+    -o-transition: all 600ms ease;
+    transition: all 600ms ease;
+}
+*/
+
+#confetti {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 1;
+	pointer-events: none;
+}
+
+/* ==========================================================================
+   Dark Mode
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+	
+	html {
+		background: #333;
+	}
+	
+	body, .more-apps {
+		background: #333;
+		color: #fff;
+	}
+	
+	.section.license-message {
+		background: #3b3b3b;
+	}
+	
+	p, h1, h2, h3, h4, h5, h6 {
+		color: #fff;
+	}
+	
+	 a, a:visited {
+	 	color: #5B9BE5;
+	 }
+	 
+	 a:hover {
+	 	color: #9CCAFF;
+	 }
+	 
+	 a.purchase-button, input[type=submit] {
+	 	background: #2F72C0;
+		color: #fff;
+	}
+	
+	a.purchase-button:hover, input[type=submit]:hover {
+		background: #4996EF;
+		color: #fff;
+		cursor: pointer;
+	}
+	
+	.note {
+		color: #fff;
+		background: #334;
+	}
+	
+	input[type=text] {
+		background: #444;
+		border: 1px solid #555;
+		box-shadow: none;
+		color: #fff;
+	}
+	
+	input[type=text]:focus {
+		border: 1px solid #5B9BE5;
+	}
+
+	input[type=checkbox] {
+		background: #444;
+		border: 1px solid #555;
+		box-shadow: none;
+	}
+	
+	 .more-apps a, body.dark .more-apps a h6 {
+		color: #fff;
+	}
+	
+	.unlock-icon {
+		filter: invert(0) saturate(0) brightness(0.5);
+		opacity: 1;
+	}
+	
+	#alert-box {
+		background: #602323;
+		color: #F9E5E5;
+	}
+	
+	#certificate-bg {
+		background: #333 !important;
+	}
+	
+	#certificate-content {
+		box-shadow: 0 0 30px #000;
+	}
+
+}

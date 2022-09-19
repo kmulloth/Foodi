@@ -1,0 +1,594 @@
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+	padding: 0px 0px 0px 0px !important;
+	margin: 0;
+	width: 800px;
+	height: 550px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	background-color: #fff;
+	color: #333;
+	font-size: 18px;
+	line-height: 26px;
+	font-family: system, -apple-system, ".SFNSText-Regular", "Helvetica Neue", "Lucida Grande", sans-serif;
+	font-weight: 300;
+	float: inherit;
+	position: relative;
+	-webkit-font-smoothing: antialiased;
+	-webkit-user-select: none;
+}
+
+/* Slide Logic */
+
+.slide-bg {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 800px;
+	height: 550px;
+	overflow: hidden;
+}
+
+.slide {
+	position: absolute;
+	left: 0;
+	top: 0;
+	filter: blur(0px);
+	transform: scale(0.9, 0.9) translate(0,0px);
+	opacity: 0;
+	transition: all 500ms ease;
+	width: 800px;
+	height: 550px;
+	overflow: hidden;
+	pointer-events: none;
+}
+
+.slide.visible {
+	filter: blur(0px);
+	opacity: 1;
+	transform: scale(1, 1) translate(0,0);
+	transition: all 500ms ease;
+	pointer-events: auto;
+}
+
+.slide.faded, .slide-bg.faded {
+	filter: blur(0px) saturate(0.5);
+	opacity: 0.5;
+	transform: scale(0.8, 0.8) translate(0,0) rotate(0deg);
+	transition: all 1500ms ease;
+}
+
+.overlay {
+	position: absolute;
+	left: 0;
+	top: 0;
+	transform: scale(1, 1) translate(0,0);
+	opacity: 0;
+	transition: all 500ms ease;
+	width: 800px;
+	height: 550px;
+	overflow: hidden;
+}
+
+.overlay.visible {
+	opacity: 1;
+	transition: all 500ms ease;
+}
+
+#flash {
+	width: 800px;
+	height: 550px;
+	position: absolute;
+	background: #fff;
+	left: 0;
+	top: 0;
+	opacity: 1;
+	transition: all 500ms ease;
+}
+
+#flash.hidden {
+	opacity: 0;
+	transition: all 500ms ease;
+}
+
+.template-app-icon {
+	width: 256px;
+	height: 256px;
+	position: absolute;
+	display: block;
+	top: 125px;
+	left: 272px;
+	
+	/* debugging styles - activate these styles to preview icon placement */
+
+	/*
+		background: pink;
+		border-radius: 50%;
+	*/
+
+
+}
+
+/* Text Styling */
+
+h1 {
+	color: #333;
+	font-size: 36px;
+	line-height: 42px;
+	text-align: center;
+	font-weight: 800;
+	display: block;
+	text-transform: uppercase;
+	width: 760px;
+	position: absolute;
+	left: 20px;
+}
+
+h2 {
+	color: #333;
+	font-size: 34px;
+	line-height: 34px;
+	text-align: center;
+	font-weight: 700;
+	display: block;
+	
+	width: 760px;
+	position: absolute;
+	left: 20px;
+}
+
+h3 {
+	color: #333;
+	font-size: 34px;
+	line-height: 42px;
+	text-align: center;
+	font-weight: 400;
+	display: block;
+	
+	width: 760px;
+	position: absolute;
+	left: 20px;
+}
+
+h4 {
+	color: #333;
+	font-size: 22px;
+	line-height: 28px;
+	text-align: center;
+	font-weight: 400;
+	display: block;
+	
+	width: 760px;
+	position: absolute;
+	left: 20px;
+}
+
+a {
+	color: #333;
+}
+
+.text {
+	position: absolute;
+	bottom: 20px;
+	left: 100px;
+	width: 600px;
+	text-align: center;
+}
+
+.text strong {
+	font-weight: 600;
+}
+
+#conflicted-apps-list {
+	display: inline-block;
+	padding: 20px;
+	background: #f2f2f2;
+	border-radius: 20px;
+	font-size: 18px;
+	line-height: 24px;
+	text-align: center;
+}
+
+.conflicted-app {
+	display: inline-block; 
+	width: 168px; 
+	float: left;
+}
+
+.button {
+	background: #2F72C0;
+	padding: 5px 15px;
+	border-radius: 8px;
+	display: inline-block;
+	margin: 10px;
+	color: #fff;
+	cursor: pointer;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Installer
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+.welcome-banner {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 0;
+	height: 120px;
+	background: rgba(128,128,128,0.2);
+}
+
+.welcome-banner .icon {
+	width: 100px;
+	height: 100px;
+	float: left;
+	margin: 10px 20px 0 10px;
+
+	position: unset;
+}
+
+.welcome-banner h3 {
+	text-align: left;
+	clear: none;
+	margin: 0;
+	padding: 0;
+	font-size: 32px;
+	font-weight: 700;
+	top: 25px;
+	left: 125px;
+}
+
+.welcome-banner h6 {
+	text-align: left;
+	clear: none;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	font-size: 24px;
+	font-weight: 400;
+	top: 65px;
+	left: 125px;
+	
+}
+
+.welcome-message {
+	position: absolute;
+	width: 510px;
+	font-weight: 500;
+	left: 145px;
+	top: 120px;
+	text-align: center;
+}
+
+.allow-example {
+	position: absolute;
+	top: 132px;
+	left: 170px;
+}
+
+.allow-example.mchip {
+	position: absolute;
+	top: 132px;
+	left: 100px;
+}
+
+.allow-highlight {
+	position: absolute;
+	width: 134px;
+	height: 134px;
+	top: 352px;
+	left: 464px;
+	border: 4px solid #2F72C0;
+	border-radius: 50%;
+}
+
+.allow-highlight.mchip {
+	position: absolute;
+	width: 147px;
+	height: 84px;
+	top: 299px;
+	left: 507px;
+	border: 4px solid #2F72C0;
+	border-radius: 50%;
+}
+
+.enable-highlight {
+	position: absolute;
+	width: 210px;
+	height: 134px;
+	top: 352px;
+	left: 380px;
+	border: 4px solid #2F72C0;
+	border-radius: 50%;
+}
+
+.step {
+	position: absolute;
+	display: block;
+	width: 180px;
+	height: 320px;
+	top: 200px;
+	text-align: center;
+}
+
+/* Steps for 4-up layout */
+.step.one {
+	left: 10px;
+}
+
+.step.two {
+	left: 210px;
+}
+
+.step.three {
+	left: 410px;
+}
+
+.step.four {
+	left: 610px;
+}
+
+/* Steps for 3-up layout */
+.step.a {
+	left: 60px;
+}
+
+.step.b {
+	left: 310px;
+}
+
+.step.c {
+	left: 560px;
+}
+
+
+
+
+.step-number {
+	width: 40px;
+	height: 40px;
+	background: #EDEDED;
+	border-radius: 50%;
+	color: #333;
+	margin: 0 auto;
+	text-align: center;
+	font-weight: 700;
+	padding-top: 7px;
+	font-size: 18px;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Tinted Titles for each app
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/* Airfoil */
+.airfoil .tinted, .airfoil-for-mac .tinted, .airfoil-mac .tinted
+ {
+	color: #0571a3;
+}
+
+.airfoil .allow-highlight, .airfoil .enable-highlight {
+	border-color: #0571a3;
+}
+
+.airfoil .button {
+	background: #0571a3;
+}
+
+.airfoil .welcome-banner {
+	background: rgba(5,113,163,0.1);
+}
+
+
+/* Audio Hijack */
+.audio-hijack .tinted {
+	color: #FF9500;
+	color: color(display-p3 0.943 0.604 0.218);
+}
+
+.audio-hijack .allow-highlight, .audio-hijack .enable-highlight {
+	border-color: #FF9500;
+	border-color: color(display-p3 0.943 0.604 0.218);
+}
+
+.audio-hijack .button {
+	background: #FF9500;
+	background: color(display-p3 0.943 0.604 0.218);
+}
+
+.audio-hijack .welcome-banner {
+	background: color(srgb 1 0.584 0 / 0.2);
+	background: color(display-p3 0.943 0.604 0.218 / 0.2);
+	
+}
+
+/* Farrago */
+.farrago .tinted {
+	color: #7234DC;
+}
+
+.farrago .allow-highlight, .farrago .enable-highlight {
+	border-color: #7234DC;
+}
+
+.farrago .button {
+	background: #7234DC;
+}
+
+.farrago .welcome-banner {
+	background: rgba(114,52,220,0.2);
+}
+
+/* Fission */
+.fission .tinted {
+	color: #D7B85A;
+}
+
+.fission .allow-highlight, .fission .enable-highlight {
+	border-color: #D7B85A;
+}
+
+.fission .button {
+	background: #D7B85A;
+}
+
+.fission .welcome-banner {
+	background: rgba(215,184,90,0.2);
+}
+
+/* Loopback */
+.loopback .tinted {
+	color: #3cbfbf;
+}
+
+.loopback .allow-highlight, .loopback .enable-highlight {
+	border-color: #3cbfbf;
+}
+
+.loopback .button {
+	background: #3cbfbf;
+}
+
+.loopback .welcome-banner {
+	background: rgba(60,191,191,0.2);
+}
+
+/* Piezo */
+.piezo .tinted {
+	color: #C1773E;
+}
+
+.piezo .allow-highlight, .piezo .enable-highlight {
+	border-color: #C1773E;
+}
+
+.piezo .button {
+	background: #C1773E;
+}
+
+.piezo .welcome-banner {
+	background: rgba(193,119,62,0.2);
+}
+
+/* SoundSource */
+.soundsource .tinted {
+	color: #279878;
+}
+
+.soundsource .allow-highlight, .soundsource .enable-highlight {
+	border-color: #279878;
+}
+
+.soundsource .button {
+	background: #279878;
+}
+
+.soundsource .welcome-banner {
+	background: rgba(39,152,120,0.2);
+}
+
+/* Active Styles */
+.button.active {
+	background: #333;
+}
+
+/* Dark Mode Styles */
+@media (prefers-color-scheme: dark) {
+
+	body {
+		background-color: #333;
+		color: #fff;
+	}
+	
+	h1, h1.tour, h2, h3, h4, h5, h6, p {
+		color: #fff;
+	}
+	
+	#conflicted-apps-list {
+		background: #444;
+		border-radius: 20px;
+		color: #fff;
+	}
+	
+	#flash {
+		background: #333;
+	}
+	
+	a {
+		color: #fff;
+	}
+	
+	.step-number {
+		background: rgba(128,128,128,0.2);
+		color: #fff;
+	}
+	
+	/* Airfoil Tints */
+	
+	.airfoil .tinted {
+		color: #37bfe7;
+	}
+	
+	.airfoil .welcome-banner {
+		background: rgba(55,191,231,0.1);
+	}
+	
+	.airfoil .button {
+		background: #37bfe7;
+	}
+	
+	.airfoil .allow-highlight {
+		border-color: #37bfe7;
+	}
+	
+	/* Farrago Tints */
+	.farrago .tinted {
+		color: #BD9FFF;
+	}
+	
+	.farrago .allow-highlight {
+		border-color: #BD9FFF;
+	}
+	
+	.farrago .button {
+		background: #BD9FFF;
+	}
+	
+	.farrago .welcome-banner {
+		background: rgba(189,159,255,0.2);
+	}
+	
+	/* Audio Hijack */
+	.audio-hijack .tinted {
+		color: #FFAC00;
+		color: color(display-p3 1 0.675 0);
+	}
+	
+	.audio-hijack .allow-highlight, .audio-hijack .enable-highlight {
+		border-color: #FFAC00;
+		border-color: color(display-p3 1 0.675 0);
+	}
+	
+	.audio-hijack .button {
+		background: #FFAC00;
+		background: color(display-p3 1 0.675 0);
+	}
+	
+	.audio-hijack .welcome-banner {
+		background: color(srgb 1 0.675 0 / 0.2);
+		background: color(display-p3 1 0.675 0 / 0.2);
+		
+	}
+	
+}
+
+
+

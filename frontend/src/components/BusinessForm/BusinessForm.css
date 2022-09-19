@@ -6,13 +6,14 @@
     justify-content: center;
     width: 100%;
     height: 100%;
-    padding-top: 95px;
+    overflow: scroll;
 }
 
 .business-form-container{
+    margin-top: 5px;
     display: flex;
     border: 2px solid red;
-    background-color: #fff;
+    /* background-color: #fff; */
 }
 
 #submit-business-form {
@@ -25,7 +26,7 @@
   height: 100%;
 }
 
-#submit-business-form div{
+#submit-business-form > div{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -38,7 +39,23 @@
     font-size: 0.9em;
 }
 
+#img-sidebar{
+    width: 60px;
+    background-color: #e01206;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 #img-sidebar img {
     width: 100%;
     height: 100%;
+}
+
+.schedule-field{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>groups</key>
+	<dict>
+		<key>Firefox</key>
+		<array>
+			<string>org.mozilla.firefox</string>
+			<string>org.mozilla.plugincontainer</string>
+		</array>
+		<key>Microsoft Teams</key>
+		<array>
+			<string>com.microsoft.teams</string>
+			<string>com.microsoft.teams.helper</string>
+		</array>
+		<key>Cisco Webex Meetings</key>
+		<array>
+			<string>com.webex.meetingmanager</string>
+			<string>com.cisco.webexmeetingsapp</string>
+		</array>
+		<key>Simulator</key>
+		<array>
+			<string>com.apple.iphonesimulator</string>
+			<string>com.apple.CoreSimulator.SimulatorTrampoline</string>
+			<string>com.apple.CoreSimulator.SimAudioProcessorServices.SimAudioProcessorService</string>
+			<string>com.apple.CoreSimulator.CoreSimulatorService</string>
+		</array>
+	</dict>
+	<key>ignored</key>
+	<array>
+		<string>/System/Library/PrivateFrameworks/TelephonyUtilities.framework/callservicesd</string>
+		<string>/System/Library/PrivateFrameworks/AssistantServices.framework/Versions/A/Support/assistantd</string>
+		<string>/System/Library/CoreServices/loginwindow.app</string>
+		<string>/usr/libexec/avconferenced</string>
+		<string>/System/Library/PrivateFrameworks/CoreSpeech.framework/corespeechd</string>
+		<string>/System/Library/CoreServices/PowerChime.app</string>
+		<string>com.apple.Siri</string>
+		<string>com.apple.controlstrip</string>
+		<string>com.apple.CoreSpeech</string>
+		<string>com.apple.finder</string>
+		<string>com.apple.quicklook.QuickLookUIService</string>
+		<string>com.apple.speech.speechsynthesisd</string>
+		<string>com.apple.loginwindow</string>
+		<string>com.apple.PowerChime</string>
+		<string>/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/SpeechSynthesis.framework/Versions/A/Resources/com.apple.speech.speechsynthesisd</string>
+		<string>aceagent</string>
+		<string>cloudpaird</string>
+	</array>
+	<key>deferred</key>
+	<array>
+		<string>com.avid.ProTools</string>
+		<string>com.avid.ProToolsFirst</string>
+	</array>
+</dict>
+</plist>

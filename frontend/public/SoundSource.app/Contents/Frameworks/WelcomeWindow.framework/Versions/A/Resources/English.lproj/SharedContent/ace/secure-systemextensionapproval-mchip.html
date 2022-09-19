@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="../global/css/style.css">
+		<script type="text/javascript" src="../global/jquery-3.3.1.slim.min.js"></script>
+	</head>
+	
+	
+	<body class="">
+		<div class="slide-bg" id="slide-a" >
+			<h1 class="tinted" style="font-size: 32px; line-height: 36px; margin: 0; top: 10px; text-transform: none; font-weight: 700;"><span class='template-app-name'>DO NOT LOCALIZE</span> Is Almost Ready</h1>
+			
+			<p style="margin: 50px 80px 0; text-align: center;">You now need to adjust your system's settings to allow ACE to run. In the Mac's “Recovery” environment, you'll modify the System Security Policy to match the settings pictured below.  
+		</div>
+		
+		<div class="slide" id="slide-b">
+			<img class="allow-example mchip" src="../global/images/security-settings.png" srcset="../global/images/security-settings@2x.png" width="600" height="400" alt="A security policy with “Reduced Security” selected, and the “Allow user management of kernel extensions” checkbox turned on." style="top: 110px;">
+			
+			<div style="position: absolute; width: 600px; height: 50px; left: 100px; top: 470px; text-align: center;"><p>To begin, click <strong>“Enable System Extensions”</strong> in the <strong>&ldquo;Security & Privacy&rdquo;</strong> System Preference.</p>
+		</div>
+		
+		<div class="slide" id="slide-c">
+			<img class="allow-example mchip" src="../global/images/security-highlight-1.png" srcset="../global/images/security-highlight-1@2x.png" width="600" height="400" style="top: 110px;">
+		</div>
+		
+		<div class="slide" id="slide-d">
+			<img class="allow-example mchip" src="../global/images/security-highlight-2.png" srcset="../global/images/security-highlight-2@2x.png" width="600" height="400" style="top: 110px;">
+		</div>
+		
+		
+	
+	</body>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			setTimeout(function (){
+				$('#slide-b').addClass('visible');
+			}, 150);
+			
+			setTimeout(function (){
+				$('#slide-c').addClass('visible');
+			}, 600);
+			
+			setTimeout(function (){
+				$('#slide-d').addClass('visible');
+			}, 800);
+			
+		});
+		</script>
+</html>

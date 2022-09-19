@@ -1,0 +1,302 @@
+/* 
+Slide system by Neale, September 2019
+This system is built to facilitate multiple slides contained in one HTML file. Changing the state classes on the body will toggle the visibility of the slides. The slides are further divided into layers, which can be used to bring in different content at different times. The CSS is more verbose than needed in order to keep the HTML side more brief and easy to manage.
+
+ */
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+
+/* ==========================================================================
+   Basic Layout and Typography
+   ========================================================================== */
+
+a, a:link, a:visited {
+	color: #2F72C0;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #333;
+	cursor: pointer;
+}
+
+html {
+    color: #333;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 300;
+    
+    /* 2015-09: No good way to set San Francisco font at this time, so using suggestion from: http://furbo.org/2015/07/09/i-left-my-system-fonts-in-san-francisco/ */
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Source Sans Pro', 'Helvetica Neue', Helvetica, Sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+body:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+	
+body {
+	padding: 0px 0px 0px 0px !important;
+	margin: 0;
+	width: 800px;
+	height: 550px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	background-color: #333;
+	color: #fff;
+	font-size: 20px;
+	line-height: 28px;
+	font-family: system, -apple-system, ".SFNSText-Regular", "Helvetica Neue", "Lucida Grande", sans-serif;
+	font-weight: 300;
+	float: inherit;
+	position: relative;
+	-webkit-font-smoothing: antialiased;
+}
+
+#slideshow {
+	width: 800px;
+	height: 550px;
+}
+
+/* Text Styling */
+
+p {
+	font-size: 18px;
+	line-height: 26px;
+	text-align: center;
+	font-weight: 300;
+	display: block;
+	width: 760px;
+	position: absolute;
+	left: 20px;
+	top: 0px;
+}
+
+
+h1 {
+	font-size: 46px;
+	line-height: 46px;
+	text-align: center;
+	font-weight: 800;
+	display: block;
+	text-transform: uppercase;
+	width: 760px;
+	height: auto;
+	position: absolute;
+	left: 20px;
+	top: 20px;
+}
+
+
+h2 {
+	font-size: 32px;
+	line-height: 34px;
+	text-align: center;
+	font-weight: 700;
+	display: block;
+	
+	width: 760px;
+	height: auto;
+	position: absolute;
+	left: 20px;
+	top: 20px;
+}
+
+h3 {
+	font-size: 30px;
+	line-height: 42px;
+	text-align: center;
+	font-weight: 400;
+	
+	width: 760px;
+	position: absolute;
+	left: 20px;
+	top: 0px;
+}
+
+h4 {
+	font-size: 22px;
+	line-height: 28px;
+	text-align: center;
+	font-weight: 400;
+	display: block;
+	
+	width: 760px;
+	height: auto;
+	position: absolute;
+	left: 20px;
+	top: 0;
+}
+
+a {
+	color: #CBB7F1;
+}
+
+.tinted {
+	color: #CBB7F1;
+}
+
+/* ==========================================================================
+   Base Animation
+   ========================================================================== */
+
+
+/* Slide Initial States */
+#slide-1, #slide-2, #slide-3, #slide-4, #slide-5, #slide-6, #slide-7, #slide-8, #slide-9 {
+	position: absolute;
+	display: block;
+	width: 800px;
+	height: 550px;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	pointer-events: none;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	filter: blur(0) !important;
+	transition: all 300ms ease;
+	transition-delay: 0;
+	visiblity: hidden;
+}
+
+/* Fade in slides based on body state */ 
+.state-1 #slide-1, .state-2 #slide-2, .state-3 #slide-3, .state-4 #slide-4, .state-5 #slide-5, .state-6 #slide-6, .state-7 #slide-7, .state-8 #slide-8, .state-9 #slide-9 {
+	opacity: 1;
+	transition: all 500ms ease;
+	visibility: visible;
+	pointer-events: auto;
+}
+
+/* Layer Initial States */
+.layer-1, .layer-2, .layer-3, .layer-4, .layer-5, .layer-6 {
+	display: block;
+	position: absolute;
+	width: 800px;
+	height: 550px;
+	top: 0;
+	left: 0;
+	
+	opacity: 0;
+	visiblity: hidden;
+	pointer-events: none;
+	transform: scale(1.2,1.2);
+	filter: blur(0px);
+	transition: all 300ms ease;
+	transition-delay: 0;
+	overflow: hidden;
+}
+
+/* Title Blocks */
+.layer-1.title, .layer-2.title, .layer-3.title, .layer-4.title, .layer-5.title, .layer-6.title {
+	height: 150px;
+}
+
+
+/* Fade in each layer */
+.state-1 #slide-1 .layer-1, .state-1 #slide-1 .layer-2, .state-1 #slide-1 .layer-3, .state-1 #slide-1 .layer-4, .state-1 #slide-1 .layer-5, .state-1 #slide-1 .layer-6
+
+.state-2 #slide-2 .layer-1, .state-2 #slide-2 .layer-2, .state-2 #slide-2 .layer-3, .state-2 #slide-2 .layer-4, .state-2 #slide-2 .layer-5, .state-2 #slide-2 .layer-6
+
+.state-3 #slide-3 .layer-1, .state-3 #slide-3 .layer-2, .state-3 #slide-3 .layer-3, .state-3 #slide-3 .layer-4, .state-3 #slide-3 .layer-5, .state-3 #slide-3 .layer-6 
+
+.state-4 #slide-4 .layer-1, .state-4 #slide-4 .layer-2, .state-4 #slide-4 .layer-3, .state-4 #slide-4 .layer-4, .state-4 #slide-4 .layer-5, .state-4 #slide-4 .layer-6
+
+.state-5 #slide-5 .layer-5, .state-5 #slide-5 .layer-2, .state-5 #slide-5 .layer-3, .state-5 #slide-5 .layer-4, .state-5 #slide-5 .layer-5, .state-5 #slide-5 .layer-6
+
+{
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+	transform: scale(1,1);
+	filter: blur(0px);
+	transition: all 500ms cubic-bezier(.28,.01,.39,1.2);
+}
+
+/* Add Delays on fade in to stagger animation of each layer */
+.state-1 #slide-1 .layer-1,
+.state-2 #slide-2 .layer-1,
+.state-3 #slide-3 .layer-1,
+.state-4 #slide-4 .layer-1,
+.state-5 #slide-5 .layer-1,
+.state-6 #slide-6 .layer-1,
+.state-7 #slide-7 .layer-1,
+.state-8 #slide-8 .layer-1,
+.state-9 #slide-9 .layer-1 {
+	transition-delay: 200ms;
+}
+
+.state-1 #slide-1 .layer-2,
+.state-2 #slide-2 .layer-2,
+.state-3 #slide-3 .layer-2,
+.state-4 #slide-4 .layer-2,
+.state-5 #slide-5 .layer-2,
+.state-6 #slide-6 .layer-2,
+.state-7 #slide-7 .layer-2,
+.state-8 #slide-8 .layer-2,
+.state-9 #slide-9 .layer-2 {
+	transition-delay: 400ms;
+}
+
+.state-1 #slide-1 .layer-3,
+.state-2 #slide-2 .layer-3,
+.state-3 #slide-3 .layer-3,
+.state-4 #slide-4 .layer-3,
+.state-5 #slide-5 .layer-3,
+.state-6 #slide-6 .layer-3,
+.state-7 #slide-7 .layer-3,
+.state-8 #slide-8 .layer-3,
+.state-9 #slide-9 .layer-3 {
+	transition-delay: 600ms;
+}
+
+.state-1 #slide-1 .layer-4,
+.state-2 #slide-2 .layer-4,
+.state-3 #slide-3 .layer-4,
+.state-4 #slide-4 .layer-4,
+.state-5 #slide-5 .layer-4,
+.state-6 #slide-6 .layer-4,
+.state-7 #slide-7 .layer-4,
+.state-8 #slide-8 .layer-4,
+.state-9 #slide-9 .layer-4 {
+	transition-delay: 800ms;
+}
+
+.state-1 #slide-1 .layer-5,
+.state-2 #slide-2 .layer-5,
+.state-3 #slide-3 .layer-5,
+.state-4 #slide-4 .layer-5,
+.state-5 #slide-5 .layer-5,
+.state-6 #slide-6 .layer-5,
+.state-7 #slide-7 .layer-5,
+.state-8 #slide-8 .layer-5,
+.state-9 #slide-9 .layer-5 {
+	transition-delay: 1000ms;
+}
+
+.state-1 #slide-1 .layer-6,
+.state-2 #slide-2 .layer-6,
+.state-3 #slide-3 .layer-6,
+.state-4 #slide-4 .layer-6,
+.state-5 #slide-5 .layer-6,
+.state-6 #slide-6 .layer-6,
+.state-7 #slide-7 .layer-6,
+.state-8 #slide-8 .layer-6,
+.state-9 #slide-9 .layer-6 {
+	transition-delay: 1200ms;
+}
