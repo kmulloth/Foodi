@@ -132,6 +132,7 @@
     background-color: #fff;
     width: 435px;
     position: absolute;
+    z-index: 2;
 }
 
 #search-results  a{

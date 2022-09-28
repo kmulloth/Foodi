@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/kmulloth/a-A-Solo-1#readme",
   "dependencies": {
-    "@react-google-maps/api": "^2.12.0"
+    "@react-google-maps/api": "^2.13.1"
   }
 }
