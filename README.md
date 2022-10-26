@@ -4,7 +4,7 @@ WORK IN PROGRESS
 ## Navbar (Universal)
 
 ### Search bar
-* filters busness titles and bodys by query
+* filters busness titles
   * ![image](https://user-images.githubusercontent.com/63429309/172107702-8f722a62-6db7-4f2f-8ed0-4d2bd5589e27.png)  
 * empty query displays all businesses
   * ![image](https://user-images.githubusercontent.com/63429309/172107905-4281b9c5-2197-484c-9467-8b89496847a9.png) 
