@@ -1,5 +1,5 @@
 # Foodi
-!!! WORK IN PROGRESS !!!
+WORK IN PROGRESS
 
 ## Navbar (Universal)
 
