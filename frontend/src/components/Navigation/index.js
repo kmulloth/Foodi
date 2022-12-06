@@ -31,13 +31,13 @@ function Navigation({ loaded }){
   } else {
     sessionLinks = (
       <>
+        <NavLink to="/login">Log In</NavLink>
+        <NavLink to="/signup">Sign Up</NavLink>
         <form action='/api/session' method='POST' onSubmit={handleDemoSubmit}>
           <input type='hidden' name='userName' value='Demo-lition' />
           <input type='hidden' name='password' value='password' />
           <button type='submit'>Demo</button>
         </form>
-        <NavLink to="/login">Log In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
       </>
     );
   }

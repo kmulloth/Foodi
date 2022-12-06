@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
 const containerStyle = {
@@ -7,19 +7,31 @@ const containerStyle = {
 };
 
 const center = {
-  lat: -3.745,
-  lng: -38.523
+  lat: 40.745,
+  lng: -74.023
 };
 
 function Map() {
-  return (
+
+  const [key, setKey] = useState()
+
+  useEffect(() => {
+        fetch('/api/maps-api-key').then((res) => {
+            res.json().then((data) => {
+                setKey(data.key);
+            })
+        })
+  },[key] )
+
+  return key && (
     <LoadScript
-      googleMapsApiKey={process.env.GOOGLE_MAPS_API_KEY}
+      googleMapsApiKey={key}
     >
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
         zoom={10}
+        onClick={(e => console.log(e.latLng.toJSON()))}
       >
         { /* Child components, such as markers, info windows, etc. */ }
         <></>
@@ -28,14 +40,4 @@ function Map() {
   )
 }
 
-export default React.memo(Map)
-
-  //parse return from fetch
-  // useEffect(() => {
-  //     fetch('/api/maps-api-key').then((res) => {
-  //         res.json().then((data) => {
-  //             console.log(data.key)
-  //             setKey(data.key);
-  //         })
-  //     })
-  // },[setKey] )
+export default Map
