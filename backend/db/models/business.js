@@ -8,6 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     location: DataTypes.STRING,
     openTimes: DataTypes.STRING,
     closeTimes: DataTypes.STRING,
+    lat: DataTypes.FLOAT,
+    lng: DataTypes.FLOAT,
     rating: DataTypes.FLOAT,
     likes: DataTypes.INTEGER
   }, {});
