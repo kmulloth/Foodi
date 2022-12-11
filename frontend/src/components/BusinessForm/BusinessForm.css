@@ -39,18 +39,9 @@
     font-size: 0.9em;
 }
 
-#img-sidebar{
-    width: 60px;
-    background-color: #e01206;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#img-sidebar img {
+#mapform-container{
     width: 100%;
-    height: 100%;
+    height: 10em;
 }
 
 .schedule-field{

@@ -11,7 +11,7 @@ const center = {
   lng: -74.023
 };
 
-function Map({businesses}) {
+function MapForm({setLat, setLng}) {
 
   const [key, setKey] = useState()
 
@@ -31,17 +31,15 @@ function Map({businesses}) {
         mapContainerStyle={containerStyle}
         center={center}
         zoom={10}
-        onClick={(e => console.log(e.latLng.toJSON()))}
+        onClick={(e => {
+            setLat(e.latLng.toJSON().lat)
+            setLng(e.latLng.toJSON().lng)
+        })}
       >
-        { Object.values(businesses).map(business => (
-          <Marker
-            position={{lat: business?.lat, lng: business?.lng}}
-          />
-        )) }
         <></>
       </GoogleMap>
     </LoadScript>
   )
 }
 
-export default Map
+export default MapForm

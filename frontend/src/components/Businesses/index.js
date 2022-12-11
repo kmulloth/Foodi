@@ -39,7 +39,7 @@ function Businesses () {
                 </div>
             </div>
             <div id='map-container'>
-                <Map />
+                <Map businesses={businesses}/>
             </div>
         </div>
     );

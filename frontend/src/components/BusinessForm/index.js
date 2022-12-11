@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import MapForm from '../MapForm';
 import './BusinessForm.css';
 
 function BusinessForm() {
@@ -8,20 +9,21 @@ function BusinessForm() {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
 
+    const [key, setKey] = useState()
+
     const [name, setName] = useState('');
     const [imgUrl, setImgUrl] = useState('');
     const [body, setBody] = useState('');
     const [openTimes, setOpenTimes] = useState(Array(7).fill('11:00'));
     const [closeTimes, setCloseTimes] = useState(Array(7).fill('22:00'));
-    const [location, setLocation] = useState('');
+    const [location, setLocation] = useState('')
+    const [lat, setLat] = useState(0.0)
+    const [lng, setLng]= useState(0.0);
     const [rating, setRating] = useState(0);
     const [likes, setLikes] = useState(0);
     const [errors, setErrors] = useState([]);
 
     const {createBusiness} = require("../../store/businesses.js");
-
-    useEffect(() => console.log('OPEN TIMES ::', openTimes), [openTimes])
-    useEffect(() => console.log('CLOSE TIMES ::', closeTimes), [closeTimes])
 
     useEffect(() => {
         const errors = [];
@@ -34,6 +36,10 @@ function BusinessForm() {
         setErrors(errors);
     }, [name, body, openTimes, closeTimes]);
 
+    useEffect(() => {
+      console.log(lat, lng)
+    }, [lat, lng])
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const owner_id = sessionUser.id;
@@ -41,16 +47,14 @@ function BusinessForm() {
         let closingTimes = closeTimes.join(',');
         console.log('SCHEDULE ::', openingTimes, closingTimes);
 
-        const business = {name, imgUrl, owner_id, body, openTimes: openingTimes, closeTimes: closingTimes, location, rating, likes};
+        const business = {name, imgUrl, owner_id, body, openTimes: openingTimes, closeTimes: closingTimes, location, lat, lng, rating, likes};
 
         dispatch(createBusiness(business)).then(() => history.push('/'));
     }
+
     return (
       <div className="business-form">
         <div className="business-form-container">
-          <div id='img-sidebar'>
-            {/* <img src={imgUrl ? imgUrl : 'https://www.ppa.com/assets/images/ppmag_articles/2019320160929_ftinc_286_2.jpg'} alt="business-img" /> */}
-          </div>
             <form id='submit-business-form' onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="name">Title</label>
@@ -59,6 +63,9 @@ function BusinessForm() {
               <div>
                 <label htmlFor="location">Location</label>
                 <input type="text" name="location" id="location" value={location} onChange={e => setLocation(e.target.value)} />
+                <div id='mapform-container'>
+                  <MapForm setLat={setLat} setLng={setLng}/>
+                </div>
               </div>
               <div>
                 <label htmlFor="imgUrl">Cover Image (URL)</label>
