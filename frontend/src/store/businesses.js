@@ -39,7 +39,13 @@ export const createBusiness = (business) => async (dispatch) => {
           'Content-Type': 'application/json'
       }
   });
+
+  console.log('Response:', response)
+
   const newBusiness = await response.json();
+
+console.log('NewBusiness',newBusiness)
+
   dispatch(addBusiness(newBusiness));
   dispatch(getBusinesses())
 }

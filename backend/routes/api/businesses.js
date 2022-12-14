@@ -27,7 +27,7 @@ router.get('/:id', asyncHandler(async (req, res) => {
   }))
 
 router.post("/new", requireAuth, asyncHandler(async (req, res) => {
-  const { name, imgUrl, owner_id, body, location, openTimes, closeTimes, rating, likes } = req.body;
+  const { name, imgUrl, owner_id, body, location, openTimes, closeTimes, lat, lng, rating, likes } = req.body;
   const business = await Business.create({
     name,
     imgUrl,
@@ -36,6 +36,8 @@ router.post("/new", requireAuth, asyncHandler(async (req, res) => {
     location,
     openTimes,
     closeTimes,
+    lat,
+    lng,
     rating,
     likes
   });
