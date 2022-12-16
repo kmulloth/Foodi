@@ -31,6 +31,7 @@ function MapForm({lat, setLat, lng, setLng}) {
         mapContainerStyle={containerStyle}
         center={center}
         zoom={10}
+        clickableIcons={false}
         onClick={(e => {
             setLat(e.latLng.toJSON().lat)
             setLng(e.latLng.toJSON().lng)

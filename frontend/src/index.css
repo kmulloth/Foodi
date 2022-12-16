@@ -17,6 +17,10 @@ body{
     margin: 0 auto;
 }
 
+.mainContent{
+    height: 84%;
+}
+
 a{
     text-decoration: none;
     color: #333;

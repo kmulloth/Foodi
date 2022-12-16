@@ -28,6 +28,7 @@ function App() {
     <>
     <Navigation loaded={loaded} />
     {loaded && (
+      <div className="mainContent">
         <Switch>
           <Route path="/login">
             <LoginFormPage />
@@ -57,6 +58,7 @@ function App() {
             <Map />
           </Route>
         </Switch>
+      </div>
       )}
       <Footer />
     </>
