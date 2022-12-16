@@ -17,24 +17,28 @@ function Query () {
         dispatch(getBusinesses({include:[{model: 'User'}]}));
     }, [dispatch]);
 
+    const querySelector = () => {
+        console.log(Object.values(businesses))
+        if (query == '') return Object.values(businesses)
+
+        else return Object.values(businesses).filter(business => (business?.name?.toLowerCase().includes(query?.toLowerCase())))
+    }
+
+    console.log(querySelector())
+
     return (
         <div className="content">
-            <div id='sidebar'>
+            {/* <div id='sidebar'>
                 <div className='sidebar-header'>
                     <strong>Filters</strong>
                 </div>
                 <div className='sidebar-body'>
                 </div>
-            </div>
+            </div> */}
             <div className="businesses">
                 <h1>Businesses</h1>
                 <div className="business-list">
-                    {query !== '' ? Object.values(businesses).filter(business => {
-                        if (query === '') {
-                          return
-                        } else if (business?.name?.toLowerCase().includes(query?.toLowerCase()) ) {
-                        return business
-                        }}).map(business => (
+                    {query !== '' ? querySelector().map(business => (
                         <div className="business-item" key={business?.id}>
                             <NavLink to={`/businesses/${business?.id}`}>
                                 <img src={business?.imgUrl} alt={business?.name} />
@@ -58,7 +62,7 @@ function Query () {
                 </div>
             </div>
             <div id='map-container'>
-                <Map />
+                <Map businesses={querySelector()}/>
             </div>
         </div>
     );

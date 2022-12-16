@@ -16,13 +16,13 @@ function Businesses () {
 
     return (
         <div className="content">
-            <div id='sidebar'>
+            {/* <div id='sidebar'>
                 <div className='sidebar-header'>
                     <strong>Filters</strong>
                 </div>
                 <div className='sidebar-body'>
                 </div>
-            </div>
+            </div> */}
             <div className="businesses">
                 <div className="business-list">
                     {Object.values(businesses).map(business => (

@@ -64,7 +64,7 @@ function BusinessForm() {
                 <label htmlFor="location">Location</label>
                 <input type="text" name="location" id="location" value={location} onChange={e => setLocation(e.target.value)} />
                 <div id='mapform-container'>
-                  <MapForm setLat={setLat} setLng={setLng}/>
+                  <MapForm lat={lat} setLat={setLat} lng={lng} setLng={setLng}/>
                 </div>
               </div>
               <div>

@@ -11,7 +11,7 @@ const center = {
   lng: -74.023
 };
 
-function MapForm({setLat, setLng}) {
+function MapForm({lat, setLat, lng, setLng}) {
 
   const [key, setKey] = useState()
 
@@ -36,6 +36,7 @@ function MapForm({setLat, setLng}) {
             setLng(e.latLng.toJSON().lng)
         })}
       >
+        <Marker position={{lat: lat, lng: lng}} />
         <></>
       </GoogleMap>
     </LoadScript>

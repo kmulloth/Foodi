@@ -24,7 +24,7 @@ function Search () {
         <div id='search'>
         <div id='search-bar'>
           <input placeholder='Search' value={query} onChange={e => setQuery(e.target.value)}/>
-          <NavLink exact to={query == ''? '/businesses' : `/search/${query}`} onClick={e => setQuery('')} ><i className="fa-solid fa-magnifying-glass"></i></NavLink>
+          <NavLink exact to={query === ''? '/businesses' : `/search/${query}`} onClick={e => setQuery('')} ><i className="fa-solid fa-magnifying-glass"></i></NavLink>
         </div>
         <div id='search-results'>
             {
