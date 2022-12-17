@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import Geocoder from 'react-native-geocoding';
 
 const containerStyle = {
   width: '100%',
@@ -11,7 +12,7 @@ const center = {
   lng: -74.023
 };
 
-function MapForm({lat, setLat, lng, setLng}) {
+function MapForm({lat, setLat, lng, setLng, setLocation}) {
 
   const [key, setKey] = useState()
 
@@ -22,6 +23,8 @@ function MapForm({lat, setLat, lng, setLng}) {
             })
         })
   },[key] )
+
+  Geocoder.init(key)
 
   return key && (
     <LoadScript
@@ -35,6 +38,10 @@ function MapForm({lat, setLat, lng, setLng}) {
         onClick={(e => {
             setLat(e.latLng.toJSON().lat)
             setLng(e.latLng.toJSON().lng)
+            Geocoder.from(lat, lng).then(json => {
+              console.log(json.results[0].formatted_address)
+              setLocation(json.results[0].formatted_address)
+            })
         })}
       >
         <Marker position={{lat: lat, lng: lng}} />

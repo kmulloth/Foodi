@@ -8,6 +8,7 @@ function BusinessForm() {
     const history = useHistory();
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
+    const regex = /(https:\/\/)([^\s(["<,>/]*)(\/)[^\s[",><]*(.png|.jpg)(\?[^\s[",><]*)?/
 
     const [key, setKey] = useState()
 
@@ -31,10 +32,11 @@ function BusinessForm() {
         // console.log('date:', date, '--- today:', today);
         if (!name) errors.push('Title is required');
         if (!body) errors.push('Body is required');
+        if (!regex.test(imgUrl)) errors.push('Cover Image is required')
         if (openTimes.includes('') || closeTimes.includes('')) errors.push('Schedule is required');
 
         setErrors(errors);
-    }, [name, body, openTimes, closeTimes]);
+    }, [name, body, imgUrl, openTimes, closeTimes]);
 
     useEffect(() => {
       console.log(lat, lng)
@@ -62,9 +64,9 @@ function BusinessForm() {
               </div>
               <div>
                 <label htmlFor="location">Location</label>
-                <input type="text" name="location" id="location" value={location} onChange={e => setLocation(e.target.value)} />
+                <input type="text" name="location" id="location" disabled={true} value={location} onChange={e => setLocation(e.target.value)} />
                 <div id='mapform-container'>
-                  <MapForm lat={lat} setLat={setLat} lng={lng} setLng={setLng}/>
+                  <MapForm lat={lat} setLat={setLat} lng={lng} setLng={setLng} setLocation={setLocation}/>
                 </div>
               </div>
               <div>
