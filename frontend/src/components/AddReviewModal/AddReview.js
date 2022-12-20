@@ -9,6 +9,8 @@ function AddReview({businessId, setShowModal}) {
     const dispatch = useDispatch();
 
     const user_id = useSelector(state => state?.session?.user?.id);
+    const business = useSelector(state => state.businesses[businessId])
+    console.log(business.Reviews)
     const [value, setValue] = useState(0);
     const [body, setBody] = useState('');
     const [img, setImg] = useState(null);
@@ -16,8 +18,23 @@ function AddReview({businessId, setShowModal}) {
     const handleSubmit = (e) => {
         e.preventDefault();
         const review = {user_id, business_id: businessId, value, body, img};
+        const newBusiness = {
+            id: businessId,
+            name: business?.name,
+            imgUrl: business?.imgUrl,
+            owner_id: business?.owner_id,
+            body: business?.body,
+            type: business?.type,
+            cusine: business?.cusine,
+            location: business?.location,
+            lat: business?.lat,
+            lng: business?.lng,
+            rating: business.Reviews.reduce((a, b) => a + b)/business.Reviews.length,
+            likes: business?.likes};
 
-        dispatch(reviewActions.createReview(review))
+        dispatch(reviewActions.createReview(review)).then(
+            dispatch(businessActions.editBusiness())
+        )
 
         setShowModal(false);
     }

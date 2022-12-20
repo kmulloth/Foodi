@@ -41,8 +41,13 @@ function Query () {
                             <NavLink to={`/businesses/${business?.id}`}>
                                 <img src={business?.imgUrl} alt={business?.name} />
                                 <div className='business-info'>
-                                    <h2>{business?.name}</h2>
-                                    <p>{Object.values(business?.Reviews).length} Reviews</p>
+                                    <div className='business-info-header'>
+                                        <h2>{business?.name}</h2>
+                                        <p>{business.rating.toFixed(1)} ({Object.values(business?.Reviews).length})</p>
+                                    </div>
+                                    <div className='business-type'>
+                                        <p>{business.cusine} {business.type === 'truck' ? 'Food Truck' : business.type}</p>
+                                    </div>
                                 </div>
                             </NavLink>
                         </div>
@@ -52,7 +57,7 @@ function Query () {
                                 <img src={business?.imgUrl} alt={business?.name} />
                                 <div className='business-info'>
                                     <h2>{business?.name}</h2>
-                                    <p>{Object.values(business?.Reviews).length} Reviews</p>
+                                    <p>({Object.values(business?.Reviews).length})</p>
                                 </div>
                             </NavLink>
                         </div>

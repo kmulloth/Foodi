@@ -23,6 +23,7 @@
     padding: 10px;
     transition: border 0.3s ease-in-out;
     transition: box-shadow 0.2s ease-in-out;
+
 }
 
 .business-item a:hover{
@@ -36,6 +37,25 @@
     object-fit: cover;
     margin-right: 10px;
     border-radius: 5px;
+}
+
+.business-info {
+    width: 100%
+}
+
+.business-info-header {
+    display: flex;
+    justify-content: space-between;
+    width:100%
+}
+.business-info-header *{
+    margin: 0;
+}
+
+.business-type p {
+    color: #999;
+    font-style: italic;
+    margin: 0
 }
 
 .businesses{
