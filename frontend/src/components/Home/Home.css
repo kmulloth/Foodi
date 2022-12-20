@@ -3,7 +3,7 @@
   top: 0;
   width: 100%;
   /* height: 100%; */
-  z-index: -1;
+  /* z-index: -1; */
 }
 
 .carousel-container img{
@@ -29,7 +29,7 @@
     -webkit-text-stroke-color: #222;
 }
 
-.carousel-body a{
+.carousel-body .carousel-query{
     background-image: radial-gradient( red, rgb(226, 9, 9));
     padding: 15px;
     color: white;

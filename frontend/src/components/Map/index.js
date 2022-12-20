@@ -35,6 +35,7 @@ function Map({businesses}) {
       >
         { Object.values(businesses).map(business => (
           <Marker
+            key={business?.id}
             position={{lat: business?.lat, lng: business?.lng}}
           />
         )) }

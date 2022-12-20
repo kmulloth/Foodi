@@ -15,6 +15,8 @@ function BusinessForm() {
     const [name, setName] = useState('');
     const [imgUrl, setImgUrl] = useState('');
     const [body, setBody] = useState('');
+    const [type, setType] = useState('restaurant')
+    const [cusine, setCusine] = useState('American')
     const [openTimes, setOpenTimes] = useState(Array(7).fill('11:00'));
     const [closeTimes, setCloseTimes] = useState(Array(7).fill('22:00'));
     const [location, setLocation] = useState('')
@@ -29,14 +31,15 @@ function BusinessForm() {
     useEffect(() => {
         const errors = [];
         // console.log('SCHEDULE ::', openTimes, closeTimes);
-        // console.log('date:', date, '--- today:', today);
+        console.log('type::', type, 'cusine::', cusine);
+        if (!location) errors.push('Click on the map to select a location')
         if (!name) errors.push('Title is required');
         if (!body) errors.push('Body is required');
         if (!regex.test(imgUrl)) errors.push('Cover Image is required')
         if (openTimes.includes('') || closeTimes.includes('')) errors.push('Schedule is required');
 
         setErrors(errors);
-    }, [name, body, imgUrl, openTimes, closeTimes]);
+    }, [name, body, type, cusine, imgUrl, location, openTimes, closeTimes]);
 
     useEffect(() => {
       console.log(lat, lng)
@@ -49,7 +52,7 @@ function BusinessForm() {
         let closingTimes = closeTimes.join(',');
         console.log('SCHEDULE ::', openingTimes, closingTimes);
 
-        const business = {name, imgUrl, owner_id, body, openTimes: openingTimes, closeTimes: closingTimes, location, lat, lng, rating, likes};
+        const business = {name, imgUrl, owner_id, body, type, cusine, openTimes: openingTimes, closeTimes: closingTimes, location, lat, lng, rating, likes};
 
         dispatch(createBusiness(business)).then(() => history.push('/'));
     }
@@ -63,15 +66,33 @@ function BusinessForm() {
                 <input type="text" name="name" id="name" value={name} onChange={e => setName(e.target.value)} />
               </div>
               <div>
+                <label htmlFor="imgUrl">Cover Image (URL)</label>
+                <input type="text" name="imgUrl" id="imgUrl" value={imgUrl} onChange={e => setImgUrl(e.target.value)} />
+              </div>
+              <div>
+                <label htmlFor='type'>Establishment Type</label>
+                <select name='type' id='type' value={type} onChange={e => setType(e.target.value)}>
+                  <option name='restaurant' value='restaurant'>Restaurant</option>
+                  <option name='truck' value='truck'>Food Truck</option>
+                  <option name='bar' value='bar'>Bar</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor='cusine'>Cusine</label>
+                <select name='cusine' value={cusine} onChange={e => setCusine(e.target.value)}>
+                  <option value='american'>American</option>
+                  <option value='japanese'>Japanese</option>
+                  <option value='french'>French</option>
+                  <option value='italian'>Italian</option>
+                  <option value='mediterranean'>Mediterranean</option>
+                </select>
+              </div>
+              <div>
                 <label htmlFor="location">Location</label>
                 <input type="text" name="location" id="location" disabled={true} value={location} onChange={e => setLocation(e.target.value)} />
                 <div id='mapform-container'>
                   <MapForm lat={lat} setLat={setLat} lng={lng} setLng={setLng} setLocation={setLocation}/>
                 </div>
-              </div>
-              <div>
-                <label htmlFor="imgUrl">Cover Image (URL)</label>
-                <input type="text" name="imgUrl" id="imgUrl" value={imgUrl} onChange={e => setImgUrl(e.target.value)} />
               </div>
               <div>
                 <label htmlFor="body">Body</label>

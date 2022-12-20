@@ -26,6 +26,12 @@ module.exports = {
       body: {
         type: Sequelize.TEXT
       },
+      type:  {
+        type: Sequelize.STRING,
+      },
+      cusine: {
+        type: Sequelize.STRING
+      },
       location: {
         type: Sequelize.STRING,
         allowNull: false,

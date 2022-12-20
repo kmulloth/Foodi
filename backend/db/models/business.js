@@ -5,6 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     imgUrl: DataTypes.STRING,
     owner_id: DataTypes.INTEGER,
     body: DataTypes.TEXT,
+    type: DataTypes.STRING,
+    cusine: DataTypes.STRING,
     location: DataTypes.STRING,
     openTimes: DataTypes.STRING,
     closeTimes: DataTypes.STRING,

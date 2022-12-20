@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
 import { getBusinesses } from '../../store/businesses';
@@ -7,7 +7,7 @@ import './Query.css';
 
 function Query () {
     const dispatch = useDispatch();
-    const sessionUser = useSelector(state => state.session.user);
+    // const sessionUser = useSelector(state => state.session.user);
     const businesses = useSelector(state => state?.businesses);
     const { query } = useParams();
 
@@ -19,12 +19,10 @@ function Query () {
 
     const querySelector = () => {
         console.log(Object.values(businesses))
-        if (query == '') return Object.values(businesses)
+        if (query === '') return Object.values(businesses)
 
-        else return Object.values(businesses).filter(business => (business?.name?.toLowerCase().includes(query?.toLowerCase())))
+        else return Object.values(businesses).filter(business => (business?.name?.toLowerCase().includes(query?.toLowerCase()) || business?.type.toLowerCase().includes(query?.toLowerCase()) || business?.cusine.toLowerCase().includes(query.toLowerCase())))
     }
-
-    console.log(querySelector())
 
     return (
         <div className="content">

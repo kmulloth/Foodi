@@ -9,7 +9,7 @@ function ImgCarousel () {
             </div>
             <div className="carousel-body">
                 <h1>Hidden Gems in your Neighborhood</h1>
-                <NavLink to="/search/truck"><i className="fa-solid fa-magnifying-glass"> Food Trucks</i></NavLink>
+                <NavLink className='carousel-query' to='/search/truck'><i className="fa-solid fa-magnifying-glass"> Food Trucks</i></NavLink>
             </div>
         </div>
     )
