@@ -27,12 +27,14 @@ router.get('/:id', asyncHandler(async (req, res) => {
   }))
 
 router.post("/new", requireAuth, asyncHandler(async (req, res) => {
-  const { name, imgUrl, owner_id, body, location, openTimes, closeTimes, lat, lng, rating, likes } = req.body;
+  const { name, imgUrl, owner_id, body, cusine, type, location, openTimes, closeTimes, lat, lng, rating, likes } = req.body;
   const business = await Business.create({
     name,
     imgUrl,
     owner_id,
     body,
+    cusine,
+    type,
     location,
     openTimes,
     closeTimes,
@@ -47,7 +49,7 @@ router.post("/new", requireAuth, asyncHandler(async (req, res) => {
 }));
 
 router.put('/:id', requireAuth, asyncHandler(async (req, res) => {
-    const { name, imgUrl, owner_id, body, location, openTimes, closeTimes, rating, likes } = req.body;
+    const { name, imgUrl, owner_id, body, cusine, type, location, lat, lng,  openTimes, closeTimes, rating, likes } = req.body;
     const business = await Business.findOne({
       where: {
         id: req.params.id
@@ -58,7 +60,11 @@ router.put('/:id', requireAuth, asyncHandler(async (req, res) => {
     business.imgUrl = imgUrl;
     business.owner_id = owner_id;
     business.body = body;
+    business.type = type;
+    business.cusine = cusine;
     business.location = location;
+    business.lat = lat;
+    business.lng = lng;
     business.openTimes = openTimes;
     business.closeTimes = closeTimes;
     business.rating = rating;

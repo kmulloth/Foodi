@@ -27,14 +27,19 @@ function Businesses () {
                 <div className="business-list">
                     {Object.values(businesses).map(business => (
                         <div className="business-item" key={business?.id}>
-                            <NavLink to={`/businesses/${business?.id}`}>
-                                <img src={business?.imgUrl} alt={business?.name} />
-                                <div className='business-info'>
+                        <NavLink to={`/businesses/${business?.id}`}>
+                            <img src={business?.imgUrl} alt={business?.name} />
+                            <div className='business-info'>
+                                <div className='business-info-header'>
                                     <h2>{business?.name}</h2>
-                                    <p>{Object.values(business?.Reviews).length} Reviews</p>
+                                    <p>{business.rating.toFixed(1)} ({Object.values(business?.Reviews).length})</p>
                                 </div>
-                            </NavLink>
-                        </div>
+                                <div className='business-type'>
+                                    <p>{business.cusine} {business.type === 'truck' ? 'Food Truck' : business.type}</p>
+                                </div>
+                            </div>
+                        </NavLink>
+                    </div>
                     ))}
                 </div>
             </div>

@@ -31,7 +31,7 @@ function BusinessForm() {
     useEffect(() => {
         const errors = [];
         // console.log('SCHEDULE ::', openTimes, closeTimes);
-        console.log('type::', type, 'cusine::', cusine);
+        // console.log('type::', type, 'cusine::', cusine);
         if (!location) errors.push('Click on the map to select a location')
         if (!name) errors.push('Title is required');
         if (!body) errors.push('Body is required');
@@ -41,16 +41,12 @@ function BusinessForm() {
         setErrors(errors);
     }, [name, body, type, cusine, imgUrl, location, openTimes, closeTimes]);
 
-    useEffect(() => {
-      console.log(lat, lng)
-    }, [lat, lng])
-
     const handleSubmit = (e) => {
         e.preventDefault();
         const owner_id = sessionUser.id;
         let openingTimes = openTimes.join(',');
         let closingTimes = closeTimes.join(',');
-        console.log('SCHEDULE ::', openingTimes, closingTimes);
+        // console.log('SCHEDULE ::', openingTimes, closingTimes);
 
         const business = {name, imgUrl, owner_id, body, type, cusine, openTimes: openingTimes, closeTimes: closingTimes, location, lat, lng, rating, likes};
 

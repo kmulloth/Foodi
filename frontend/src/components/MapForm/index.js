@@ -7,12 +7,12 @@ const containerStyle = {
   height: '100%'
 };
 
-const center = {
+const defaultCenter = {
   lat: 40.745,
   lng: -74.023
 };
 
-function MapForm({lat, setLat, lng, setLng, setLocation}) {
+function MapForm({lat, setLat, lng, setLng, setLocation, center}) {
 
   const [key, setKey] = useState()
 
@@ -32,7 +32,7 @@ function MapForm({lat, setLat, lng, setLng, setLocation}) {
     >
       <GoogleMap
         mapContainerStyle={containerStyle}
-        center={center}
+        center={center || defaultCenter}
         zoom={10}
         clickableIcons={false}
         onClick={(e => {
