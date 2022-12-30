@@ -32,7 +32,13 @@ function Businesses () {
                             <div className='business-info'>
                                 <div className='business-info-header'>
                                     <h2>{business?.name}</h2>
-                                    <p>{business.rating.toFixed(1)} ({Object.values(business?.Reviews).length})</p>
+                                    <div
+                                        className="Stars"
+                                        style={{'--rating': business?.rating.toFixed(1)}}
+                                        aria-label={`Rating of this business is ${business?.rating / 5 * 100}%`}
+                                    >
+                                        <p>&ensp;{business?.Reviews?.length} reviews</p>
+                                    </div>
                                 </div>
                                 <div className='business-type'>
                                     <p>{business.cusine} {business.type === 'truck' ? 'Food Truck' : business.type}</p>

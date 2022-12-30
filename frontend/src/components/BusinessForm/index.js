@@ -68,19 +68,19 @@ function BusinessForm() {
               <div>
                 <label htmlFor='type'>Establishment Type</label>
                 <select name='type' id='type' value={type} onChange={e => setType(e.target.value)}>
-                  <option name='restaurant' value='restaurant'>Restaurant</option>
+                  <option name='restaurant' value='Restaurant'>Restaurant</option>
                   <option name='truck' value='truck'>Food Truck</option>
-                  <option name='bar' value='bar'>Bar</option>
+                  <option name='bar' value='Bar'>Bar</option>
                 </select>
               </div>
               <div>
                 <label htmlFor='cusine'>Cusine</label>
                 <select name='cusine' value={cusine} onChange={e => setCusine(e.target.value)}>
-                  <option value='american'>American</option>
-                  <option value='japanese'>Japanese</option>
-                  <option value='french'>French</option>
-                  <option value='italian'>Italian</option>
-                  <option value='mediterranean'>Mediterranean</option>
+                  <option value='American'>American</option>
+                  <option value='Japanese'>Japanese</option>
+                  <option value='French'>French</option>
+                  <option value='Italian'>Italian</option>
+                  <option value='Mediterranean'>Mediterranean</option>
                 </select>
               </div>
               <div>

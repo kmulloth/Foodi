@@ -25,6 +25,7 @@
   "homepage": "https://github.com/kmulloth/a-A-Solo-1#readme",
   "dependencies": {
     "@react-google-maps/api": "^2.13.1",
+    "better-react-carousel": "^1.1.1",
     "react-native-geocoding": "^0.5.0"
   }
 }

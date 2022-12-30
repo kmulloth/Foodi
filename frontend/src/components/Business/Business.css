@@ -1,21 +1,80 @@
 .Business{
     margin: 0 auto;
-    width: 70%;
+    /* width: 70%; */
 }
 
 .Business-header{
+    position: relative;
     display: flex;
     justify-content: space-between;
+}
+.Business-info{
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0) 100%);
+    bottom: 0;
+    color: white;
+    font-size: 120%;
+    padding-left: 20em;
+    padding-bottom: 2em;
+    position: absolute;
+    width: calc(100% - 20em);
+    z-index: 10;
+}
+.Stars {
+    --percent: calc(var(--rating) / 5 * 100%);
+    display: flex;
+    align-items: center;
+  }
+.Stars::before{
+    content: '★★★★★';
+    background: linear-gradient(90deg, red var(--percent), white var(--percent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.Stars > p {
+    margin: 0;
+    font-size: 0.6em;
+}
+.Business-info > * {
+    margin: 0;
+}
+.Business-info > h2 {
+    font-size: 3em;
+    -webkit-text-stroke: 1px black;
+}
+.Business-info > .Stars {
+    padding-bottom: 5px;
+    font-size: 1.5em;
+}
+.biz-image-carousel {
+    display: flex;
+    position: relative;
     width: 100%;
+    height: 15%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: scroll;
+    scroll-snap-type: x mandatory;
+}
+.biz-image-carousel img {
+    width: 100%;
+    height: 35em;
+    object-fit: cover;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+.Business-body{
+    margin: 0 20em 0 20em;
 }
 .Business-address{
     width: 100%;
     display: flex;
     justify-content: space-between;
+    margin: 0 auto;
     margin-bottom: 20px;
 }
 
-.Business-body{
+.Business-desc{
     min-height: 200px;
     border-bottom: 1px solid #e1e1e1;
     padding: 5px;
@@ -25,15 +84,6 @@
     display: flex;
     justify-content: space-between;
     width: min-content;
-}
-h3, h4{
-    font-weight: 600;
-    color: #333;
-    margin: 2px 0px;
-}
-
-h3{
-    margin-bottom: 10px;
 }
 
 .Business-review{

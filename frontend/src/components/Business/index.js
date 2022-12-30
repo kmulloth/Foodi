@@ -10,8 +10,8 @@ import ImgCarousel from './ImgCarousel.js';
 import './Business.css';
 
 function Business(){
-    const { businessId } = useParams();
     const dispatch = useDispatch();
+    const { businessId } = useParams();
     const business = useSelector(state => state?.businesses[businessId])
     const reviews = useSelector(state => state?.reviews);
     const user = useSelector(state => state?.session?.user);
@@ -28,25 +28,21 @@ function Business(){
 
     return (
         <div className="Business">
-            <ImgCarousel />
-            <div className="Business-header">
-                <h2>{business?.name}</h2>
-                {user?.id === business?.owner_id && (
-                    <div className='owner-buttons'>
-                        <ConfirmDeleteModal businessId={business?.id}/>
-                        <NavLink to={location}><i class="fa-solid fa-pen-to-square"></i></NavLink>
-                    </div>
-                )}
-                <div className="Business-info">
-                    <h3>{business?.rating?.toFixed(1)}</h3>
-                </div>
-            </div>
-            <div className="Business-info">
+            {business && <ImgCarousel business={business} reviews={business?.Reviews}/>}
+            <div className="Business-body">
                 <div className="Business-address">
                     <p>{business?.location}</p>
-                    {user?.id && user?.id !== business?.owner_id && (<AddReviewModal businessId={business?.id}/>)}
+                    {user?.id !== business?.owner_id && (
+                        <AddReviewModal businessId={business?.id}/>)
+                    }
+                    {user?.id === business?.owner_id && (
+                        <div className='owner-buttons'>
+                            <ConfirmDeleteModal businessId={business?.id}/>
+                            <NavLink to={location}><i className="fa-solid fa-pen-to-square"></i></NavLink>
+                        </div>
+                    )}
                 </div>
-                <div className="Business-body">
+                <div className="Business-desc">
                     <p>{business?.body}</p>
                 </div>
             <div className="Business-reviews">

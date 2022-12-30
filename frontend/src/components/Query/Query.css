@@ -44,12 +44,15 @@
 }
 
 .business-info-header {
-    display: flex;
     justify-content: space-between;
-    width:100%
+    width:100%;
+    margin-bottom: 0.5em;
 }
 .business-info-header *{
     margin: 0;
+}
+.business-info-header > .Stars {
+    font-size: 1em
 }
 
 .business-type p {

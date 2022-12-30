@@ -33,7 +33,9 @@ function AddReview({businessId, setShowModal}) {
             likes: business?.likes};
 
         dispatch(reviewActions.createReview(review)).then(
-            dispatch(businessActions.editBusiness())
+            dispatch(businessActions.editBusiness(newBusiness)).then(
+                dispatch(businessActions.getBusinesses)
+            )
         )
 
         setShowModal(false);
@@ -53,6 +55,7 @@ function AddReview({businessId, setShowModal}) {
                     onChange={e => setBody(e.target.value)}
                 />
                 <div className="img-upload">
+                  <label htmlFor='myImage'>Add Picture</label>
                   <input
                     type="text"
                     name="myImage"

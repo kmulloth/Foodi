@@ -5,7 +5,8 @@
     height: 7%;
     width: 100%;
     background-color: transparent;
-    padding: 20px;
+    padding-top: 2px;
+    padding-bottom: 2px;
     margin: 0;
     color: #fff;
 }

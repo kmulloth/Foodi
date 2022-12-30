@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import { NavLink } from 'react-router-dom';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 const containerStyle = {
@@ -12,7 +13,6 @@ const center = {
 };
 
 function Map({businesses}) {
-
   const [key, setKey] = useState()
 
   useEffect(() => {
@@ -31,14 +31,13 @@ function Map({businesses}) {
         mapContainerStyle={containerStyle}
         center={center}
         zoom={10}
-        onClick={(e => console.log(e.latLng.toJSON()))}
       >
         { Object.values(businesses).map(business => (
           <Marker
-            key={business?.id}
-            position={{lat: business?.lat, lng: business?.lng}}
-          />
-        )) }
+              key={business?.id}
+              position={{lat: business?.lat, lng: business?.lng}}
+            />
+          ))}
         <></>
       </GoogleMap>
     </LoadScript>
