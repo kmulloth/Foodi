@@ -10,43 +10,67 @@
 }
 
 .business-form-container{
-    margin-top: 5px;
+    margin: 0;
     display: flex;
     border: 2px solid red;
+    width: 100%;
+    height: 100%
     /* background-color: #fff; */
 }
 
 #submit-business-form {
   background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: space-between;
-  justify-content: flex-start;
   padding: 20px;
   height: 100%;
+  width: 100%;
 }
 
-#submit-business-form > div{
+.inputfields{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 2px solid red;
+}
+
+.textfields {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    padding: 2em
+}
+
+.textfields input {
     width: 100%;
+    height: 2em
+}
+
+.textfields textarea {
+    height: 5em;
+    width: 100%;
+}
+
+.schedule-field{
+    display: flex;
+    flex-direction: row;
+    color: red;
+    font-size: 1.5em;
+    justify-content: flex-start;
+
+}
+
+.mapfield{
+    height: 100%;
+    width: 100%;
+    border-radius: 3em;
+    object-fit: cover;
+}
+
+#mapform-container{
+    width: 30em;
+    height: 100%;
 }
 
 #errors{
     list-style: none;
     color: red;
     font-size: 0.9em;
-}
-
-#mapform-container{
-    width: 100%;
-    height: 10em;
-}
-
-.schedule-field{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
 }
