@@ -35,7 +35,7 @@ function ImgCarousel({business, reviews}){
                 <h2>{business?.name}</h2>
                 <div
                     className="Stars"
-                    style={{'--rating': business?.rating.toFixed(1)}}
+                    style={{'--rating':business?.rating > 0 ? business?.rating.toFixed(1) : 0}}
                     aria-label={`Rating of this business is ${business?.rating / 5 * 100}%`}
                 >
                     <p>&ensp;{reviews?.length} reviews</p>

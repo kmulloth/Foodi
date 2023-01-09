@@ -29,7 +29,9 @@ function AddReview({businessId, setShowModal}) {
             location: business?.location,
             lat: business?.lat,
             lng: business?.lng,
-            rating: business.Reviews.reduce((a, b) => a + b)/business.Reviews.length,
+            openTimes: business?.openTimes,
+            closeTimes:business?.closeTimes,
+            rating: business?.Reviews.length > 0 ? business?.Reviews.reduce((a, b) => a + b)/business.Reviews.length : value,
             likes: business?.likes};
 
         dispatch(reviewActions.createReview(review)).then(
