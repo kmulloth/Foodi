@@ -66,7 +66,7 @@ function BusinessForm() {
                     <input placeholder='Paste Image URL' type="text" name="imgUrl" id="imgUrl" value={imgUrl} onChange={e => setImgUrl(e.target.value)} />
                   </div>
                   <div>
-                  <input placeholder='Click on map to set Location' type="text" name="location" id="location" disabled={true} value={location} onChange={e => setLocation(e.target.value)} />
+                    <input placeholder='Click on map to set Location' type="text" name="location" id="location" disabled={true} value={location} onChange={e => setLocation(e.target.value)} />
                   </div>
                   <div>
                     <textarea placeholder='Describe your business' name="body" id="body" value={body} onChange={e => setBody(e.target.value)} />

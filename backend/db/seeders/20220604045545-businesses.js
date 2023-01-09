@@ -12,7 +12,9 @@ module.exports = {
         closeTimes: "22:00,22:00,22:00,22:00,22:00,22:00,22:00",
         lat: 40.732226415967354,
         lng: -73.98449300773979,
-        location: '123 Main St, New York, NY 10001'
+        location: '123 Main St, New York, NY 10001',
+        type: 'truck',
+        cusine: 'Mediterranean'
       },
       {
         name: 'The Baratie',
@@ -23,7 +25,9 @@ module.exports = {
         closeTimes: "22:00,22:00,22:00,22:00,22:00,22:00,22:00",
         lat: 39.47274385667352,
         lng: -70.84439555003725,
-        location: 'Pacific Ocean'
+        location: 'Pacific Ocean',
+        type: 'truck',
+        cusine: 'American'
       }
     ], {});
   },
