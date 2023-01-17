@@ -62,10 +62,13 @@
 }
 
 .businesses{
+    padding: 0 0.5em 0 0.5em;
     width: 40%;
     height: 100%;
     box-shadow: 10px 0px 10px  rgb(0, 0, 0, 0.5);
     z-index: 1;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .content{
