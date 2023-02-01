@@ -104,3 +104,10 @@
     padding: 10px;
     padding-left: 20px;
 }
+
+#empty-query {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%
+}

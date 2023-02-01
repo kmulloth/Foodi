@@ -4,7 +4,7 @@ import { Redirect, NavLink } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css';
 
-function SignupFormPage() {
+function SignupForm() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
@@ -70,9 +70,8 @@ function SignupFormPage() {
         />
       </label>
       <button type="submit" >Sign Up</button>
-      <p>Already Signed up?<NavLink to="/login">Log In</NavLink></p>
     </form>
   );
 }
 
-export default SignupFormPage;
+export default SignupForm;

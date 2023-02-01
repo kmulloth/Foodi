@@ -34,8 +34,8 @@ function Query () {
                 </div>
             </div> */}
             <div className="businesses">
-                <h1>Businesses</h1>
                 <div className="business-list">
+                    {querySelector().length === 0 && <div id='empty-query'><p>{`No Results Found for '${query}'`}</p></div>}
                     {query !== '' ? querySelector().map(business => (
                         <div className="business-item" key={business?.id}>
                             <NavLink to={`/businesses/${business?.id}`}>

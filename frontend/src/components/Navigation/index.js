@@ -2,6 +2,8 @@ import {useEffect, useState} from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
+import SignupFormModal from '../SignupFormModal';
+import LoginFormModal from '../LoginFormModal';
 import ProfileButton from './ProfileButton';
 import Search from './Search';
 import './Navigation.css';
@@ -31,8 +33,8 @@ function Navigation({ loaded }){
   } else {
     sessionLinks = (
       <>
-        <NavLink to="/login">Log In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
+        <LoginFormModal />
+        <SignupFormModal />
         <form action='/api/session' method='POST' onSubmit={handleDemoSubmit}>
           <input type='hidden' name='userName' value='Demo-lition' />
           <input type='hidden' name='password' value='password' />

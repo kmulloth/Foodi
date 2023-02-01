@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, NavLink } from 'react-router-dom';
 import './LoginForm.css';
 
-function LoginFormPage() {
+function LoginForm() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [credential, setCredential] = useState('');
@@ -49,10 +49,8 @@ function LoginFormPage() {
         />
       </label>
       <button type="submit" >Log In</button>
-
-      <p>Need to <NavLink to="/signup">Sign Up</NavLink> ?</p>
     </form>
   );
 }
 
-export default LoginFormPage;
+export default LoginForm;

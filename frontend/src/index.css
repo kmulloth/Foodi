@@ -30,6 +30,7 @@ a{
 button{
     border: none;
     background-color: transparent;
+    white-space: nowrap;
 }
 
 form{

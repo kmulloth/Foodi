@@ -31,7 +31,7 @@ function MapForm({lat, setLat, lng, setLng, location, setLocation, center}) {
       let address = json.results[0].formatted_address
         setLocation(address)
     })}
-  }, [lat, lng])
+  }, [lng])
 
   Geocoder.init(key)
 
