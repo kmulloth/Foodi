@@ -25,11 +25,12 @@ function MapForm({lat, setLat, lng, setLng, location, setLocation, center}) {
   },[key] )
 
   useEffect(() => {
+    if (lat != '' && lng != '') {
     Geocoder.from(lat, lng).then(json => {
       console.log(lat, lng, json.results[0].formatted_address)
       let address = json.results[0].formatted_address
         setLocation(address)
-    })
+    })}
   }, [lat, lng])
 
   Geocoder.init(key)
@@ -43,7 +44,7 @@ function MapForm({lat, setLat, lng, setLng, location, setLocation, center}) {
         center={center || defaultCenter}
         zoom={10}
         clickableIcons={false}
-        onClick={(async (e) => {
+        onClick={((e) => {
           setLat(e.latLng.toJSON().lat)
           setLng(e.latLng.toJSON().lng)
         })}
