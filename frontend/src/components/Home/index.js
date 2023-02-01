@@ -29,10 +29,14 @@ function Home () {
                             </div>
                             <div className="review-content">
                                 <div className="review-header">
-                                    <h4>{review?.User?.username}</h4>
+                                    <h4>{review?.User?.username === user.username ? 'You' : review?.User?.username} at {review?.Business?.name} on {new Date(review?.createdAt).toDateString()}</h4>
                                     <div className="review-rating">
-                                        <h3>{review?.value}</h3>
-                                        {user?.id === review?.user_id && (<ConfirmDeleteReviewModal reviewId={review?.id}/>)}
+                                        <div
+                                            className="Stars"
+                                            style={{'--rating': review?.value > 0 ? review?.value.toFixed(1) : 5.0}}
+                                            aria-label={`Rating of this business is ${review?.value / 5 * 100}%`}
+                                        />
+                                            {user?.id === review?.user_id && (<ConfirmDeleteReviewModal reviewId={review?.id}/>)}
                                     </div>
                                 </div>
                                 <p>{review?.body}</p>

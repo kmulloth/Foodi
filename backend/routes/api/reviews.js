@@ -21,7 +21,7 @@ async function avg (business_id) {
 
 router.get('/all', requireAuth, asyncHandler(async (req, res) => {
     const reviews = await Review.findAll({
-        include: User
+        include: [User, Business]
     });
     res.json(reviews);
 }));
