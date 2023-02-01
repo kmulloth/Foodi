@@ -12,7 +12,7 @@ const defaultCenter = {
   lng: -74.023
 };
 
-function MapForm({lat, setLat, lng, setLng, setLocation, center}) {
+function MapForm({lat, setLat, lng, setLng, location, setLocation, center}) {
 
   const [key, setKey] = useState()
 
@@ -23,6 +23,14 @@ function MapForm({lat, setLat, lng, setLng, setLocation, center}) {
             })
         })
   },[key] )
+
+  useEffect(() => {
+    Geocoder.from(lat, lng).then(json => {
+      console.log(lat, lng, json.results[0].formatted_address)
+      let address = json.results[0].formatted_address
+        setLocation(address)
+    })
+  }, [lat, lng])
 
   Geocoder.init(key)
 
@@ -35,13 +43,9 @@ function MapForm({lat, setLat, lng, setLng, setLocation, center}) {
         center={center || defaultCenter}
         zoom={10}
         clickableIcons={false}
-        onClick={(e => {
-            setLat(e.latLng.toJSON().lat)
-            setLng(e.latLng.toJSON().lng)
-            Geocoder.from(lat, lng).then(json => {
-              console.log(json.results[0].formatted_address)
-              setLocation(json.results[0].formatted_address)
-            })
+        onClick={(async (e) => {
+          setLat(e.latLng.toJSON().lat)
+          setLng(e.latLng.toJSON().lng)
         })}
       >
         <Marker position={{lat: lat, lng: lng}} />

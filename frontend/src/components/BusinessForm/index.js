@@ -8,7 +8,7 @@ function BusinessForm() {
     const history = useHistory();
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-    const regex = /(https:\/\/)([^\s(["<,>/]*)(\/)[^\s[",><]*(.png|.jpg)(\?[^\s[",><]*)?/
+    const regex = /(https:\/\/)([^\s(["<,>/]*)(\/)[^\s[",><]*(.png|.jpg|.jpeg)(\?[^\s[",><]*)?/
 
     const [key, setKey] = useState()
 
@@ -132,7 +132,7 @@ function BusinessForm() {
                 </div>
                 <div className='mapfield'>
                   <div id='mapform-container'>
-                    <MapForm lat={lat} setLat={setLat} lng={lng} setLng={setLng} setLocation={setLocation}/>
+                    <MapForm lat={lat} setLat={setLat} lng={lng} setLng={setLng} location={location} setLocation={setLocation}/>
                   </div>
                 </div>
               </div>

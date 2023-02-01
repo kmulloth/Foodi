@@ -3,9 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getBusinesses } from '../../store/businesses';
 import { useEffect, useState } from 'react';
 
-
 function Search () {
-
     const dispatch = useDispatch();
 
     const [query, setQuery] = useState('');
