@@ -48,14 +48,17 @@
     width: 100%;
 }
 
-.schedule-field{
+.dropdowns{
+    display: flex;
+}
+/* .schedule-field{
     display: flex;
     flex-direction: row;
     color: red;
     font-size: 1.5em;
     justify-content: flex-start;
 
-}
+} */
 
 .mapfield{
     height: 100%;
