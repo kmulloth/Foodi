@@ -87,6 +87,8 @@ function BusinessForm() {
                       <option value='French'>French</option>
                       <option value='Italian'>Italian</option>
                       <option value='Mediterranean'>Mediterranean</option>
+                      <option value='Chinese'>Chinese</option>
+                      <option value='Indian'>Indian</option>
                     </select>
                   </div>
                   <div>

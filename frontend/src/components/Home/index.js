@@ -19,8 +19,22 @@ function Home () {
         <>
         <ImgCarousel />
         <div className="recent-reviews">
+            <div className='categories'>
+                <NavLink to='/search/bar' className='category-query'><img src='/icons/png/004-drink.png'/>Nightlife</NavLink>
+                <NavLink to='/search/truck' className='category-query'><img src='/icons/png/003-food-truck.png'/>Food Trucks</NavLink>
+                <NavLink to='/search/diner' className='category-query'><img src='/icons/png/005-christmas-dinner.png'/>Diners</NavLink>
+                <NavLink to='/search/french' className='category-query'><img src='/icons/png/002-fried-potatoes.png'/>French</NavLink>
+                <NavLink to='/search/italian' className='category-query'><img src='/icons/png/006-pasta.png'/>Italian</NavLink>
+                <NavLink to='/search/japanese' className='category-query'><img src='/icons/png/007-sushi.png'/>Japanese</NavLink>
+                <NavLink to='/search/chinese' className='category-query'><img src='/icons/png/001-ramen.png'/>Chinese</NavLink>
+                <NavLink to='/search/indian' className='category-query'><img src='/icons/png/008-food.png'/>Indian</NavLink>
+            </div>
             <h1>Recent Reviews</h1>
-            {Object.values(reviews).map(review => (
+            {Object.values(reviews).sort((a, b) => {
+                  const dateA = new Date(a?.createdAt);
+                  const dateB = new Date(b?.createdAt);
+                  return dateB - dateA;
+                }).map(review => (
                 <NavLink to={`/businesses/${review?.business_id}`} key={review?.id} className='to-biz'>
                     <div className="review" key={review?.id}>
                         <div className="Business-review" key={review?.id}>
