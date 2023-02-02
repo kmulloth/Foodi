@@ -47,7 +47,7 @@ function Home () {
                                     <div className="review-rating">
                                         <div
                                             className="Stars"
-                                            style={{'--rating': review?.value > 0 ? review?.value.toFixed(1) : 5.0}}
+                                            style={{'--rating': review?.value}}
                                             aria-label={`Rating of this business is ${review?.value / 5 * 100}%`}
                                         />
                                             {user?.id === review?.user_id && (<ConfirmDeleteReviewModal reviewId={review?.id}/>)}
