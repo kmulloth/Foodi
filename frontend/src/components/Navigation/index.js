@@ -20,8 +20,8 @@ function Navigation({ loaded }){
 
     const credential = e.target[0].value;
     const password = e.target[1].value;
-    console.log('TARGET: ', e.target)
-    console.log('CREDENTIAL: ',credential,'PWORD: ', password, 'E: ', e);
+    // console.log('TARGET: ', e.target)
+    // console.log('CREDENTIAL: ',credential,'PWORD: ', password, 'E: ', e);
     return dispatch(sessionActions.login({ credential, password }))
   }
 

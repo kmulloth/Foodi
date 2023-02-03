@@ -86,11 +86,35 @@
 #add-business{
     transition: all 0.2s ease-in-out;
     background-color: transparent;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 0.5em;
+    border-radius: 0.25em;
 }
 #add-business:hover{
     background-color: rgba(17, 17, 17, 0.6);
+}
+
+#sessionButtons{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    color: #fff;
+}
+
+#sessionButtons button{
+    font-size: 1em;
+    transition: all 0.2s ease-in-out;
+    background-color: transparent;
+    padding: 0.5em;
+    border-radius: 0.25em;
+}
+
+#sessionButtons button:hover{
+    background-color: rgba(17, 17, 17, 0.6)
+}
+
+#sessionButtons > a {
+    white-space: nowrap;;
 }
 
 #search-bar{
@@ -169,12 +193,17 @@
     list-style: none;
 }
 
-.profile-dropdown button{
+.profile-dropdown #logout{
     color: #fff;
     background-color: red;
     padding: 8px;
     border-radius: 8px;
     margin-top: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.profile-dropdown #logout:hover{
+    background-color: rgb(208, 0, 0);
 }
 
 #map-container{
@@ -186,16 +215,4 @@
 #map{
     width: 40%;
     height: 100%;
-}
-
-#sessionButtons{
-    display: flex;
-    align-items: center;
-    height: 100%;
-    margin: 0;
-    color: #fff;
-}
-
-#sessionButtons > a {
-    white-space: nowrap;;
 }
