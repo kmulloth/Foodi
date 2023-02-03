@@ -32,7 +32,7 @@ function Business(){
             <div className="Business-body">
                 <div className="Business-address">
                     <p>{business?.location}</p>
-                    {user?.id !== business?.owner_id && (
+                    {user && user?.id !== business?.owner_id && (
                         <AddReviewModal businessId={business?.id}/>)
                     }
                     {user?.id === business?.owner_id && (

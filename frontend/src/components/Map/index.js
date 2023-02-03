@@ -7,15 +7,36 @@ const containerStyle = {
   height: '100%'
 };
 
-const center = {
-  lat: 40.745,
-  lng: -74.023
-};
-
 function Map({businesses}) {
   const [selectedBiz, setSelectedBiz] = useState()
   const [key, setKey] = useState()
+  const [center, setCenter] = useState()
 
+  useEffect(() => {
+    if (localStorage.getItem("userLocation")) {
+      setCenter(JSON.parse(localStorage.getItem("userLocation")));
+    } else {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const location = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          localStorage.setItem("userLocation", JSON.stringify(location));
+          setCenter(location);
+        },
+        () => {
+          setCenter({
+              lat: 40.745,
+              lng: -74.023
+          })},
+          {enableHighAccuracy: false,
+          timeout: 5000,
+          maximumAge: Infinity}
+      );
+    }
+  }, []);
+    //
   useEffect(() => {
         fetch('/api/maps-api-key').then((res) => {
             res.json().then((data) => {

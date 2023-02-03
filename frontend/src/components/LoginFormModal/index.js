@@ -4,7 +4,7 @@ import LoginForm from './LoginForm';
 
 function LoginFormModal () {
 
-    const [showModal, setShowModal] = useState('false')
+    const [showModal, setShowModal] = useState(false)
 
     return (
         <>

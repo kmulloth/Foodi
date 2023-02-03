@@ -19,7 +19,7 @@ async function avg (business_id) {
     return average;
 }
 
-router.get('/all', requireAuth, asyncHandler(async (req, res) => {
+router.get('/all', asyncHandler(async (req, res) => {
     const reviews = await Review.findAll({
         include: [User, Business]
     });

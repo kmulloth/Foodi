@@ -43,7 +43,7 @@ function Home () {
                             </div>
                             <div className="review-content">
                                 <div className="review-header">
-                                    <h4>{review?.User?.username === user.username ? 'You' : review?.User?.username} at {review?.Business?.name} on {new Date(review?.createdAt).toDateString()}</h4>
+                                    <h4>{review?.User?.username === user?.username ? 'You' : review?.User?.username} at {review?.Business?.name} on {new Date(review?.createdAt).toDateString()}</h4>
                                     <div className="review-rating">
                                         <div
                                             className="Stars"

@@ -69,7 +69,7 @@ function Navigation({ loaded }){
       <Search />
       <div id='buttons'>
         <div id='add-business'>
-          <NavLink to={sessionUser ? "/businesses/new" : "/signup"}>Add Business</NavLink>
+          {sessionUser && <NavLink to="/businesses/new">Add Business</NavLink>}
         </div>
         <div id='sessionButtons'>
           {sessionLinks}
