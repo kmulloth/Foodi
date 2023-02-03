@@ -1,1 +1,19 @@
+label {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1em;
+}
 
+input {
+    height: 2em;
+    width: 20em
+}
+
+#submit {
+    background-color: red;
+    border: 0.5px solid red;
+    border-radius: 1em;;
+    color: white;
+    padding: 0.5em;
+    font-size: 1.2em;
+}

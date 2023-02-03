@@ -27,9 +27,9 @@ function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <ul>
+      {errors.length > 0 && <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
+      </ul>}
       <label>
         Username or Email
         <input
@@ -48,7 +48,7 @@ function LoginForm() {
           required
         />
       </label>
-      <button type="submit" >Log In</button>
+      <button id='submit' type="submit" >Log In</button>
     </form>
   );
 }
