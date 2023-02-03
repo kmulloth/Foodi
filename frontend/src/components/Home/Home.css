@@ -48,7 +48,6 @@ i{
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 1em;
-    margin-top: 2em;
 }
 
 .categories > * {
@@ -69,15 +68,17 @@ i{
 .recent-reviews {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: fit-content;
   z-index: 0;
   top: 78%;
   background-color: white;
   border-top: 3px solid #dedcdc;
+  border-bottom: 3px solid #dedcdc;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  padding: 2em 0 4em 0
 }
 
 h1{

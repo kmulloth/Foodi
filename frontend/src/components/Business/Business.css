@@ -86,6 +86,9 @@
     width: min-content;
 }
 
+.Business-reviews{
+    padding-bottom: 5em;
+}
 .Business-review{
     display: flex;
     width: 100%;
