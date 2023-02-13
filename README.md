@@ -6,20 +6,22 @@
 * filters businesses by title and cusine/type
   * ![image](https://user-images.githubusercontent.com/63429309/172107702-8f722a62-6db7-4f2f-8ed0-4d2bd5589e27.png)  
 * empty query displays all businesses
-  * ![image](![image](https://user-images.githubusercontent.com/63429309/218574975-1366cf3d-a5d1-4e6d-aa58-afa8ce193926.png)) 
+  * ![image](https://user-images.githubusercontent.com/63429309/218574975-1366cf3d-a5d1-4e6d-aa58-afa8ce193926.png) 
 
 
 ## Home Page 
-![image](https://user-images.githubusercontent.com/63429309/172101025-8594e57a-992a-4c40-80d1-cedeba4f2c00.png)
+![image](https://user-images.githubusercontent.com/63429309/218576627-917681f1-1b21-450e-adb3-830a6b337f3b.png)
+![image](https://user-images.githubusercontent.com/63429309/218576694-1e7f5786-051c-4ffe-955b-696562b5c410.png)
 Users can see recent reviews for businesses from this page
 
 ## Business bage
-![image](https://user-images.githubusercontent.com/63429309/172108072-5c0865c0-209d-4330-a02f-d62e43d99715.png)
+![image](https://user-images.githubusercontent.com/63429309/218576954-74a628fb-b13c-455e-bc9a-e80c13440442.png)
 
 * User sees edit and delete buttons if business belongs to them, otherwise they see an add review option
 * reviews for busness are displayed undeneath content
 * Identical behaivor for review buttons excpet reciews are non-editabe
 * all review scores for business are averaged to set business score
+* Scrolling Image Carousel
 
 # Future Features
 
