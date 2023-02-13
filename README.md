@@ -1,5 +1,4 @@
 # [Foodi](https://foodi.onrender.com/)
-WORK IN PROGRESS
 
 ## Navbar (Universal)
 
