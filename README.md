@@ -1,4 +1,5 @@
 # [Foodi](https://foodi.onrender.com/)
+(please be patient with the initial load, OnRenders free tier is painfully slow)
 
 ## Navbar (Universal)
 
@@ -21,7 +22,7 @@ Users can see recent reviews for businesses from this page and access preselecte
 * reviews for busness are displayed undeneath content
 * Identical behaivor for review buttons excpet reciews are non-editabe
 * all review scores for business are averaged to set business score
-* Scrolling Image Carousel
+* Scrolling Image Carousel pulls from review images
 
 # Future Features
 
@@ -35,7 +36,6 @@ Users can see recent reviews for businesses from this page and access preselecte
 ## Image Carousels
   * On Home and Business page
     * on Home page: Diplays preset query links to popular tags
-    * on Business: displays Business Images and associated review images
 
 ## Rich text Editing
  
