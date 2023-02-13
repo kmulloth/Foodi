@@ -12,9 +12,9 @@
 ## Home Page 
 ![image](https://user-images.githubusercontent.com/63429309/218576627-917681f1-1b21-450e-adb3-830a6b337f3b.png)
 ![image](https://user-images.githubusercontent.com/63429309/218576694-1e7f5786-051c-4ffe-955b-696562b5c410.png)
-Users can see recent reviews for businesses from this page
+Users can see recent reviews for businesses from this page and access preselected queries
 
-## Business bage
+## Business page
 ![image](https://user-images.githubusercontent.com/63429309/218576954-74a628fb-b13c-455e-bc9a-e80c13440442.png)
 
 * User sees edit and delete buttons if business belongs to them, otherwise they see an add review option
