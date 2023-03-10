@@ -67,9 +67,9 @@ function Business(){
                     <div className='bizmap-container'>
                         <Bizmap lat={business?.lat} lng={business?.lng}/>
                     </div>
-                    <div className='schedule'>
-                        <table id='schedule-fields'>
-                            <tr className='schedule-field'>
+                    <div className='time'>
+                        <table id='time-fields'>
+                            <tr className='time-field'>
                                 <td><strong>Sun</strong></td>
                                 <td>{new Date('1970-01-01T'+schedule.open[0]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})} -</td>
                                 <td>{new Date('1970-01-01T'+schedule.close[0]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})}</td>
@@ -80,7 +80,7 @@ function Business(){
                                     </strong>
                                 )}</td>
                             </tr>
-                            <tr className='schedule-field'>
+                            <tr className='time-field'>
                                 <td><strong>Mon</strong></td>
                                 <td>{new Date('1970-01-01T'+schedule.open[1]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})} -</td>
                                 <td>{new Date('1970-01-01T'+schedule.close[1]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})}</td>
@@ -91,7 +91,7 @@ function Business(){
                                     </strong>
                                 )}</td>
                             </tr>
-                            <tr className='schedule-field'>
+                            <tr className='time-field'>
                                 <td><strong>Tue</strong></td>
                                 <td>{new Date('1970-01-01T'+schedule.open[2]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})} -</td>
                                 <td>{new Date('1970-01-01T'+schedule.close[2]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})}</td>
@@ -102,7 +102,7 @@ function Business(){
                                     </strong>
                                 )}</td>
                             </tr>
-                            <tr className='schedule-field'>
+                            <tr className='time-field'>
                                 <td><strong>Wed</strong></td>
                                 <td>{new Date('1970-01-01T'+schedule.open[3]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})} -</td>
                                 <td>{new Date('1970-01-01T'+schedule.close[3]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})}</td>
@@ -113,7 +113,7 @@ function Business(){
                                     </strong>
                                 )}</td>
                             </tr>
-                            <tr className='schedule-field'>
+                            <tr className='time-field'>
                                 <td><strong>Thu</strong></td>
                                 <td>{new Date('1970-01-01T'+schedule.open[4]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})} -</td>
                                 <td>{new Date('1970-01-01T'+schedule.close[4]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})}</td>
@@ -124,7 +124,7 @@ function Business(){
                                     </strong>
                                 )}</td>
                             </tr>
-                            <tr className='schedule-field'>
+                            <tr className='time-field'>
                                 <td><strong>Fri</strong></td>
                                 <td>{new Date('1970-01-01T'+schedule.open[5]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})} -</td>
                                 <td>{new Date('1970-01-01T'+schedule.close[5]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})}</td>
@@ -135,7 +135,7 @@ function Business(){
                                     </strong>
                                 )}</td>
                             </tr>
-                            <tr className='schedule-field'>
+                            <tr className='time-field'>
                                 <td><strong>Sat</strong></td>
                                 <td>{new Date('1970-01-01T'+schedule.open[6]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})} -</td>
                                 <td>{new Date('1970-01-01T'+schedule.close[6]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})}</td>
