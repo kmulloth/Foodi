@@ -71,7 +71,7 @@
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 .Business-desc{
@@ -111,4 +111,31 @@
     display: flex;
     flex-direction: column;
     width: 40%;
+}
+
+.bizmap-container{
+    width: 15em;
+    height: 10em;
+}
+
+.business-info{
+    display: flex;
+    gap: 1em;
+    font-size: 1.2em;
+}
+
+.review-button{
+    background-color: red;
+    color: white;
+    border: 2px solid red;;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    transition: background-color 0.3s ease, color 0.3s ease
+}
+
+.review-button:hover{
+    border: 2px solid red;
+    background-color: white;
+    color: red;
 }

@@ -7,6 +7,7 @@ import ConfirmDeleteModal from '../ConfirmDeleteModal';
 import ConfirmDeleteReviewModal from '../ConfirmDeleteReviewModal';
 import AddReviewModal from '../AddReviewModal/index.js';
 import ImgCarousel from './ImgCarousel.js';
+import Bizmap from './Bizmap.js';
 import './Business.css';
 
 function Business(){
@@ -26,7 +27,27 @@ function Business(){
         state: {businesses: business}
     }
 
-    return (
+    const schedule = {
+        open: business?.openTimes.split(','),
+        close: business?.closeTimes.split(',')
+    }
+
+    const today = new Date()
+
+    const isOpen = () => {
+        const day = today.getDay()
+        const times = {
+            open: schedule.open[day].split(':'),
+            close: schedule.close[day].split(':')
+         }
+
+        if (today.getHours() < times.open[0] || today.getHours() > times.close[0]){
+            if (today.getMinutes() < times.open[1] || today.getMinutes() > times.close[1]) return false
+            return true
+        }return true
+    }
+
+    return schedule.open && (
         <div className="Business">
             {business && <ImgCarousel business={business} reviews={business?.Reviews}/>}
             <div className="Business-body">
@@ -41,6 +62,92 @@ function Business(){
                             <NavLink to={location}><i className="fa-solid fa-pen-to-square"></i></NavLink>
                         </div>
                     )}
+                </div>
+                <div className='business-info'>
+                    <div className='bizmap-container'>
+                        <Bizmap lat={business?.lat} lng={business?.lng}/>
+                    </div>
+                    <div className='schedule'>
+                        <table id='schedule-fields'>
+                            <tr className='schedule-field'>
+                                <td><strong>Sun</strong></td>
+                                <td>{schedule.open[0]} -</td>
+                                <td>{schedule.close[0]}</td>
+                                <td>{today.getDay() === 0 && (
+                                    <strong
+                                        style={{color: isOpen() ? 'green' : 'red'}}>
+                                        {isOpen() ? 'Open' : "Closed"}
+                                    </strong>
+                                )}</td>
+                            </tr>
+                            <tr className='schedule-field'>
+                                <td><strong>Mon</strong></td>
+                                <td>{schedule.open[1]} -</td>
+                                <td>{schedule.close[1]}</td>
+                                <td>{today.getDay() === 1 && (
+                                    <strong
+                                        style={{color: isOpen() ? 'green' : 'red'}}>
+                                        {isOpen() ? 'Open' : "Closed"}
+                                    </strong>
+                                )}</td>
+                            </tr>
+                            <tr className='schedule-field'>
+                                <td><strong>Tue</strong></td>
+                                <td>{schedule.open[2]} -</td>
+                                <td>{schedule.close[2]}</td>
+                                <td>{today.getDay() === 2 && (
+                                    <strong
+                                        style={{color: isOpen() ? 'green' : 'red'}}>
+                                        {isOpen() ? 'Open' : "Closed"}
+                                    </strong>
+                                )}</td>
+                            </tr>
+                            <tr className='schedule-field'>
+                                <td><strong>Wed</strong></td>
+                                <td>{schedule.open[3]} -</td>
+                                <td>{schedule.close[3]}</td>
+                                <td>{today.getDay() === 3 && (
+                                    <strong
+                                        style={{color: isOpen() ? 'green' : 'red'}}>
+                                        {isOpen() ? 'Open' : "Closed"}
+                                    </strong>
+                                )}</td>
+                            </tr>
+                            <tr className='schedule-field'>
+                                <td><strong>Thu</strong></td>
+                                <td>{schedule.open[4]} -</td>
+                                <td>{schedule.close[4]}</td>
+                                <td>{today.getDay() === 4 && (
+                                    <strong
+                                        style={{color: isOpen() ? 'green' : 'red'}}>
+                                        {isOpen() ? 'Open' : "Closed"}
+                                    </strong>
+                                )}</td>
+                            </tr>
+                            <tr className='schedule-field'>
+                                <td><strong>Fri</strong></td>
+                                <td>{schedule.open[5]} -</td>
+                                <td>{schedule.close[5]}</td>
+                                <td>{today.getDay() === 5 && (
+                                    <strong
+                                        style={{color: isOpen() ? 'green' : 'red'}}>
+                                        {isOpen() ? 'Open' : "Closed"}
+                                    </strong>
+                                )}</td>
+                            </tr>
+                            <tr className='schedule-field'>
+                                <td><strong>Sat</strong></td>
+                                <td>{schedule.open[6]} -</td>
+                                <td>{schedule.close[6]}</td>
+                                <td>{today.getDay() === 6 && (
+                                    <strong
+                                        style={{color: isOpen() ? 'green' : 'red'}}>
+                                        {isOpen() ? 'Open' : "Closed"}
+                                    </strong>
+                                )}</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
                 <div className="Business-desc">
                     <p>{business?.body}</p>
