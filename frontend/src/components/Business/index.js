@@ -63,7 +63,7 @@ function Business(){
                         </div>
                     )}
                 </div>
-                <div className='business-info'>
+                <div className='bizmap-schedule'>
                     <div className='bizmap-container'>
                         <Bizmap lat={business?.lat} lng={business?.lng}/>
                     </div>
@@ -71,8 +71,8 @@ function Business(){
                         <table id='schedule-fields'>
                             <tr className='schedule-field'>
                                 <td><strong>Sun</strong></td>
-                                <td>{schedule.open[0]} -</td>
-                                <td>{schedule.close[0]}</td>
+                                <td>{new Date('1970-01-01T'+schedule.open[0]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})} -</td>
+                                <td>{new Date('1970-01-01T'+schedule.close[0]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})}</td>
                                 <td>{today.getDay() === 0 && (
                                     <strong
                                         style={{color: isOpen() ? 'green' : 'red'}}>
@@ -82,8 +82,8 @@ function Business(){
                             </tr>
                             <tr className='schedule-field'>
                                 <td><strong>Mon</strong></td>
-                                <td>{schedule.open[1]} -</td>
-                                <td>{schedule.close[1]}</td>
+                                <td>{new Date('1970-01-01T'+schedule.open[1]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})} -</td>
+                                <td>{new Date('1970-01-01T'+schedule.close[1]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})}</td>
                                 <td>{today.getDay() === 1 && (
                                     <strong
                                         style={{color: isOpen() ? 'green' : 'red'}}>
@@ -93,8 +93,8 @@ function Business(){
                             </tr>
                             <tr className='schedule-field'>
                                 <td><strong>Tue</strong></td>
-                                <td>{schedule.open[2]} -</td>
-                                <td>{schedule.close[2]}</td>
+                                <td>{new Date('1970-01-01T'+schedule.open[2]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})} -</td>
+                                <td>{new Date('1970-01-01T'+schedule.close[2]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})}</td>
                                 <td>{today.getDay() === 2 && (
                                     <strong
                                         style={{color: isOpen() ? 'green' : 'red'}}>
@@ -104,8 +104,8 @@ function Business(){
                             </tr>
                             <tr className='schedule-field'>
                                 <td><strong>Wed</strong></td>
-                                <td>{schedule.open[3]} -</td>
-                                <td>{schedule.close[3]}</td>
+                                <td>{new Date('1970-01-01T'+schedule.open[3]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})} -</td>
+                                <td>{new Date('1970-01-01T'+schedule.close[3]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})}</td>
                                 <td>{today.getDay() === 3 && (
                                     <strong
                                         style={{color: isOpen() ? 'green' : 'red'}}>
@@ -115,8 +115,8 @@ function Business(){
                             </tr>
                             <tr className='schedule-field'>
                                 <td><strong>Thu</strong></td>
-                                <td>{schedule.open[4]} -</td>
-                                <td>{schedule.close[4]}</td>
+                                <td>{new Date('1970-01-01T'+schedule.open[4]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})} -</td>
+                                <td>{new Date('1970-01-01T'+schedule.close[4]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})}</td>
                                 <td>{today.getDay() === 4 && (
                                     <strong
                                         style={{color: isOpen() ? 'green' : 'red'}}>
@@ -126,8 +126,8 @@ function Business(){
                             </tr>
                             <tr className='schedule-field'>
                                 <td><strong>Fri</strong></td>
-                                <td>{schedule.open[5]} -</td>
-                                <td>{schedule.close[5]}</td>
+                                <td>{new Date('1970-01-01T'+schedule.open[5]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})} -</td>
+                                <td>{new Date('1970-01-01T'+schedule.close[5]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})}</td>
                                 <td>{today.getDay() === 5 && (
                                     <strong
                                         style={{color: isOpen() ? 'green' : 'red'}}>
@@ -137,8 +137,8 @@ function Business(){
                             </tr>
                             <tr className='schedule-field'>
                                 <td><strong>Sat</strong></td>
-                                <td>{schedule.open[6]} -</td>
-                                <td>{schedule.close[6]}</td>
+                                <td>{new Date('1970-01-01T'+schedule.open[6]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})} -</td>
+                                <td>{new Date('1970-01-01T'+schedule.close[6]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})}</td>
                                 <td>{today.getDay() === 6 && (
                                     <strong
                                         style={{color: isOpen() ? 'green' : 'red'}}>

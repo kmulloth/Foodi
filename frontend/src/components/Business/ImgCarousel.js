@@ -41,7 +41,7 @@ function ImgCarousel({business, reviews}){
                     <p>&ensp;{reviews?.length} reviews</p>
                 </div>
                 <p>{business?.cusine} • {business?.type}</p>
-                <p>{isOpen() ? 'Open' : 'Closed'} {todayHours[0]} - {todayHours[1]}</p>
+                <p><strong style={{color: isOpen() ? 'mediumseagreen' : 'red'}}>{isOpen() ? 'Open' : 'Closed'}</strong> {new Date('1970-01-01T'+todayHours[0]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})} - {new Date('1970-01-01T'+todayHours[1]+'Z').toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', timeZone: 'UTC'})}</p>
             </div>
             <div className='biz-image-carousel'>
             {images.map((image, i) => {
