@@ -138,7 +138,7 @@ function BusinessForm() {
                   </div>
                 </div>
               </div>
-              <button type="submit" disabled={errors.length > 0}>Submit</button>
+                <button type="submit" disabled={errors.length > 0}>Submit</button>
               <ul id='errors'>
                   {errors.map(error => <li key={error}>{error}</li>)}
               </ul>
