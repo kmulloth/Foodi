@@ -3,3 +3,11 @@
     list-style: none;
     padding-left: 0;
 }
+
+.location-search{
+    position: absolute;
+    background-color: white;
+    border: 1px darkgray solid;
+    padding: 0.25em 1em 0.25em 1em;
+    max-width: max-content;
+}

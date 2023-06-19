@@ -82,7 +82,7 @@ function BusinessForm() {
                   <div>
                     <input placeholder='click on map or start typing' type="text" name="location" id="location" value={location} onClick={e => setLocationMethod('address')} onDoubleClick={e => setLocation('')} onChange={e => setLocation(e.target.value)} />
                     {searchRes && (
-                      <div onClick={e => clearPlaceholder(searchRes)}>{searchRes}</div>
+                      <div className='location-search' onClick={e => clearPlaceholder(searchRes)}>{searchRes}</div>
                     )}
                   </div>
                   <div>
