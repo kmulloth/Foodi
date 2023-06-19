@@ -24,7 +24,9 @@ function BusinessForm() {
     const [lng, setLng]= useState(0.0);
     const [rating, setRating] = useState(0);
     const [likes, setLikes] = useState(0);
+    const [searchRes, setSearchRes] = useState('')
     const [errors, setErrors] = useState([]);
+    const [locationMethod, setLocationMethod] = useState('map')
 
     const {createBusiness} = require("../../store/businesses.js");
 
@@ -41,6 +43,13 @@ function BusinessForm() {
         setErrors(errors);
     }, [name, body, type, cusine, imgUrl, location, openTimes, closeTimes]);
 
+    useEffect(() => {
+      if(location === '') {
+        setLat(0)
+        setLng(0)
+      }
+    }, [location])
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const owner_id = sessionUser.id;
@@ -53,10 +62,15 @@ function BusinessForm() {
         dispatch(createBusiness(business)).then(() => history.push('/'));
     }
 
+    const clearPlaceholder = (searchRes) => {
+      setLocation(searchRes)
+      setSearchRes('')
+    }
+
     return (
       <div className="business-form">
         <div className="business-form-container">
-            <form id='submit-business-form' onSubmit={handleSubmit}>
+            <form id='submit-business-form' onSubmit={handleSubmit} autoComplete='off'>
               <div className='inputfields'>
                 <div className='textfields'>
                   <div>
@@ -66,7 +80,10 @@ function BusinessForm() {
                     <input placeholder='Paste Image URL' type="text" name="imgUrl" id="imgUrl" value={imgUrl} onChange={e => setImgUrl(e.target.value)} />
                   </div>
                   <div>
-                    <input placeholder='Click on map to set Location' type="text" name="location" id="location" disabled={true} value={location} onChange={e => setLocation(e.target.value)} />
+                    <input placeholder='click on map or start typing' type="text" name="location" id="location" value={location} onClick={e => setLocationMethod('address')} onDoubleClick={e => setLocation('')} onChange={e => setLocation(e.target.value)} />
+                    {searchRes && (
+                      <div onClick={e => clearPlaceholder(searchRes)}>{searchRes}</div>
+                    )}
                   </div>
                   <div>
                     <textarea placeholder='Describe your business' name="body" id="body" value={body} onChange={e => setBody(e.target.value)} />
@@ -134,7 +151,7 @@ function BusinessForm() {
                 </div>
                 <div className='mapfield'>
                   <div id='mapform-container'>
-                    <MapForm lat={lat} setLat={setLat} lng={lng} setLng={setLng} location={location} setLocation={setLocation}/>
+                    <MapForm lat={lat} setLat={setLat} lng={lng} setLng={setLng} location={location} setLocation={setLocation} searchRes={searchRes} setSearchRes={setSearchRes} locationMethod={locationMethod} setLocationMethod={setLocationMethod}/>
                   </div>
                 </div>
               </div>

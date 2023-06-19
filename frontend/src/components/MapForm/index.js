@@ -7,9 +7,7 @@ const containerStyle = {
   height: '100%'
 };
 
-
-
-function MapForm({lat, setLat, lng, setLng, location, setLocation, center}) {
+function MapForm({lat, setLat, lng, setLng, location, setLocation, searchRes, setSearchRes, locationMethod, setLocationMethod}) {
 
   const [key, setKey] = useState()
   const [defaultCenter, setDefaultCenter] = useState()
@@ -48,13 +46,25 @@ function MapForm({lat, setLat, lng, setLng, location, setLocation, center}) {
   },[key] )
 
   useEffect(() => {
-    if (lat != '' && lng != '') {
+    if (lat != '' && lng != '' && locationMethod == 'map') {
     Geocoder.from(lat, lng).then(json => {
-      console.log(lat, lng, json.results[0].formatted_address)
+      // console.log(lat, lng, json.results[0].formatted_address)
       let address = json.results[0].formatted_address
         setLocation(address)
     })}
   }, [lng])
+
+  useEffect(() => {
+    if (location && locationMethod == 'address') {
+      Geocoder.from(location).then(json => {
+        console.log(typeof json.results[0].geometry.location.lat)
+        if(json.results[0].formatted_address != location){
+          setSearchRes(json.results[0].formatted_address)
+          setLat(json.results[0].geometry.location.lat)
+          setLng(json.results[0].geometry.location.lng)
+        }
+    }).catch(error => console.warn(error))}
+  }, [location])
 
   Geocoder.init(key)
 
@@ -64,15 +74,16 @@ function MapForm({lat, setLat, lng, setLng, location, setLocation, center}) {
     >
       <GoogleMap
         mapContainerStyle={containerStyle}
-        center={center || defaultCenter}
+        center={lat ? {lat: lat, lng: lng} : defaultCenter}
         zoom={10}
         clickableIcons={false}
         onClick={((e) => {
+          setLocationMethod('map')
           setLat(e.latLng.toJSON().lat)
           setLng(e.latLng.toJSON().lng)
         })}
       >
-        <Marker position={{lat: lat, lng: lng}} />
+        {lat && <Marker position={{lat: lat, lng: lng}} />}
         <></>
       </GoogleMap>
     </LoadScript>
