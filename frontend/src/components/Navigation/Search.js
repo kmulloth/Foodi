@@ -29,7 +29,7 @@ function Search () {
             Object.values(businesses).filter(business => {
               if (query === '') {
                 return;
-              } else if (business?.name?.toLowerCase().includes(query?.toLowerCase()) || business?.body?.toLowerCase().includes(query?.toLowerCase())) {
+              } else if (business?.name?.toLowerCase().includes(query?.toLowerCase())) {
               return business
             }}).map(business => {
               return (
