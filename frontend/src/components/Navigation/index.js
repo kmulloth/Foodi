@@ -68,7 +68,7 @@ function Navigation({ loaded }){
       </div>
       <Search />
       <div id='buttons'>
-        <div id='add-business'>
+        <div data-active={sessionUser ? 'true' : 'false'} id='add-business'>
           {sessionUser && <NavLink to="/businesses/new">Add Business</NavLink>}
         </div>
         <div id='sessionButtons'>
