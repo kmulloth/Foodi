@@ -147,7 +147,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: background-color 0.7s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
 }
 
 #search-bar > a:hover{
@@ -161,7 +161,7 @@
     z-index: 2;
 }
 
-#search-results  a{
+#search-results a{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -169,7 +169,19 @@
     color: #000;
     padding: 0px 20px;
     border-bottom: 1px solid #ccc;
+}
 
+#add-business{
+    background-color: #e01206;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#add-business:hover {
+    background-color: red;
+}
+
+#add-business a{
+    color: white;
 }
 
 .profile-dropdown{
