@@ -19,19 +19,25 @@ function ImgCarousel () {
     ]
 
     const [carouselCard, setCarouselCard] = useState(queries[0])
+    const [transitioning,setTransitioning] = useState(false)
 
     useEffect(() => {
         let i = 1;
         setInterval(() => {
-          setCarouselCard(queries[i]);
-          i = (i + 1) % queries.length;
+            setTimeout(() => {
+                setTransitioning(true)
+            }, 3900)
+            setCarouselCard(queries[i]);
+            i = (i + 1) % queries.length;
+            setTransitioning(false)
+
         }, 4000);
 
         // return () => clearInterval(interval);
       }, [])
 
     return carouselCard && (
-        <div className="carousel-container">
+        <div className={`carousel-container ${transitioning ? 'transitioning' : ''}`}>
             <div className="carousel-img">
                 <img src={carouselCard.src} alt="food truck" />
             </div>

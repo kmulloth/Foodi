@@ -4,6 +4,11 @@
   width: 100%;
   height: 89%;
   /* z-index: -1; */
+  transition: opacity 0.1s ease-in-out;
+}
+
+.carousel-container.transitioning{
+    opacity: 0;
 }
 
 .carousel-container img{
