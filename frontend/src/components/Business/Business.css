@@ -86,6 +86,13 @@
     width: min-content;
 }
 
+.review-rating > h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 0.25em;
+}
+
 .Business-reviews{
     padding-bottom: 5em;
 }

@@ -163,7 +163,12 @@ function Business(){
                             <div className="review-header">
                                 <h4>{review?.User?.username}</h4>
                                 <div className="review-rating">
-                                    <h3>{review?.value}</h3>
+                                    <h3>{review?.value + ' '}</h3>
+                                    <div
+                                        className="Stars"
+                                        style={{'--rating': review?.value}}
+                                        aria-label={`Rating of this business is ${business?.rating / 5 * 100}%`}
+                                    />
                                     {user?.id === review?.user_id && (<ConfirmDeleteReviewModal reviewId={review?.id}/>)}
                                 </div>
                             </div>
