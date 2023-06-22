@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 
 function ConfirmDelete({ businessId }) {
-  console.log("DELETE BUSINESS:", businessId);
+  // console.log("DELETE BUSINESS:", businessId);
   const history = useHistory();
   const dispatch = useDispatch();
 

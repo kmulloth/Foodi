@@ -18,7 +18,7 @@ function Query () {
     }, [dispatch]);
 
     const querySelector = () => {
-        console.log(Object.values(businesses))
+        // console.log(Object.values(businesses))
         if (query === '') return Object.values(businesses)
 
         else return Object.values(businesses).filter(business => (business?.name?.toLowerCase().includes(query?.toLowerCase()) || business?.type.toLowerCase().includes(query?.toLowerCase()) || business?.cusine.toLowerCase().includes(query.toLowerCase())))

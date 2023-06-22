@@ -42,6 +42,7 @@ function MapForm({lat, setLat, lng, setLng, location, setLocation, searchRes, se
             res.json().then((data) => {
                 setKey(data.key);
             })
+            Geocoder.init(key)
         })
   },[key] )
 

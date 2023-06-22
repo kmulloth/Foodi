@@ -25,7 +25,9 @@ function EditBusiness() {
     const [lng, setLng]= useState(business?.lng);
     const [rating, setRating] = useState(business?.rating);
     const [likes, setLikes] = useState(business?.likes);
+    const [searchRes, setSearchRes] = useState('')
     const [errors, setErrors] = useState([]);
+    const [locationMethod, setLocationMethod] = useState('map')
     const regex = /(https:\/\/)([^\s(["<,>/]*)(\/)[^\s[",><]*(.png|.jpg)(\?[^\s[",><]*)?/
 
     useEffect(() => {
@@ -41,7 +43,12 @@ function EditBusiness() {
         setErrors(errors);
     }, [name, body, type, cusine, imgUrl, location, openTimes, closeTimes]);
 
-    useEffect(() => console.log(type, cusine), [type, cusine])
+    useEffect(() => {
+      if(location === '') {
+        setLat(0)
+        setLng(0)
+      }
+    }, [location])
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -53,6 +60,13 @@ function EditBusiness() {
         console.log(newbusiness)
         dispatch(editBusiness(newbusiness)).then(() => history.push(`/businesses/${businessId}`));
     }
+
+    const clearPlaceholder = (searchRes) => {
+      setLocation(searchRes)
+      setSearchRes('')
+    }
+
+
     return (
         <div className="business-form">
           <div className="business-form-container">
@@ -67,7 +81,10 @@ function EditBusiness() {
                       <input placeholder='Paste Image URL' type="text" name="imgUrl" id="imgUrl" value={imgUrl} onChange={e => setImgUrl(e.target.value)} />
                     </div>
                     <div>
-                        <input placeholder='Click on map to set Location' type="text" name="location" id="location" disabled={true} value={location} onChange={e => setLocation(e.target.value)} />
+                        <input disabled={true} placeholder='Click on map to set Location' type="text" name="location" id="location" value={location} onChange={e => setLocation(e.target.value)} onClick={e => setLocationMethod('address')} onDoubleClick={e => setLocation('')} />
+                        {searchRes && (
+                          <div className='location-search' onClick={e => clearPlaceholder(searchRes)}>{searchRes}</div>
+                        )}
                     </div>
                     <div>
                       <textarea placeholder='Describe your business' name="body" id="body" value={body} onChange={e => setBody(e.target.value)} />
@@ -135,7 +152,7 @@ function EditBusiness() {
                   </div>
                   <div className='mapfield'>
                     <div id='mapform-container'>
-                      <MapForm lat={lat} setLat={setLat} lng={lng} setLng={setLng} setLocation={setLocation}/>
+                      <MapForm lat={lat} setLat={setLat} lng={lng} setLng={setLng} setLocation={setLocation} searchRes={searchRes} setSearchRes={setSearchRes} locationMethod={locationMethod} setLocationMethod={setLocationMethod}/>
                     </div>
                   </div>
                 </div>
