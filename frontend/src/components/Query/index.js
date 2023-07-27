@@ -48,7 +48,7 @@ function Query () {
                                             style={{'--rating': business?.rating > 0 ? business?.rating.toFixed(1) : 5.0}}
                                             aria-label={`Rating of this business is ${business?.rating / 5 * 100}%`}
                                         >
-                                            <p>&ensp;{business?.Reviews?.length} reviews</p>
+                                            <p className='review-ct-label'>&ensp;{business?.Reviews?.length} reviews</p>
                                         </div>
                                     </div>
                                     <div className='business-type'>

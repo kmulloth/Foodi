@@ -1,7 +1,16 @@
-function ImgCarousel({business, reviews}){
+import { useState, useEffect } from "react"
+import { useDispatch } from "react-redux"
 
+function ImgCarousel({business, reviews}){
+    const dispatch = useDispatch()
     const images = [business?.imgUrl]
+
     reviews?.forEach(review => {if (review?.img) images.push(review?.img)})
+
+    useEffect(()=> {
+        console.log('hit!')
+        reviews?.forEach(review => {if (review?.img) images.push(review?.img)})
+    }, [dispatch, reviews])
 
     const today = new Date()
     const hours = () => {
