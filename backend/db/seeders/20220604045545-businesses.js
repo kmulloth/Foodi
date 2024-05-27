@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === 'production') {
 module.exports = {
   up: (queryInterface, Sequelize) => {
     options.tableName = 'Business'
-    return queryInterface.bulkInsert('Businesses', [
+    return queryInterface.bulkInsert(options, [
       {
         name: 'Halal Guys',
         imgUrl: 'https://fransmart.com/wp-content/uploads/2021/08/Screen-Shot-2021-08-19-at-2.44.33-PM.png',
@@ -41,7 +41,7 @@ module.exports = {
   down: (queryInterface, Sequelize) => {
     options.tableName = 'Business'
     const Op = Sequelize.Op;
-    return queryInterface.bulkDelete('Businesses', {
+    return queryInterface.bulkDelete(options, {
       name: { [Op.in]: ['Halal Guys', 'The Baratie'] }
     }, {});
   }

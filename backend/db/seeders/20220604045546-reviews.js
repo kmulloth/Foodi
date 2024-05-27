@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === 'production') {
 module.exports = {
   up: (queryInterface, Sequelize) => {
     options.tableName = 'Review'
-    return queryInterface.bulkInsert('Reviews', [
+    return queryInterface.bulkInsert(options, [
       {
         user_id: 2,
         business_id: 1,
@@ -22,7 +22,7 @@ module.exports = {
   down: (queryInterface, Sequelize) => {
     options.tableName = 'Review'
     const Op = Sequelize.Op;
-    return queryInterface.bulkDelete('Reviews', {
+    return queryInterface.bulkDelete(options, {
       user_id: { [Op.in]: [2] }
     }, {});
   }
