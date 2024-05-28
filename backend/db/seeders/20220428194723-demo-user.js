@@ -9,7 +9,7 @@ if (process.env.NODE_ENV === 'production') {
 module.exports = {
   up: (queryInterface, Sequelize) => {
 
-    options.tableName = 'User'
+    options.tableName = 'Users'
     return queryInterface.bulkInsert(options, [
       {
         email: 'demo@user.io',
